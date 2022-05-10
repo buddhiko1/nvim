@@ -63,8 +63,6 @@ opt.laststatus = 3 -- global statusline
 
 opt.title = true
 
-g.toggle_theme_icon = "   "
-
 opt.fillchars = { eob = " " } -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
 
 

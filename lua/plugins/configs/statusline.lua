@@ -5,19 +5,12 @@ if not present then
 end
 
 local options = {
-   colors = require("base46").get_colors "base_30",
+   colors = require("nightfox").load("nightfox"),
    lsp = require "feline.providers.lsp",
    lsp_severity = vim.diagnostic.severity,
 }
 
 options.icon_styles = {
-   default = {
-      left = "",
-      right = " ",
-      main_icon = "  ",
-      vi_mode_icon = " ",
-      position_icon = " ",
-   },
    arrow = {
       left = "",
       right = "",
@@ -29,17 +22,12 @@ options.icon_styles = {
    block = {
       left = " ",
       right = " ",
+
+
+      
       main_icon = "   ",
       vi_mode_icon = "  ",
       position_icon = "  ",
-   },
-
-   round = {
-      left = "",
-      right = "",
-      main_icon = "  ",
-      vi_mode_icon = " ",
-      position_icon = " ",
    },
 
    slant = {
@@ -52,7 +40,7 @@ options.icon_styles = {
 }
 
 options.separator_style =
-   options.icon_styles[require("core.utils").load_config().plugins.options.statusline.separator_style]
+   options.icon_styles["arrow"]
 
 options.main_icon = {
    provider = options.separator_style.main_icon,
@@ -344,8 +332,6 @@ options.current_line = {
       bg = options.colors.one_bg,
    },
 }
-
-options = require("core.utils").load_override(options, "feline-nvim/feline.nvim")
 
 local function add_table(tbl, inject)
    if inject then

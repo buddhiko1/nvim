@@ -27,8 +27,6 @@ if not present then
    end
 end
 
-local user_snapshot = require("core.utils").load_config().snapshot
-
 packer.init {
    display = {
       open_fn = function()
@@ -41,7 +39,7 @@ packer.init {
    },
    auto_clean = true,
    compile_on_sync = true,
-   snapshot = user_snapshot,
+   snapshot = nil,
 }
 
 return packer

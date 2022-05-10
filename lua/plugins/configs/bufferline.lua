@@ -4,67 +4,42 @@ if not present then
    return
 end
 
-vim.cmd [[
- function! Toggle_theme(a,b,c,d)
-   lua require('base46').toggle_theme()
- endfunction
+local M = {}
 
- function! Quit_vim(a,b,c,d)
-     qa
- endfunction
-]]
+M.setup = function()
+   local map = require("core.utils").map
+   local opt = require("core.utils").opt
 
-local options = {
-   options = {
-      offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-      buffer_close_icon = "",
-      modified_icon = "",
-      close_icon = "",
-      show_close_icon = false,
-      left_trunc_marker = "",
-      right_trunc_marker = "",
-      max_name_length = 14,
-      max_prefix_length = 13,
-      tab_size = 20,
-      show_tab_indicators = true,
-      enforce_regular_tabs = false,
-      view = "multiwindow",
-      show_buffer_close_icons = true,
-      separator_style = "thin",
-      always_show_bufferline = true,
-      diagnostics = false,
-      themable = true,
+   map("n", "D", function()
+      require("core.utils").close_buffer()
+   end, opt(""))
+   map("n", "S", ":w<CR>", opt("Save buffer"))
+   map("n", "L", "<cmd> :BufferLineCycleNext <CR>", opt(""))
+   map("n", "H", "<cmd> :BufferLineCyclePrev <CR>", opt(""))
+end
 
-      custom_areas = {
-         right = function()
-            return {
-               { text = "%@Toggle_theme@" .. vim.g.toggle_theme_icon .. "%X" },
-               { text = "%@Quit_vim@  %X" },
-            }
-         end,
+M.config = function()
+   local options = {
+      options = {
+         offsets = { { filetype = "NvimTree", text = " Explorer", padding = 1 } },
+         buffer_close_icon = "",
+         modified_icon = "",
+         close_icon = "",
+         left_trunc_marker = "",
+         right_trunc_marker = "",
+         max_name_length = 14,
+         max_prefix_length = 13,
+         tab_size = 20,
+         diagnostic = false,
+         show_tab_indicators = true,
+         enforce_regular_tabs = false,
+         view = "multiwindow",
+         show_buffer_close_icons = true,
+         separator_style = "slant",
+         always_show_bufferline = true,
       },
+   }
+   bufferline.setup(options)
+end
 
-      custom_filter = function(buf_number)
-         -- Func to filter out our managed/persistent split terms
-         local present_type, type = pcall(function()
-            return vim.api.nvim_buf_get_var(buf_number, "term_type")
-         end)
-
-         if present_type then
-            if type == "vert" then
-               return false
-            elseif type == "hori" then
-               return false
-            end
-            return true
-         end
-
-         return true
-      end,
-   },
-}
-
--- check for any override
-options = require("core.utils").load_override(options, "akinsho/bufferline.nvim")
-
-bufferline.setup(options)
+return M

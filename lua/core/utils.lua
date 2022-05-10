@@ -22,23 +22,6 @@ M.close_buffer = function(force)
    vim.cmd(close_cmd)
 end
 
-M.load_config = function()
-   local conf = require "core.default_config"
-
-   -- attempt to load and merge a user config
-   local chadrc_exists = vim.fn.filereadable(vim.fn.stdpath "config" .. "/lua/custom/chadrc.lua") == 1
-   if chadrc_exists then
-      -- merge user config if it exists and is a table; otherwise display an error
-      local user_config = require "custom.chadrc"
-      if type(user_config) == "table" then
-         conf = vim.tbl_deep_extend("force", conf, user_config)
-      else
-         error "User config (chadrc.lua) *must* return a table!"
-      end
-   end
-
-   return conf
-end
 
 M.map = function(mode, keys, command, opt)
    local options = { silent = true }
@@ -57,9 +40,11 @@ M.map = function(mode, keys, command, opt)
    vim.keymap.set(mode, keys, command, opt)
 end
 
+
 M.opt = function(desc)
    return { desc = desc, noremap = true, silent = true }
 end
+
 
 M.packer_cmd = function(callback)
    return function()
@@ -67,6 +52,7 @@ M.packer_cmd = function(callback)
       require("packer")[callback]()
    end
 end
+
 
 M.packer_lazy_load = function(plugin, timer)
    if plugin then

@@ -4,7 +4,7 @@ if not present then
    return
 end
 
-vim.opt.completeopt = "menuone,noselect"
+local M = {}
 
 local function border(hl_name)
    return {
@@ -17,12 +17,6 @@ local function border(hl_name)
       { "╰", hl_name },
       { "│", hl_name },
    }
-end
-
-local cmp_window = require "cmp.utils.window"
-
-function cmp_window:has_scrollbar()
-   return false
 end
 
 local options = {
@@ -41,19 +35,19 @@ local options = {
    },
    formatting = {
       format = function(_, vim_item)
-         local icons = require "plugins.configs.lspkind_icons"
+         local icons = require "plugins.configs.lsp_icons"
          vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
 
          return vim_item
       end,
    },
    mapping = {
-      ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping.select_next_item(),
-      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<S-k>"] = cmp.mapping.select_prev_item(),
+      ["<S-j>"] = cmp.mapping.select_next_item(),
+      ["<S-h>"] = cmp.mapping.scroll_docs(-4),
+      ["<S-l>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.close(),
+      ["<S-d>"] = cmp.mapping.close(),
       ["<CR>"] = cmp.mapping.confirm {
          behavior = cmp.ConfirmBehavior.Replace,
          select = true,
@@ -85,14 +79,16 @@ local options = {
    },
    sources = {
       { name = "nvim_lsp" },
-      { name = "luasnip" },
-      { name = "buffer" },
-      { name = "nvim_lua" },
       { name = "path" },
+      { name = "cmdline" },
+      { name = "buffer" },
+      { name = "luasnip" },
+      { name = "nvim_lua" },
    },
 }
 
--- check for any override
-options = require("core.utils").load_override(options, "hrsh7th/nvim-cmp")
+M.config = function ()
+   cmp.setup(options)
+end
 
-cmp.setup(options)
+return M
