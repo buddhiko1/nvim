@@ -1,16 +1,10 @@
-local present, packer = pcall(require, "plugins.packerInit")
-
-if not present then
-   return false
-end
-
 local plugins = {
    -- editor plugins
-   ["lewis6991/impatient.nvim"] = {}, -- This plugin does several things to speed loading Lua modules and files.
-
    ["wbthomason/packer.nvim"] = {
-      event = "VimEnter",
+      event = "VimEnter"
    },
+
+   ["lewis6991/impatient.nvim"] = {}, -- This plugin does several things to speed loading Lua modules and files.
 
 
    -- ui plugins
@@ -20,7 +14,7 @@ local plugins = {
       end
    },
    ["kyazdani42/nvim-web-devicons"] = {
-      after = "nightfox",
+      after = "nightfox.nvim",
       config = function()
          require("plugins.configs.icons").config()
       end,
@@ -43,7 +37,6 @@ local plugins = {
    },
 
    ["numToStr/Comment.nvim"] = {
-      module = "Comment",
       keys = { "gc", "gb" },
 
       setup = function()
@@ -218,8 +211,16 @@ local plugins = {
    },
 }
 
-return packer.startup(function(use)
-   for _, v in pairs(plugins) do
-      use(v)
+local to_list = function(plugins)
+   local result = {}
+
+   for key, _ in pairs(plugins) do
+      plugins[key][1] = key
+
+      result[#result + 1] = plugins[key]
    end
-end)
+
+   return result
+end
+
+return to_list(plugins)

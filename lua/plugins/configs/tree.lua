@@ -118,28 +118,6 @@ local vim_setup = function ()
   }
 end
 
-M.config = {
-  git = {
-    enable = true,
-  },
-  view = {
-    width = 25,
-    side = 'left',
-    hide_root_folder = true,
-    mappings = {
-      custom_only = true,
-      list = keys,
-    },
-    number = false,
-    relativenumber = false,
-    signcolumn = 'yes'
-  },
-  update_cwd = true,
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-  }
-}
 
 M.config = function ()
   vim_setup() -- globals must be set prior to requiring nvim-tree to function

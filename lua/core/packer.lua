@@ -1,13 +1,12 @@
-vim.cmd "packadd packer.nvim"
-
 local present, packer = pcall(require, "packer")
 
 if not present then
-   local packer_path = vim.fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
+   local packer_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+
+   vim.fn.delete(packer_path, "rf")
 
    print "Cloning packer.."
-   -- remove the dir before cloning
-   vim.fn.delete(packer_path, "rf")
+
    vim.fn.system {
       "git",
       "clone",
@@ -18,12 +17,13 @@ if not present then
    }
 
    vim.cmd "packadd packer.nvim"
+
    present, packer = pcall(require, "packer")
 
    if present then
       print "Packer cloned successfully."
    else
-      error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
+      error("Couldn't clone packer !")
    end
 end
 
@@ -42,4 +42,14 @@ packer.init {
    snapshot = nil,
 }
 
-return packer
+local plugins = require("plugins")
+
+return packer.startup(function(use)
+   print "packer startup..."
+
+   for _, v in pairs(plugins) do
+      use(v)
+   end
+
+   packer.sync()
+end)

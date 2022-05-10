@@ -1,6 +1,3 @@
-local user_cmd = vim.api.nvim_create_user_command
-
-local packer_cmd = require("core.utils").packer_cmd
 local opt = require("core.utils").opt
 local map = require("core.utils").map
 
@@ -64,32 +61,6 @@ map("v", "<C-y>", [["+y]], opt("Copy to system clipboard"))
 map("n", "<C-p>", [["+p]], opt("Paste from system clipboard"))
 map("i", "<C-p>", [[<ESC>"+pa]], opt("Paste from system clipboard"))
 
--- Don't copy the replaced text after pasting in visual mode
--- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
-map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true })
-
 
 -- packer
 map("n", "<leader>sy", "<cmd> :PackerSync <CR>", opt(""))
-
-user_cmd("PackerSnapshot", function(info)
-   require "plugins"
-   require("packer").snapshot(info.args)
-end, { nargs = "+" })
-
-user_cmd("PackerSnapshotDelete", function(info)
-   require "plugins"
-   require("packer.snapshot").delete(info.args)
-end, { nargs = "+" })
-
-user_cmd("PackerSnapshotRollback", function(info)
-   require "plugins"
-   require("packer").rollback(info.args)
-end, { nargs = "+" })
-
-user_cmd("PackerClean", packer_cmd "clean", {})
-user_cmd("PackerCompile", packer_cmd "compile", {})
-user_cmd("PackerInstall", packer_cmd "install", {})
-user_cmd("PackerStatus", packer_cmd "status", {})
-user_cmd("PackerSync", packer_cmd "sync", {})
-user_cmd("PackerUpdate", packer_cmd "update", {})

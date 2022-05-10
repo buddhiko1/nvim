@@ -46,14 +46,6 @@ M.opt = function(desc)
 end
 
 
-M.packer_cmd = function(callback)
-   return function()
-      require "plugins"
-      require("packer")[callback]()
-   end
-end
-
-
 M.packer_lazy_load = function(plugin, timer)
    if plugin then
       timer = timer or 0
