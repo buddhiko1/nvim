@@ -5,8 +5,8 @@ local opt = require("utils").opt
 local M = {}
 
 M.setup = function ()
-  map("n", "fo", "<cmd> :NvimTreeToggle <CR>", opt("Tree toggle"))
-  -- map("n", "ff", "<cmd> :NvimTreeFocus <CR>", opt("Tree Focus"))
+  map("n", "ff", "<cmd> :NvimTreeToggle <CR>", opt("Tree toggle"))
+  map("n", "fo", "<cmd> :NvimTreeFocus <CR>", opt("Tree Focus"))
 end
 
 local keys = {

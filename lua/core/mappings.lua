@@ -4,14 +4,14 @@ local map = require("utils").map
 
 -- window
 map("n", "s", "", opt(""))
-map("n", "sh", "<C-w>h", opt(""))
-map("n", "sl", "<C-w>l", opt(""))
-map("n", "sk", "<C-w>k", opt(""))
-map("n", "sj", "<C-w>j", opt(""))
-map("n", "sc", "<C-w>c", opt(""))
-map("n", "so", "<C-w>o", opt("")) -- close other
-map("n", "sv", "<cmd> :vsp<CR>", opt(""))
-map("n", "sb", "<cmd> :sp<CR>", opt(""))
+map("n", "hh", "<C-w>h", opt(""))
+map("n", "ll", "<C-w>l", opt(""))
+map("n", "ii", "<C-w>k", opt(""))
+map("n", "mm", "<C-w>j", opt(""))
+map("n", "cc", "<C-w>c", opt(""))
+map("n", "oo", "<C-w>o", opt("")) -- close other
+map("n", "vv", "<cmd> :vsp<CR>", opt(""))
+map("n", "bb", "<cmd> :sp<CR>", opt(""))
 
 
 -- motion

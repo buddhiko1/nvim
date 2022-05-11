@@ -88,10 +88,15 @@ local plugins = {
       end,
    },
 
-   ["feline-nvim/feline.nvim"] = {
+   ["nvim-lualine/lualine.nvim"] = {
       after = "nvim-web-devicons",
+
+      setup = function()
+
+      end,
+
       config = function()
-         require "plugins.configs.statusline"
+         require("plugins.configs.lualine").config()
       end,
    },
 
