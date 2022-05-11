@@ -1,12 +1,10 @@
-local present, devicons = pcall(require, "nvim-web-devicons")
-
-if not present then
-   return
-end
+local load = require("utils").load
 
 local M = {}
 
 M.config = function ()
+   local devicons = load("nvim-web-devicons")
+
    local options = {
       override = {
          c = {

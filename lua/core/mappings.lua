@@ -1,5 +1,5 @@
-local opt = require("core.utils").opt
-local map = require("core.utils").map
+local opt = require("utils").opt
+local map = require("utils").map
 
 
 -- window
@@ -21,8 +21,8 @@ map("n", "K", "5k", opt("Jump 5 lines up"))
 map("v", "K", "5k", opt("Jump 5 lines up"))
 map("n", "A", "^", opt("Jump to bol"))
 map("v", "A", "^", opt("Jump to bol"))
-map("n", "E", "g_", opt("Jump to eol"))
-map("v", "E", "g_", opt("Jump to eol"))
+map("n", "F", "g_", opt("Jump to eol"))
+map("v", "F", "g_", opt("Jump to eol"))
 
 map("i", "<C-j>", "<ESC>1ji", opt(""))
 map("i", "<C-k>", "<ESC>1ki", opt(""))

@@ -1,8 +1,4 @@
-local present, alpha = pcall(require, "alpha")
-
-if not present then
-   return
-end
+local load = require("utils").load
 
 local M = {}
 
@@ -83,6 +79,7 @@ local options = {
 }
 
 M.config = function ()
+   local alpha = load("alpha")
    alpha.setup(options)
 end
 

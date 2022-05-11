@@ -16,7 +16,12 @@ if not present then
       packer_path,
    }
 
-   vim.cmd "packadd packer.nvim"
+   -- vim.cmd "packadd packer.nvim"
+   local packer_call, _ = pcall(vim.cmd, [[packadd packer.nvim]])
+   if not packer_call then
+      error("Couldn't add packer !")
+      return
+   end
 
    present, packer = pcall(require, "packer")
 
@@ -45,11 +50,7 @@ packer.init {
 local plugins = require("plugins")
 
 return packer.startup(function(use)
-   print "packer startup..."
-
-   for _, v in pairs(plugins) do
-      use(v)
+   for _, plugin in pairs(plugins) do
+      use(plugin)
    end
-
-   packer.sync()
 end)

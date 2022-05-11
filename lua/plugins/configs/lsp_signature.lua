@@ -1,12 +1,10 @@
-local present, lsp_signature = pcall(require, "lsp_signature")
-
-if not present then
-   return
-end
+local load = require("utils").load
 
 local M = {}
 
 M.config = function()
+   local lsp_signature = load("lsp_signature")
+
    local options = {
       bind = true,
       doc_lines = 0,

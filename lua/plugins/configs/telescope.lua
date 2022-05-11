@@ -1,28 +1,25 @@
-local present, telescope = pcall(require, "telescope")
-
-if not present then
-  return
-end
+local load = require("utils").load
+local map = require("utils").map
+local opt = require("utils").opt
 
 local M = {}
 
 M.setup = function ()
-  local map = require("core.utils").map
-  local opt = require("core.utils").opt
-  map("n", "<leader>fp", "<cmd> :Telescope projects<CR>", opt)
-  map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>", opt)
-  map("n", "<leader>fa", "<cmd> :Telescope find_files follow=true no_ignore=true hidden=true <CR>", opt)
-  map("n", "<leader>fw", "<cmd> :Telescope live_grep <CR>", opt)
-  map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>", opt)
-  map("n", "<leader>fm", "<cmd> :Telescope git_commits <CR>", opt)
-  map("n", "<leader>fs", "<cmd> :Telescope git_status <CR>", opt)
-  map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>", opt)
-  map("n", "<leader>ft", "<cmd> :Telescope themes <CR>", opt)
-  map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>", opt)
-  map("n", "<leader>fb", "<cmd> :Telescope buffers <CR>", opt)
+  map("n", "<leader>fp", "<cmd> :Telescope projects<CR>", opt(""))
+  map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>", opt(""))
+  map("n", "<leader>fa", "<cmd> :Telescope find_files follow=true no_ignore=true hidden=true <CR>", opt(""))
+  map("n", "<leader>fw", "<cmd> :Telescope live_grep <CR>", opt(""))
+  map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>", opt(""))
+  map("n", "<leader>fm", "<cmd> :Telescope git_commits <CR>", opt(""))
+  map("n", "<leader>fs", "<cmd> :Telescope git_status <CR>", opt(""))
+  map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>", opt(""))
+  map("n", "<leader>ft", "<cmd> :Telescope themes <CR>", opt(""))
+  map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>", opt(""))
+  map("n", "<leader>fb", "<cmd> :Telescope buffers <CR>", opt(""))
 end
 
 M.config = function ()
+  local telescope = load("telescope")
   local options = {
     defaults = {
       vimgrep_arguments = {

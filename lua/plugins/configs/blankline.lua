@@ -1,12 +1,10 @@
-local present, blankline = pcall(require, "indent_blankline")
-
-if not present then
-  return
-end
+local load = require("utils").load
 
 local M = {}
 
 M.config = function()
+  local blankline = load("indent_blankline")
+
   local options = {
     indentLine_enabled = 1,
     char = "▏",

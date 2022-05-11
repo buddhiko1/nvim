@@ -1,13 +1,10 @@
-local present1, autopairs = pcall(require, "nvim-autopairs")
-local present2, cmp = pcall(require, "cmp")
-
-if not present1 and present2 then
-   return
-end
+local load = require("utils").load
 
 local M = {}
 
 M.config = function()
+   local autopairs = load("nvim-autopairs")
+   local cmp = load("cmp")
    local options = {
       fast_wrap = {},
       disable_filetype = { "TelescopePrompt", "vim" },

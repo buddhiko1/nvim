@@ -1,12 +1,10 @@
-local present, luasnip = pcall(require, "luasnip")
-
-if not present then
-   return
-end
+local load = require("utils").load
 
 local M = {}
 
-M.luasnip = function()
+M.config = function()
+   local luasnip = load("luasnip")
+
    luasnip.config.set_config {
       history = true,
       updateevents = "TextChanged,TextChangedI",

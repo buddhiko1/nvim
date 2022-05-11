@@ -1,13 +1,9 @@
-local present, lsp_installer = pcall(require, "nvim-lsp-installer")
-
-if not present then
-   return
-end
+local load = require("utils").load
 
 local M = {}
 
-M.stetup = function ()
-   require("core.utils").packer_lazy_load "nvim-lsp-installer"
+M.setup = function ()
+   require("utils").packer_lazy_load "nvim-lsp-installer"
    -- reload the current file so lsp actually starts for it
    vim.defer_fn(function()
       vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
@@ -15,6 +11,8 @@ M.stetup = function ()
 end
 
 M.config = function ()
+   local lsp_installer = load("nvim-lsp-installer")
+
    local options = {
       -- ensure_installed is not needed as automatic_installation is enabled
       -- then any lsp server you setup by lspconfig is going to get installed automatically!

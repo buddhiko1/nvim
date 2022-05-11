@@ -1,13 +1,10 @@
-local present, nightfox = pcall(require, "nightfox")
-
-if not present then
-  return
-end
-
+local load = require("utils").load
 
 local M = {}
 
-M.setup = function ()
+M.config = function ()
+  local nightfox = load("nightfox")
+
   local options = {
     options = {
       transparent = false,
@@ -23,7 +20,7 @@ M.setup = function ()
         variables = "NONE",
       },
     },
-    groups = {
+    all = {
       HighLightLineMatches = {
         bg = "#FFDE83",
       },

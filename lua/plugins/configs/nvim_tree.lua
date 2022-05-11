@@ -1,14 +1,10 @@
-local present, nvimtree = pcall(require, "nvim-tree")
-
-if not present then
-  return
-end
+local load = require("utils").load
+local map = require("utils").map
+local opt = require("utils").opt
 
 local M = {}
 
 M.setup = function ()
-  local map = require("core.utils").map
-  local opt = require("core.utils").opt
   map("n", "fo", "<cmd> :NvimTreeToggle <CR>", opt("Tree toggle"))
   -- map("n", "ff", "<cmd> :NvimTreeFocus <CR>", opt("Tree Focus"))
 end
@@ -120,8 +116,8 @@ end
 
 
 M.config = function ()
+  local nvimtree = load("nvim-tree")
   vim_setup() -- globals must be set prior to requiring nvim-tree to function
-
   nvimtree.setup(options)
 end
 

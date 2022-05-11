@@ -22,7 +22,6 @@ M.close_buffer = function(force)
    vim.cmd(close_cmd)
 end
 
-
 M.map = function(mode, keys, command, opt)
    local options = { silent = true }
 
@@ -40,11 +39,17 @@ M.map = function(mode, keys, command, opt)
    vim.keymap.set(mode, keys, command, opt)
 end
 
-
 M.opt = function(desc)
    return { desc = desc, noremap = true, silent = true }
 end
 
+M.load = function(plugin)
+   local present, loaded = pcall(require, plugin)
+   if not present then
+      error("Couldn't load " .. plugin .. "\n")
+   end
+   return loaded
+end
 
 M.packer_lazy_load = function(plugin, timer)
    if plugin then

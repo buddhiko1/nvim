@@ -1,12 +1,9 @@
-local present, escape = pcall(require, "better_escape")
-
-if not present then
-  return
-end
+local load = require("utils").load
 
 local M = {}
 
 M.config = function()
+  local escape = load("better_escape")  
   local options = {
     mapping = { "kj" }, -- a table with mappings to use
     timeout = vim.o.timeoutlen,

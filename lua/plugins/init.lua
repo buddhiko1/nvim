@@ -1,5 +1,7 @@
 local plugins = {
    -- editor plugins
+   ["nvim-lua/plenary.nvim"] = {},
+
    ["wbthomason/packer.nvim"] = {
       event = "VimEnter"
    },
@@ -9,8 +11,8 @@ local plugins = {
 
    -- ui plugins
    ["EdenEast/nightfox.nvim"] = {
-      setup = function()
-         require("custom.nightfox").setup()
+      config = function()
+         require("plugins.configs.nightfox").config()
       end
    },
    ["kyazdani42/nvim-web-devicons"] = {
@@ -58,10 +60,10 @@ local plugins = {
    ["lewis6991/gitsigns.nvim"] = {
       opt = true,
       setup = function()
-         require("core.utils").packer_lazy_load "gitsigns.nvim"
+         require("utils").packer_lazy_load "gitsigns.nvim"
       end,
       config = function()
-         require("plugins.configs.gitsings").config()
+         require("plugins.configs.gitsigns").config()
       end,
    },
 
@@ -95,12 +97,13 @@ local plugins = {
 
    ["kyazdani42/nvim-tree.lua"] = {
       cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+
       setup = function()
-         require("plugins.configs.tree").setup()
+         require("plugins.configs.nvim_tree").setup()
       end,
 
       config = function()
-         require("plugins.configs.tree").config()
+         require("plugins.configs.nvim_tree").config()
       end,
    },
 
@@ -118,6 +121,7 @@ local plugins = {
 
    ["ahmedkhalf/project.nvim"] = {
       after = "telescope.nvim",
+
       config = function()
          require("plugins.configs.project").config()
       end,
@@ -173,7 +177,7 @@ local plugins = {
       wants = "friendly-snippets",
       after = "nvim-cmp",
       config = function()
-         require("plugins.configs.luasnip").luasnip()
+         require("plugins.configs.luasnip").config()
       end,
    },
 
@@ -203,21 +207,21 @@ local plugins = {
 
 
    -- formatting
-   ["jose-elias-alvarez/null-ls.nvim"] = {
-      after = "nvim-lspconfig",
-      config = function()
-         require("plugins.configs.null-ls").config()
-      end,
-   },
+   -- ["jose-elias-alvarez/null-ls.nvim"] = {
+   --    after = "nvim-lspconfig",
+   --    config = function()
+   --       require("plugins.configs.null-ls").config()
+   --    end,
+   -- },
 }
 
-local to_list = function(plugins)
+local to_list = function(pluginMap)
    local result = {}
 
-   for key, _ in pairs(plugins) do
-      plugins[key][1] = key
+   for key, _ in pairs(pluginMap) do
+      pluginMap[key][1] = key
 
-      result[#result + 1] = plugins[key]
+      result[#result + 1] = pluginMap[key]
    end
 
    return result

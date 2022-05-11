@@ -8,7 +8,7 @@ local core_modules = {
    "core.options",
    "core.autocmds",
    "core.mappings",
-   "core.packer",
+   "core.packerInit",
 }
 
 for _, module in ipairs(core_modules) do

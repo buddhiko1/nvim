@@ -1,12 +1,10 @@
-local present, gitsigns = pcall(require, "gitsigns")
+local load = require("utils").load
 
-if not present then
-   return
-end
-
-local M
+local M = {}
 
 M.config = function()
+   local gitsigns = load("gitsigns")
+
    local options = {
       signs = {
          add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
@@ -16,6 +14,7 @@ M.config = function()
          changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
       },
    }
+
    gitsigns.setup(options)
 end
 

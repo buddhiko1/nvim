@@ -1,13 +1,9 @@
-local present, lspconfig = pcall(require, "lspconfig")
-
-if not present then
-   return
-end
+local load = require("utils").load
+local map = require("utils").map
 
 local M = {}
 
 M.mappings = function()
-   local map = require("core.utils").map
    map("n", "gD", function()
       vim.lsp.buf.declaration()
    end)
@@ -145,7 +141,8 @@ M.config = function ()
       },
    }
 
-   lspconfig.sumneko_lua.setup {
+   local lspconfig = load("lspconfig")
+   local options = {
       on_attach = M.on_attach,
       capabilities = capabilities,
 
@@ -165,10 +162,7 @@ M.config = function ()
          },
       },
    }
-   
-   if #addlsp_confs ~= 0 then
-      require(addlsp_confs).setup_lsp(M.on_attach, capabilities)
-   end
+   lspconfig.sumneko_lua.setup(options)
 end
 
 return M

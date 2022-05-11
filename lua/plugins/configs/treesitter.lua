@@ -1,12 +1,10 @@
-local present, treesitter = pcall(require, "nvim-treesitter.configs")
-
-if not present then
-   return
-end
+local load = require("utils").load
 
 local M = {}
 
 M.config = function ()
+   local treesitter = load("nvim-treesitter.configs")
+
    local options = {
       ensure_installed = {
          "vim",

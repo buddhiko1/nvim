@@ -1,12 +1,9 @@
-local present, null_ls = pcall(require, "null-ls")
-
-if not present then
-   return
-end
+local load = require("utils").load
 
 local M = {}
 
 M.config = function()
+   local null_ls = load("null-ls")
    local b = null_ls.builtins
 
    local options = {

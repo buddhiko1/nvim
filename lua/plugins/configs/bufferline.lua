@@ -1,17 +1,12 @@
-local present, bufferline = pcall(require, "bufferline")
-
-if not present then
-   return
-end
+local load = require("utils").load
+local map = require("utils").map
+local opt = require("utils").opt
 
 local M = {}
 
 M.setup = function()
-   local map = require("core.utils").map
-   local opt = require("core.utils").opt
-
    map("n", "D", function()
-      require("core.utils").close_buffer()
+      require("utils").close_buffer()
    end, opt(""))
    map("n", "S", ":w<CR>", opt("Save buffer"))
    map("n", "L", "<cmd> :BufferLineCycleNext <CR>", opt(""))
@@ -19,6 +14,8 @@ M.setup = function()
 end
 
 M.config = function()
+   local bufferline = load("bufferline")
+   
    local options = {
       offsets = { { filetype = "NvimTree", text = " Explorer", padding = 1 } },
       buffer_close_icon = "",
@@ -37,6 +34,7 @@ M.config = function()
       separator_style = "slant",
       always_show_bufferline = true,
    }
+
    bufferline.setup(options)
 end
 
