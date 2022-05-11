@@ -64,3 +64,7 @@ map("i", "<C-p>", [[<ESC>"+pa]], opt("Paste from system clipboard"))
 
 -- packer
 map("n", "<leader>sy", "<cmd> :PackerSync <CR>", opt(""))
+
+
+-- theme switch
+map("n", "<leader>t", "colors_name == 'dawnfox' ? '<cmd> :colorscheme duskfox <CR>' : '<cmd> :colorscheme dawnfox <CR>'", { expr =true })

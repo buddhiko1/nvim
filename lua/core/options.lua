@@ -38,6 +38,8 @@ opt.undofile = true
 
 
 -- display
+g.colors_name = "dawnfox"
+
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 
