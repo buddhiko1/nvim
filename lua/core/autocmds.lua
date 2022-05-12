@@ -1,4 +1,10 @@
-local autocmd = vim.api.nvim_create_autocmd
+-- local autocmd = vim.api.nvim_create_autocmd
+
+-- autocmd({ 'SessionLoadPost' }, {
+--   callback = function()
+--     require('nvim-tree').toggle(false, true)
+--   end,
+-- })
 
 -- Uncomment this if you want to open nvim with a dir
 -- autocmd("BufEnter", {

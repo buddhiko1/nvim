@@ -65,13 +65,13 @@ local options = {
       {
          type = "group",
          val = {
+            button("SPC f s", "  Last Session  ", ":SessionManager load_last_session<CR>"),
+            button("SPC f p", "  Session List  ", ":SessionManager load_session<CR>"),
             button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
-            button("SPC f p", "  Projects  ", ":Telescope projects<CR>"),
             button("SPC f f", "  Find File  ", ":Telescope find_files<CR>"),
-            button("SPC f t", "  Themes  ", ":Telescope themes<CR>"),
          },
          opts = {
-            spacing = 0,
+            spacing = 1,
          },
       }
    },

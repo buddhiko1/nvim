@@ -38,13 +38,15 @@ opt.undofile = true
 
 
 -- display
-g.colors_name = "dawnfox"
+opt.ruler = false
+g.laststatus = 3
+g.termguicolors = true
 
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 
 opt.cul = true -- cursor line
 

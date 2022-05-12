@@ -11,10 +11,14 @@ local plugins = {
 
    -- ui plugins
    ["EdenEast/nightfox.nvim"] = {
+      setup = function ()
+         require("plugins.configs.nightfox").setup()
+      end,
       config = function()
          require("plugins.configs.nightfox").config()
       end
    },
+
    ["kyazdani42/nvim-web-devicons"] = {
       after = "nightfox.nvim",
       config = function()
@@ -40,11 +44,9 @@ local plugins = {
 
    ["numToStr/Comment.nvim"] = {
       keys = { "gc", "gb" },
-
       setup = function()
          require("plugins.configs.comment").setup()
       end,
-
       config = function()
          require("plugins.configs.comment").config()
       end,
@@ -69,6 +71,28 @@ local plugins = {
 
 
    -- components
+   ["nvim-telescope/telescope.nvim"] = {
+      cmd = "Telescope",
+      setup = function()
+         require("plugins.configs.telescope").setup()
+      end,
+      config = function()
+         require("plugins.configs.telescope").config()
+      end,
+   },
+
+   ["stevearc/dressing.nvim"] = {},
+
+   ["Shatur/neovim-session-manager"] = {
+      after = "dressing.nvim",
+      setup = function()
+         require("plugins.configs.session_manager").setup()
+      end,
+      config = function()
+         require("plugins.configs.session_manager").config()
+      end,
+   },
+
    ["goolord/alpha-nvim"] = {
       disable = false,
       config = function()
@@ -78,57 +102,37 @@ local plugins = {
 
    ["akinsho/bufferline.nvim"] = {
       after = "nvim-web-devicons",
-
       setup = function()
          require("plugins.configs.bufferline").setup()
       end,
-
       config = function()
          require("plugins.configs.bufferline").config()
       end,
    },
 
-   ["nvim-lualine/lualine.nvim"] = {
-      after = "nvim-web-devicons",
-
-      setup = function()
-
-      end,
-
-      config = function()
-         require("plugins.configs.lualine").config()
-      end,
-   },
-
    ["kyazdani42/nvim-tree.lua"] = {
       cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-
       setup = function()
          require("plugins.configs.nvim_tree").setup()
       end,
-
       config = function()
          require("plugins.configs.nvim_tree").config()
       end,
    },
 
-   ["nvim-telescope/telescope.nvim"] = {
-      cmd = "Telescope",
-
+   ["nvim-lualine/lualine.nvim"] = {
+      after = "nvim-web-devicons",
       setup = function()
-         require("plugins.configs.telescope").setup()
       end,
-
       config = function()
-         require("plugins.configs.telescope").config()
+         require("plugins.configs.lualine").config()
       end,
    },
 
-   ["ahmedkhalf/project.nvim"] = {
+   ["rcarriga/nvim-notify"] = {
       after = "telescope.nvim",
-
       config = function()
-         require("plugins.configs.project").config()
+         require("plugins.configs.notify").config()
       end,
    },
 
@@ -222,13 +226,11 @@ local plugins = {
 
 local to_list = function(pluginMap)
    local result = {}
-
    for key, _ in pairs(pluginMap) do
       pluginMap[key][1] = key
 
       result[#result + 1] = pluginMap[key]
    end
-
    return result
 end
 

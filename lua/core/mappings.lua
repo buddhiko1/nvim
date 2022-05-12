@@ -4,11 +4,11 @@ local map = require("utils").map
 
 -- window
 map("n", "s", "", opt(""))
-map("n", "hh", "<C-w>h", opt(""))
-map("n", "ll", "<C-w>l", opt(""))
-map("n", "ii", "<C-w>k", opt(""))
-map("n", "mm", "<C-w>j", opt(""))
-map("n", "cc", "<C-w>c", opt(""))
+map("n", "wh", "<C-w>h", opt(""))
+map("n", "wl", "<C-w>l", opt(""))
+map("n", "wk", "<C-w>k", opt(""))
+map("n", "wj", "<C-w>j", opt(""))
+map("n", "wc", "<C-w>c", opt(""))
 map("n", "oo", "<C-w>o", opt("")) -- close other
 map("n", "vv", "<cmd> :vsp<CR>", opt(""))
 map("n", "bb", "<cmd> :sp<CR>", opt(""))
@@ -62,9 +62,10 @@ map("n", "<C-p>", [["+p]], opt("Paste from system clipboard"))
 map("i", "<C-p>", [[<ESC>"+pa]], opt("Paste from system clipboard"))
 
 
+-- statusbar toggle
+map("n", "<leader>y", "<cmd> :set laststatus=0 <CR>", opt(""))
+map("n", "<leader>yy", "<cmd> :set laststatus=3 <CR>", opt(""))
+
+
 -- packer
-map("n", "<leader>sy", "<cmd> :PackerSync <CR>", opt(""))
-
-
--- theme switch
-map("n", "<leader>t", "colors_name == 'dawnfox' ? '<cmd> :colorscheme duskfox <CR>' : '<cmd> :colorscheme dawnfox <CR>'", { expr =true })
+map("n", "<leader>uu", "<cmd> :PackerSync <CR>", opt(""))
