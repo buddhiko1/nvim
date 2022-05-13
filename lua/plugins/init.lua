@@ -81,10 +81,7 @@ local plugins = {
       end,
    },
 
-   ["stevearc/dressing.nvim"] = {},
-
    ["Shatur/neovim-session-manager"] = {
-      after = "dressing.nvim",
       setup = function()
          require("plugins.configs.session_manager").setup()
       end,

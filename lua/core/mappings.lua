@@ -16,13 +16,17 @@ map("n", "bb", "<cmd> :sp<CR>", opt(""))
 
 -- motion
 map("n", "J", "5j", opt("Jump 5 lines down"))
-map("v", "J", "5j", opt("Jump 5 lines down"))
 map("n", "K", "5k", opt("Jump 5 lines up"))
-map("v", "K", "5k", opt("Jump 5 lines up"))
-map("n", "A", "^", opt("Jump to bol"))
-map("v", "A", "^", opt("Jump to bol"))
-map("n", "F", "g_", opt("Jump to eol"))
-map("v", "F", "g_", opt("Jump to eol"))
+map("n", "B", "^", opt("Jump to bol"))
+map("n", "E", "g_", opt("Jump to eol"))
+
+
+map("v", "E", "g_", opt("Jump to eol"))
+map("v", "B", "^", opt("Jump to bol"))
+map("v", "J", ":move '>+1<CR>gv-gv", opt(""))
+map("v", "K", ":move '<-2<CR>gv-gv", opt(""))
+map("v", "<", "<gv", opt(""))
+map("v", ">", ">gv", opt(""))
 
 map("i", "<C-j>", "<ESC>1ji", opt(""))
 map("i", "<C-k>", "<ESC>1ki", opt(""))
@@ -31,8 +35,6 @@ map("i", "<C-l>", "<End>", opt("Jump to eol"))
 map("i", "<C-w>", "<ESC>wi", opt(""))
 map("i", "<C-b>", "<ESC>bi", opt(""))
 
-map("n", "W", "5w", opt("Jump 5 word forward"))
-map("n", "B", "5b", opt("Jump 5 word backward"))
 
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
 -- http<cmd> ://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/

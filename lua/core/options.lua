@@ -39,8 +39,7 @@ opt.undofile = true
 
 -- display
 opt.ruler = false
-g.laststatus = 3
-g.termguicolors = true
+opt.termguicolors = true
 
 opt.scrolloff = 8
 opt.sidescrolloff = 8
@@ -53,7 +52,7 @@ opt.cul = true -- cursor line
 
 opt.showmode = false
 
-opt.signcolumn = "yes:1" -- with 1 fixed space to show 2 icon
+opt.signcolumn = "auto"
 
 opt.showcmd = true
 opt.cmdheight = 1
@@ -114,3 +113,7 @@ local default_plugins = {
 for _, plugin in pairs(default_plugins) do
    g["loaded_" .. plugin] = 1
 end
+
+
+-- other
+g.loaded_ruby_provider = 0
