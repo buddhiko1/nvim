@@ -14,6 +14,12 @@ map("n", "vv", "<cmd> :vsp<CR>", opt(""))
 map("n", "bb", "<cmd> :sp<CR>", opt(""))
 
 
+-- tab 
+map("n", "<C-h>", ":tabprevious<CR>", opt("Goto previous tab"))
+map("n", "<C-l>", ":tabnext<CR>", opt("Goto next tab"))
+map("n", "<C-t>", ":tabnew<CR>", opt("Create a new tab"))
+
+
 -- motion
 map("n", "J", "5j", opt("Jump 5 lines down"))
 map("n", "K", "5k", opt("Jump 5 lines up"))
