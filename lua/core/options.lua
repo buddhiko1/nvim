@@ -54,7 +54,7 @@ opt.showmode = false
 
 opt.signcolumn = "auto"
 
-opt.showcmd = true
+opt.showcmd = false
 opt.cmdheight = 1
 
 opt.splitbelow = true
@@ -86,7 +86,7 @@ opt.mouse = "a"
 
 opt.backup = false
 opt.writebackup = false
-opt.swapfile = false
+opt.swapfile = true
 
 
 -- disable some builtin vim plugins
