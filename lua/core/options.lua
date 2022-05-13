@@ -52,7 +52,7 @@ opt.cul = true -- cursor line
 
 opt.showmode = false
 
-opt.signcolumn = "auto"
+opt.signcolumn = "yes:1"
 
 opt.showcmd = false
 opt.cmdheight = 1
