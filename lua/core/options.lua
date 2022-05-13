@@ -88,7 +88,7 @@ opt.backup = false
 opt.writebackup = false
 opt.swapfile = true
 opt.undofile = true
-opt.undodir = "~/.config/nvim/undodir"
+opt.undodir = "/home/shun/.config/nvim/undodir"
 
 -- disable some builtin vim plugins
 local default_plugins = {

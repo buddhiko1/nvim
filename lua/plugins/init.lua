@@ -89,6 +89,7 @@ local plugins = {
    },
 
    ["goolord/alpha-nvim"] = {
+      requires = "nvim-telescope/telescope.nvim", 
       disable = false,
       config = function()
          require("plugins.configs.alpha").config()
