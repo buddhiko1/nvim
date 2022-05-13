@@ -81,12 +81,10 @@ local plugins = {
       end,
    },
 
-   ["Shatur/neovim-session-manager"] = {
-      setup = function()
-         require("plugins.configs.session_manager").setup()
-      end,
+   ["ahmedkhalf/project.nvim"] = {
+      after = "telescope.nvim",
       config = function()
-         require("plugins.configs.session_manager").config()
+         require("plugins.configs.project").config()
       end,
    },
 

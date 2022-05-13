@@ -60,8 +60,7 @@ local options = {
       {
          type = "group",
          val = {
-            button("SPC s r", "  Last Session  ", ":SessionManager load_last_session<CR>"),
-            button("SPC s l", "  Session List  ", ":SessionManager load_session<CR>"),
+            button("SPC f p", "  Projects  ", ":Telescope projects<CR>"),
             button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
             button("SPC f f", "  Find File  ", ":Telescope find_files<CR>"),
             button("SPC f n", "  New File  ", ":tabedit<CR>i"),

@@ -7,6 +7,7 @@ autocmd("CmdlineLeave", {
   end,
 })
 
+-- fix fullscreen bug of alacritty
 autocmd({"VimEnter"}, {
   callback = function()
     local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
