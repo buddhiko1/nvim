@@ -7,7 +7,7 @@ local M = {}
 M.setup = function ()
     map("n", "<leader>ss", "<cmd> :SessionManager save_current_session<CR>", opt(""))
     map("n", "<leader>sl", "<cmd> :SessionManager load_session<CR>", opt(""))
-    map("n", "<leader>sn", "<cmd> :SessionManager load_last_session", opt(""))
+    map("n", "<leader>sr", "<cmd> :SessionManager load_last_session", opt(""))
     map("n", "<leader>sd", "<cmd> :SessionManager delete_session<CR>", opt(""))
 end
 

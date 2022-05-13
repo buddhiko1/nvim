@@ -3,17 +3,12 @@ local load = require("utils").load
 local M = {}
 
 local logo = {
-   "   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ",
-   "    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ",
-   "          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ",
-   "           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ",
-   "          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ",
-   "   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ",
-   "  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ",
-   " ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ",
-   " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ",
-   "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ",
-   "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
+   [[                               __                ]],
+   [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+   [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+   [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+   [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+   [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
 
 local function button(sc, txt, keybind)
@@ -48,7 +43,7 @@ local options = {
    layout = {
       {
          type = "padding",
-         val = 9
+         val = 7
       },
       {
          type = "text",
@@ -60,15 +55,16 @@ local options = {
       },
       {
          type = "padding",
-         val = 2
+         val = 5
       },
       {
          type = "group",
          val = {
-            button("SPC f s", "  Last Session  ", ":SessionManager load_last_session<CR>"),
-            button("SPC f p", "  Session List  ", ":SessionManager load_session<CR>"),
-            button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
+            button("SPC s r", "  Last Session  ", ":SessionManager load_last_session<CR>"),
+            button("SPC s l", "  Session List  ", ":SessionManager load_session<CR>"),
+            button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
             button("SPC f f", "  Find File  ", ":Telescope find_files<CR>"),
+            button("SPC f n", "  New File  ", ":tabedit<CR>i"),
          },
          opts = {
             spacing = 1,

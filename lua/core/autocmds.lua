@@ -1,4 +1,26 @@
--- local autocmd = vim.api.nvim_create_autocmd
+local autocmd = vim.api.nvim_create_autocmd
+
+-- hide command after 5 seconds .
+autocmd("CmdlineLeave", {
+  callback = function()
+    vim.defer_fn(function() vim.cmd('echo ""') end, 5000)
+  end,
+})
+
+-- hide status bar
+autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("set laststatus=0")
+  end,
+})
+
+-- hide status bar
+-- autocmd("User TelescopeFindPre", {
+--   callback = function()
+--     vim.notify("xx")
+--     vim.cmd("set laststatus=0")
+--   end,
+-- })
 
 -- autocmd({ 'SessionLoadPost' }, {
 --   callback = function()

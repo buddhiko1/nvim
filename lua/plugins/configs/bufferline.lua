@@ -49,7 +49,7 @@ M.config = function()
          view = "multiwindow",
          show_buffer_close_icons = false,
          separator_style = "thin",
-         always_show_bufferline = true,
+         always_show_bufferline = false,
       }
    }
 

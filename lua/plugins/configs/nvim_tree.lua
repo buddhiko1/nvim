@@ -13,7 +13,7 @@ local keys = {
   { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
 
   { key = "v", action = "vsplit" },
-  { key = "h", action = "split" },
+  { key = "b", action = "split" },
 
   { key = "i", action = "toggle_ignored" }, -- Ignore (node_modules)
   { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)

@@ -44,6 +44,7 @@ g.termguicolors = true
 
 opt.scrolloff = 8
 opt.sidescrolloff = 8
+g.noshowcmd = true
 
 opt.number = true
 opt.relativenumber = false
