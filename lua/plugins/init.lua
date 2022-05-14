@@ -43,10 +43,6 @@ local plugins = {
    },
 
    ["numToStr/Comment.nvim"] = {
-      keys = { "gc", "gb" },
-      setup = function()
-         require("plugins.configs.comment").setup()
-      end,
       config = function()
          require("plugins.configs.comment").config()
       end,
@@ -56,6 +52,12 @@ local plugins = {
       after = "nvim-cmp",
       config = function()
          require("plugins.configs.autopairs").config()
+      end,
+   },
+
+   ["Pocco81/AutoSave.nvim"] = {
+      config = function()
+         require("plugins.configs.autosave").config()
       end,
    },
 
@@ -72,7 +74,6 @@ local plugins = {
 
    -- components
    ["nvim-telescope/telescope.nvim"] = {
-      cmd = "Telescope",
       setup = function()
          require("plugins.configs.telescope").setup()
       end,
@@ -89,7 +90,6 @@ local plugins = {
    },
 
    ["goolord/alpha-nvim"] = {
-      requires = "nvim-telescope/telescope.nvim", 
       disable = false,
       config = function()
          require("plugins.configs.alpha").config()

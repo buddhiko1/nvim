@@ -34,8 +34,6 @@ opt.shiftround = true
 opt.shiftwidth = 2
 opt.autoindent = true
 
-opt.undofile = true
-
 
 -- display
 opt.ruler = false
@@ -86,9 +84,9 @@ opt.mouse = "a"
 
 opt.backup = false
 opt.writebackup = false
-opt.swapfile = true
-opt.undofile = true
-opt.undodir = "/home/shun/.config/nvim/undodir"
+opt.swapfile = false
+-- opt.undofile = false
+-- opt.undodir = "/home/shun/.config/nvim/undodir"
 
 -- disable some builtin vim plugins
 local default_plugins = {

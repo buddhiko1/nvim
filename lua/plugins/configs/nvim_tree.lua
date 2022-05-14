@@ -98,7 +98,7 @@ local vim_setup = function ()
       renamed = "➜",
       staged = "✓",
       unmerged = "",
-      unstaged = "✗",
+      unstaged = "",
       untracked = "★",
     },
     folder = {
