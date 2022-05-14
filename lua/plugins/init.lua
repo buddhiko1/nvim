@@ -43,6 +43,9 @@ local plugins = {
    },
 
    ["numToStr/Comment.nvim"] = {
+      setup = function ()
+         require("plugins.configs.comment").setup()
+      end,
       config = function()
          require("plugins.configs.comment").config()
       end,
