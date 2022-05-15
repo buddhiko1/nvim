@@ -6,7 +6,7 @@ local plugins = {
       event = "VimEnter"
    },
 
-   ["lewis6991/impatient.nvim"] = {}, -- This plugin does several things to speed loading Lua modules and files.
+   ["lewis6991/impatient.nvim"] = {},
 
 
    -- ui plugins
@@ -65,10 +65,6 @@ local plugins = {
    },
 
    ["lewis6991/gitsigns.nvim"] = {
-      opt = true,
-      setup = function()
-         require("utils").packer_lazy_load "gitsigns.nvim"
-      end,
       config = function()
          require("plugins.configs.gitsigns").config()
       end,
@@ -121,8 +117,6 @@ local plugins = {
 
    ["nvim-lualine/lualine.nvim"] = {
       after = "nvim-web-devicons",
-      setup = function()
-      end,
       config = function()
          require("plugins.configs.lualine").config()
       end,
@@ -137,17 +131,19 @@ local plugins = {
 
 
    -- lsp
-   ["williamboman/nvim-lsp-installer"] = {
-      opt = true,
-      setup = function()
-         require("plugins.configs.lsp_installer").setup()
+   ["nvim-treesitter/nvim-treesitter"] = {
+      event = { "BufRead", "BufNewFile" },
+      run = ":TSUpdate",
+      config = function()
+         require("plugins.configs.treesitter").config()
       end,
    },
 
+  ["williamboman/nvim-lsp-installer"] = {},
+
    ["neovim/nvim-lspconfig"] = {
-      after = "nvim-lsp-installer",
-      module = "lspconfig",
       config = function()
+         require("plugins.configs.lsp_installer").config()
          require("plugins.configs.lsp_config").config()
       end,
    },
@@ -159,26 +155,18 @@ local plugins = {
       end,
    },
 
-   ["nvim-treesitter/nvim-treesitter"] = {
-      event = { "BufRead", "BufNewFile" },
-      run = ":TSUpdate",
-      config = function()
-         require("plugins.configs.treesitter").config()
-      end,
-   },
-
 
    -- complements
-   ["rafamadriz/friendly-snippets"] = {
-      module = "cmp_nvim_lsp",
-      event = "InsertEnter",
-   },
-
    ["hrsh7th/nvim-cmp"] = {
       after = "friendly-snippets",
       config = function()
          require("plugins.configs.cmp").config()
       end,
+   },
+
+   ["rafamadriz/friendly-snippets"] = {
+      module = "cmp_nvim_lsp",
+      event = "InsertEnter",
    },
 
    ["L3MON4D3/LuaSnip"] = {
@@ -215,12 +203,12 @@ local plugins = {
 
 
    -- formatting
-   -- ["jose-elias-alvarez/null-ls.nvim"] = {
-   --    after = "nvim-lspconfig",
-   --    config = function()
-   --       require("plugins.configs.null-ls").config()
-   --    end,
-   -- },
+   ["jose-elias-alvarez/null-ls.nvim"] = {
+      after = "nvim-lspconfig",
+      config = function()
+         require("plugins.configs.null-ls").config()
+      end,
+   },
 }
 
 local to_list = function(pluginMap)

@@ -1,18 +1,17 @@
 local load = require("utils").load
 local map = require("utils").map
-local opt = require("utils").opt
 
 local M = {}
 
 M.setup = function ()
-  map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>", opt(""))
-  map("n", "<leader>fg", "<cmd> :Telescope live_grep <CR>", opt(""))
-  map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>", opt(""))
-  map("n", "<leader>fc", "<cmd> :Telescope git_commits <CR>", opt(""))
-  map("n", "<leader>fs", "<cmd> :Telescope git_status <CR>", opt(""))
-  map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>", opt(""))
-  map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>", opt(""))
-  map("n", "<leader>fb", "<cmd> :Telescope buffers <CR>", opt(""))
+  map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
+  map("n", "<leader>fw", "<cmd> :Telescope live_grep <CR>")
+  map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>")
+  map("n", "<leader>fc", "<cmd> :Telescope git_commits <CR>")
+  map("n", "<leader>fs", "<cmd> :Telescope git_status <CR>")
+  map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>")
+  map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>")
+  map("n", "<leader>fb", "<cmd> :Telescope buffers <CR>")
 end
 
 M.config = function ()

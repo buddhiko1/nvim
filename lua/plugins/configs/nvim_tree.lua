@@ -1,11 +1,10 @@
 local load = require("utils").load
 local map = require("utils").map
-local opt = require("utils").opt
 
 local M = {}
 
 M.setup = function ()
-  map("n", "fo", "<cmd> :NvimTreeToggle <CR>", opt("Tree toggle"))
+  map("n", "fo", "<cmd> :NvimTreeToggle <CR>")
   -- map("n", "fo", "<cmd> :NvimTreeFocus <CR>", opt("Tree Focus"))
 end
 
@@ -95,25 +94,24 @@ local vim_setup = function ()
     git = {
       deleted = "",
       ignored = "◌",
-      renamed = "➜",
-      staged = "✓",
+      renamed = "",
+      staged = "",
       unmerged = "",
-      unstaged = "",
-      untracked = "★",
+      unstaged = "",
+      untracked = "",
     },
     folder = {
-      default = "",
-      empty = "",
-      empty_open = "",
-      open = "",
-      symlink = "",
-      symlink_open = "",
+      default = "",
+      empty = "",
+      empty_open = "",
+      open = "",
+      symlink = "",
+      symlink_open = "",
       arrow_open = "",
       arrow_closed = "",
     },
   }
 end
-
 
 M.config = function ()
   local nvimtree = load("nvim-tree")

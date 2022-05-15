@@ -1,17 +1,17 @@
 local load = require("utils").load
 local map = require("utils").map
-local opt = require("utils").opt
 
 local M = {}
 
 M.setup = function ()
   -- ctrl + /
-  map("n", "<C-_>", "<cmd> :lua require('Comment.api').toggle_current_linewise()<CR>", opt(""))
-  map("v", "<C-_>", "<esc><cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opt(""))
+  map("n", "<C-_>", "<cmd> :lua require('Comment.api').toggle_current_linewise()<CR>")
+  map("v", "<C-_>", "<esc><cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
 end
 
 M.config = function ()
   local comment = load("Comment")
+
   local options = {
     toggler = {
       line = 'tll',
@@ -27,6 +27,7 @@ M.config = function ()
       eol = 'te', -- Add comment at the end of line
     },
   }
+
   comment.setup(options)
 end
 

@@ -4,6 +4,7 @@ local M = {}
 
 M.config = function()
    local autosave = load("autosave")
+
    local options = {
       enabled = true,
       execution_message = function ()
@@ -24,6 +25,7 @@ M.config = function()
       fast_wrap = {},
       disable_filetype = { "TelescopePrompt", "vim" },
    }
+
    autosave.setup(options)
 end
 

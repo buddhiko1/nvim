@@ -3,7 +3,8 @@ local load = require("utils").load
 local M = {}
 
 M.config = function()
-  local escape = load("better_escape")  
+  local escape = load("better_escape")
+
   local options = {
     mapping = { "kj" }, -- a table with mappings to use
     timeout = vim.o.timeoutlen,

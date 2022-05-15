@@ -1,12 +1,6 @@
 local load = require("utils").load
-local map = require("utils").map
-local opt = require("utils").opt
 
 local M = {}
-
-M.setup = function()
-
-end
 
 M.config = function()
    local lualine = load("lualine")

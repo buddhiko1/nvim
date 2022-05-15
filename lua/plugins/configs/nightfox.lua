@@ -1,6 +1,5 @@
 local load = require("utils").load
 local map = require("utils").map
-local opt = require("utils").opt
 
 local M = {}
 
@@ -12,7 +11,6 @@ end
 
 M.config = function ()
   local nightfox = load("nightfox")
-
   local options = {
     options = {
       transparent = false,
@@ -34,7 +32,6 @@ M.config = function ()
       },
     },
   }
-
   nightfox.setup(options)
 end
 

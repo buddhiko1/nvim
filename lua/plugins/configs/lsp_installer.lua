@@ -2,29 +2,17 @@ local load = require("utils").load
 
 local M = {}
 
-M.setup = function ()
-   require("utils").packer_lazy_load "nvim-lsp-installer"
-   -- reload the current file so lsp actually starts for it
-   vim.defer_fn(function()
-      vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
-   end, 0)
-end
-
 M.config = function ()
    local lsp_installer = load("nvim-lsp-installer")
 
    local options = {
-      -- ensure_installed is not needed as automatic_installation is enabled
-      -- then any lsp server you setup by lspconfig is going to get installed automatically!
-
-      -- ensure_installed = { "lua" },
-      automatic_installation = true,
+      automatic_installation = true, -- any lsp server setup by lspconfig is going to get installed automatically!
 
       ui = {
          icons = {
-            server_installed = "",
-            server_pending = "",
-            server_uninstalled = "ﮊ",
+            server_installed = "﫠",
+            server_pending = "",
+            server_uninstalled = "",
          },
          keymaps = {
             toggle_server_expand = "<CR>",

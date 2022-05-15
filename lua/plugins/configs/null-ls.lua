@@ -4,27 +4,34 @@ local M = {}
 
 M.config = function()
    local null_ls = load("null-ls")
-   local b = null_ls.builtins
+   local formatting = null_ls.builtins.formatting
 
    local options = {
-      debug = true,
+      debug = false,
       sources = {
-
-         -- webdev stuff
-         b.formatting.deno_fmt,
-         b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
-
-         -- Lua
-         b.formatting.stylua,
-         b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
-
-         -- Shell
-         b.formatting.shfmt,
-         b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
-
-         -- cpp
-         b.formatting.clang_format,
+         formatting.shfmt,
+         formatting.stylua,
+         formatting.prettier.with({
+            filetypes = {
+               "javascript",
+               "typescript",
+               "css",
+               "scss",
+               "html",
+               "json",
+               "yaml",
+               "graphql",
+               "markdown",
+            },
+            prefer_local = "node_modules/.bin",
+         }),
       },
+      -- auto format
+      on_attach = function(client)
+         if client.resolved_capabilities.document_formatting then
+            vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+         end
+      end,
    }
 
    null_ls.setup(options)
