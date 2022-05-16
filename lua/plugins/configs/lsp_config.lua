@@ -6,7 +6,7 @@ local on_attach = function(client, bufnr)
   map("n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
   map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
   map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-  map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opt)
+  map("n", "<leader>s", "<cmd>lua vim.diagnostic.setloclist()<CR>", opt)
 
   map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)

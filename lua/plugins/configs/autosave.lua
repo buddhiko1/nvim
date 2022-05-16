@@ -8,10 +8,10 @@ M.config = function()
    local options = {
       enabled = true,
       execution_message = function ()
-        return ""
+        return " "
       end,
       -- execution_message = "Saved",
-      events = {"InsertLeave", "TextChanged"},
+      events = {"InsertLeave","TextChanged"},
       conditions = {
         exists = true,
         filename_is_not = {},
@@ -20,7 +20,7 @@ M.config = function()
       },
       write_all_buffers = false,
       on_off_commands = false,
-      clean_command_line_interval = 0,
+      clean_command_line_interval = 1000,
       debounce_delay = 135,
       fast_wrap = {},
       disable_filetype = { "TelescopePrompt", "vim" },

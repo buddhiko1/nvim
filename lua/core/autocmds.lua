@@ -1,14 +1,23 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- hide command after 5 seconds .
+-- hide command after 5 seconds
 autocmd("CmdlineLeave", {
   callback = function()
     vim.defer_fn(function() vim.cmd('echo ""') end, 5000)
   end,
 })
 
+-- auto formatting
+-- autocmd("BufWipeout", {
+--   callback = function()
+--     vim.notify("buf wipeout")
+--     vim.lsp.buf.formatting_sync()
+--   end,
+-- })
+
+
 -- fix fullscreen bug of alacritty
-autocmd({"VimEnter"}, {
+autocmd({ "VimEnter" }, {
   callback = function()
     local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
     vim.defer_fn(function() vim.loop.kill(pid, WINCH) end, 200)
@@ -58,14 +67,14 @@ autocmd("VimEnter", {
 -- })
 
 -- Open a file from its last left off position
--- autocmd("BufReadPost", {
---    callback = function()
---       if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
---          vim.cmd "normal! g'\""
---          vim.cmd "normal zz"
---       end
---    end,
--- })
+autocmd("BufReadPost", {
+   callback = function()
+      if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
+         vim.cmd "normal! g'\""
+         vim.cmd "normal zz"
+      end
+   end,
+})
 
 -- File extension specific tabbing
 -- autocmd("Filetype", {

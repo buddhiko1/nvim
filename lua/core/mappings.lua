@@ -53,6 +53,9 @@ map("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 -- behavior
 map("n", "<Esc>", "<cmd> :noh <CR>") -- shut down the search high light
+map("n", "<leader>q", "q") -- recording
+-- map("n", "q", "<cmd> :q! <CR>") -- recording
+map("n", "<leader>j", "J") -- join
 
 -- undo redo
 -- map("n", "<C-z>", "u", opt("Undo"))
@@ -60,6 +63,7 @@ map("n", "<Esc>", "<cmd> :noh <CR>") -- shut down the search high light
 -- map("i", "<C-z>", "<ESC>u", opt("Undo"))
 -- map("i", "<C-Z>", "<ESC><C-r>", opt("Redo"))
 
+-- copy
 map("v", "<C-y>", [["+y]])
 map("n", "<C-p>", [["+p]])
 map("i", "<C-p>", [[<ESC>"+pa]])
