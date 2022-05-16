@@ -39,6 +39,14 @@ M.on_attach = function(client, bufnr)
       vim.diagnostic.open_float(nil, opts)
     end
   })
+
+  -- formatting
+  vim.api.nvim_create_autocmd("BufLeave", {
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.formatting()
+    end
+  })
 end
 
 M.debounce_text_changes = 150
