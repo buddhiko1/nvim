@@ -3,11 +3,10 @@ local map = require("utils").map
 local M = {}
 
 M.on_attach = function(client, bufnr)
+  -- keybind
   local opt = { buffer = bufnr }
-  map("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
   map("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
   map("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-  map("n", "<leader>ds", "<cmd>lua vim.diagnostic.setloclist()<CR>", opt)
 
   map("n", "<leader>sv", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
   map("n", "<leader>sc", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
