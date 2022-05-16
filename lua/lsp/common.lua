@@ -8,12 +8,12 @@ M.on_attach = function(client, bufnr)
   map("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
   map("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
 
-  map("n", "<leader>sv", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+  map("n", "<leader>sh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
   map("n", "<leader>sc", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   map("n", "<leader>sd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
   map("n", "<leader>sr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
   map("n", "<leader>st", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opt)
-  map("n", "<leader>sh", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+  map("n", "<leader>ss", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
 
   map("n", "<leader>ji", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
   map("n", "<leader>jr", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
@@ -23,6 +23,22 @@ M.on_attach = function(client, bufnr)
   map("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opt)
   map("n", "<leader>wd", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opt)
   map("n", "<leader>wl", "<cmd>lua vim.lsp.buf.list_workspace_folders()<CR>", opt)
+
+  -- ui
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'single',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end
+  })
 end
 
 M.debounce_text_changes = 150
