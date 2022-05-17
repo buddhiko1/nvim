@@ -6,7 +6,16 @@ local ui_amend = function()
     underline = true,
     signs = true,
     update_in_insert = false,
-    virtual_text = false
+    virtual_text = false,
+    float = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = 'single',
+      source = 'always',
+      prefix = ' ',
+      scope = 'cursor',
+
+    }
   })
   local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
   for type, icon in pairs(signs) do

@@ -24,22 +24,6 @@ M.on_attach = function(client, bufnr)
   map("n", "wd", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opt)
   map("n", "wf", "<cmd>lua vim.lsp.buf.list_workspace_folders()<CR>", opt)
 
-  -- ui
-  vim.api.nvim_create_autocmd("CursorHold", {
-    buffer = bufnr,
-    callback = function()
-      local opts = {
-        focusable = false,
-        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-        border = 'single',
-        source = 'always',
-        prefix = ' ',
-        scope = 'cursor',
-      }
-      vim.diagnostic.open_float(nil, opts)
-    end
-  })
-
   -- formatting
   vim.api.nvim_create_autocmd("BufLeave", {
     buffer = bufnr,
