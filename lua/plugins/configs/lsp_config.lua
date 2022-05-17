@@ -31,25 +31,6 @@ local ui_amend = function()
   })
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem = {
-  documentationFormat = { "markdown", "plaintext" },
-  snippetSupport = true,
-  preselectSupport = true,
-  insertReplaceSupport = true,
-  labelDetailsSupport = true,
-  deprecatedSupport = true,
-  commitCharactersSupport = true,
-  tagSupport = { valueSet = { 1 } },
-  resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  },
-}
-
 local M = {}
 
 M.config = function()
@@ -59,7 +40,6 @@ M.config = function()
   local servers = { 'cssls', 'html', 'tsserver', 'graphql', 'jsonls', 'sqlls', 'sumneko_lua', 'dockerls', 'yamlls', 'remark_ls' }
   for _, lsp in pairs(servers) do
     lspconfig[lsp].setup {
-      -- capabilities = capabilities,
       on_attach = common_opts.on_attach,
       flags = {
         debounce_text_changes = common_opts.debounce_text_changes

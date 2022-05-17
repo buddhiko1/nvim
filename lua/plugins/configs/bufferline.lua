@@ -12,7 +12,6 @@ end
 
 M.config = function()
   local bufferline = load("bufferline")
-
   local options = {
     options = {
       offsets = {
