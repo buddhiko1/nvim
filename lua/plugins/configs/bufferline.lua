@@ -26,27 +26,24 @@ M.config = function()
       buffer_close_icon = "",
       modified_icon = "",
       close_icon = "",
+      color_icons = false,
       left_trunc_marker = "",
       right_trunc_marker = "",
       max_name_length = 14,
       max_prefix_length = 13,
-      tab_size = 15,
+      tab_size = 17,
       show_tab_indicators = true,
       enforce_regular_tabs = true,
-      view = "multiwindow",
+      show_buffer_icons = false,
       show_buffer_close_icons = false,
       show_close_icon = false,
       separator_style = "thin",
       always_show_bufferline = false,
-      diagnostic = true,
       diagnostics = "nvim_lsp",
       diagnostics_indicator = function(count, level, diagnostics_dict, context)
-        local s = " "
-        for e, n in pairs(diagnostics_dict) do
-          local sym = e == "error" and " " or (e == "warning" and " " or "")
-          s = s .. n .. sym
-        end
-      end,
+        local icon = level:match("error") and " " or " "
+        return "" .. icon .. count
+      end
     }
   }
 
