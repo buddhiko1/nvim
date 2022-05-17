@@ -32,8 +32,8 @@ opt.softtabstop = 2
 
 opt.shiftround = true
 opt.shiftwidth = 2
-opt.autoindent = true
-
+-- opt.autoindent = true
+opt.smartindent = true
 
 -- display
 opt.ruler = false

@@ -5,26 +5,13 @@ local M = {}
 M.config = function()
   local cmp = load("cmp")
 
-  local function border(hl_name)
-    return {
-      { "╭", hl_name },
-      { "─", hl_name },
-      { "╮", hl_name },
-      { "│", hl_name },
-      { "╯", hl_name },
-      { "─", hl_name },
-      { "╰", hl_name },
-      { "│", hl_name },
-    }
-  end
-
   local options = {
     window = {
       completion = {
-        border = border "CmpBorder",
+        border = "single",
       },
       documentation = {
-        border = border "CmpDocBorder",
+        border = "single",
       },
     },
     snippet = {

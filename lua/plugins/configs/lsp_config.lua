@@ -14,7 +14,6 @@ local ui_amend = function()
       source = 'always',
       prefix = ' ',
       scope = 'cursor',
-
     }
   })
   local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
