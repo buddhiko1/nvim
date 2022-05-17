@@ -6,7 +6,7 @@ local M = {}
 M.setup = function()
   vim.g.colors_name = "dawnfox"
   -- theme switch
-  map("n", "<leader>t", "colors_name == 'dawnfox' ? '<cmd> :colorscheme duskfox <CR>' : '<cmd> :colorscheme dawnfox <CR>'", { expr = true })
+  map("n", "<leader>th", "colors_name == 'dawnfox' ? '<cmd> :colorscheme duskfox <CR>' : '<cmd> :colorscheme dawnfox <CR>'", { expr = true })
 end
 
 M.config = function()

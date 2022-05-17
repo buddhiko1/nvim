@@ -3,7 +3,7 @@ local map = require("utils").map
 
 local M = {}
 
-M.setup = function ()
+M.setup = function()
   map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
   map("n", "<leader>fw", "<cmd> :Telescope live_grep <CR>")
   map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>")
@@ -14,7 +14,7 @@ M.setup = function ()
   map("n", "<leader>fb", "<cmd> :Telescope buffers <CR>")
 end
 
-M.config = function ()
+M.config = function()
   local telescope = load("telescope")
   local options = {
     defaults = {
@@ -79,7 +79,7 @@ M.config = function ()
       sorting_strategy = "ascending",
       file_ignore_patterns = { "node_modules" },
     },
-    extensions ={}
+    extensions = {}
   }
 
   telescope.setup(options)

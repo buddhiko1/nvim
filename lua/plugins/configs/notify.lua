@@ -2,7 +2,7 @@ local load = require("utils").load
 
 local M = {}
 
-M.config = function ()
+M.config = function()
   local notify = load("notify")
   notify.setup()
   vim.notify = notify

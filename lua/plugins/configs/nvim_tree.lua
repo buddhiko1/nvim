@@ -3,7 +3,7 @@ local map = require("utils").map
 
 local M = {}
 
-M.setup = function ()
+M.setup = function()
   map("n", "fo", "<cmd> :NvimTreeToggle <CR>")
   -- map("n", "fo", "<cmd> :NvimTreeFocus <CR>", opt("Tree Focus"))
 end
@@ -74,7 +74,7 @@ local options = {
   },
 }
 
-local vim_setup = function ()
+local vim_setup = function()
   local g = vim.g
 
   g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
@@ -113,7 +113,7 @@ local vim_setup = function ()
   }
 end
 
-M.config = function ()
+M.config = function()
   local nvimtree = load("nvim-tree")
   vim_setup() -- globals must be set prior to requiring nvim-tree to function
   nvimtree.setup(options)
