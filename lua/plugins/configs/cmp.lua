@@ -2,7 +2,7 @@ local load = require("utils").load
 
 local M = {}
 
-M.config = function ()
+M.config = function()
   local cmp = load("cmp")
 
   local function border(hl_name)
@@ -59,9 +59,9 @@ M.config = function ()
           fallback()
         end
       end, {
-          "i",
-          "s",
-        }),
+        "i",
+        "s",
+      }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -71,9 +71,9 @@ M.config = function ()
           fallback()
         end
       end, {
-          "i",
-          "s",
-        }),
+        "i",
+        "s",
+      }),
     },
     sources = {
       { name = "nvim_lsp" },
@@ -86,19 +86,6 @@ M.config = function ()
   }
 
   cmp.setup(options)
-  cmp.setup.cmdline("/", {
-    sources = {
-      { name = "buffer" },
-    },
-  })
-
-  cmp.setup.cmdline(":", {
-    sources = cmp.config.sources({
-      { name = "path" },
-    }, {
-        { name = "cmdline" },
-      }),
-  })
 end
 
 return M

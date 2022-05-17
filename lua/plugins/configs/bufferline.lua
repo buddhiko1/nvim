@@ -4,10 +4,8 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "q", function()
-    require("utils").close_buffer()
-  end)
-  map("n", "S", ":w<CR>")
+  map("n", "q", "<cmd> :BufferLinePickClose <CR>")
+  map("n", "S", "<cmd> :BufferLinePick <CR>")
   map("n", "L", "<cmd> :BufferLineCycleNext <CR>")
   map("n", "H", "<cmd> :BufferLineCyclePrev <CR>")
 end
