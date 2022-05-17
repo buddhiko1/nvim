@@ -18,7 +18,7 @@ M.on_attach = function(client, bufnr)
   map("n", "si", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
   map("n", "sr", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
   map("n", "sa", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
-  map("n", "sf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+  map("n", "sf", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opt)
 
   map("n", "wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opt)
   map("n", "wd", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opt)
@@ -28,7 +28,7 @@ M.on_attach = function(client, bufnr)
   vim.api.nvim_create_autocmd("BufLeave", {
     buffer = bufnr,
     callback = function()
-      vim.lsp.buf.formatting()
+      vim.lsp.buf.format { async = true }
     end
   })
 end
