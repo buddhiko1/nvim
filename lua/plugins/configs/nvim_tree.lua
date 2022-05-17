@@ -29,17 +29,18 @@ local keys = {
   { key = "y", action = "copy_name" },
   { key = "Y", action = "copy_path" },
   { key = "F", action = "search_node" },
+  { key = "<Tab>", action = "preview" },
 }
 
 local options = {
   filters = {
-    dotfiles = false,
+    dotfiles = true,
     exclude = { "custom" },
   },
   disable_netrw = true,
   hijack_netrw = true,
   ignore_ft_on_setup = { "dashboard" },
-  open_on_tab = false,
+  open_on_tab = true,
   hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = false,
   update_cwd = true,

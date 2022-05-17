@@ -59,7 +59,7 @@ M.config = function()
   local servers = { 'cssls', 'html', 'tsserver', 'graphql', 'jsonls', 'sqlls', 'sumneko_lua', 'dockerls', 'yamlls', 'remark_ls' }
   for _, lsp in pairs(servers) do
     lspconfig[lsp].setup {
-      capabilities = capabilities,
+      -- capabilities = capabilities,
       on_attach = common_opts.on_attach,
       flags = {
         debounce_text_changes = common_opts.debounce_text_changes

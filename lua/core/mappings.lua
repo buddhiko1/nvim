@@ -16,7 +16,7 @@ map("n", "wbb", "<cmd> :sp<CR>")
 -- tab
 map("n", "<C-h>", ":tabprevious<CR>")
 map("n", "<C-l>", ":tabnext<CR>")
-map("n", "<C-t>", ":tabnew<CR>")
+map("n", "<C-d>", ":tabclose<CR>")
 
 
 -- motion
