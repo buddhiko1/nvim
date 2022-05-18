@@ -30,12 +30,12 @@ map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
-map("i", "<C-j>", "<ESC>1ji")
-map("i", "<C-k>", "<ESC>1ki")
+map("i", "<C-j>", "<ESC>jli")
+map("i", "<C-k>", "<ESC>kli")
 map("i", "<C-b>", "<Home>")
 map("i", "<C-e>", "<End>")
-map("i", "<C-h>", "<ESC>hi")
-map("i", "<C-l>", "<ESC>li")
+map("i", "<C-h>", "<ESC>i")
+map("i", "<C-l>", "<ESC>2li")
 
 
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
