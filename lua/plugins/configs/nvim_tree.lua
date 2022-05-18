@@ -5,7 +5,7 @@ local M = {}
 
 M.setup = function()
   map("n", "fo", "<cmd> :NvimTreeToggle <CR>")
-  -- map("n", "fo", "<cmd> :NvimTreeFocus <CR>", opt("Tree Focus"))
+  -- map("n", "fo", "<cmd> :NvimTreeFocus <CR>")
 end
 
 local keys = {

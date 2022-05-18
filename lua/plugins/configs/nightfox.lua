@@ -4,7 +4,6 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  vim.g.colors_name = "dawnfox"
   -- theme switch
   map("n", "<leader>th", "colors_name == 'dawnfox' ? '<cmd> :colorscheme duskfox <CR>' : '<cmd> :colorscheme dawnfox <CR>'", { expr = true })
 end
@@ -32,7 +31,9 @@ M.config = function()
       },
     },
   }
+
   nightfox.setup(options)
+  vim.cmd "colorscheme dawnfox"
 end
 
 return M

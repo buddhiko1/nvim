@@ -1,5 +1,5 @@
 local plugins = {
-  -- editor plugins
+  -- editor
   ["nvim-lua/plenary.nvim"] = {},
 
   ["wbthomason/packer.nvim"] = {
@@ -9,7 +9,7 @@ local plugins = {
   ["lewis6991/impatient.nvim"] = {},
 
 
-  -- ui plugins
+  -- ui
   ["EdenEast/nightfox.nvim"] = {
     setup = function()
       require("plugins.configs.nightfox").setup()
@@ -27,7 +27,7 @@ local plugins = {
   },
 
 
-  -- coding plugins
+  -- coding
   ["lukas-reineke/indent-blankline.nvim"] = {
     event = "BufRead",
     config = function()
@@ -90,6 +90,9 @@ local plugins = {
 
   ["goolord/alpha-nvim"] = {
     disable = false,
+    setup = function()
+      require("plugins.configs.alpha").setup()
+    end,
     config = function()
       require("plugins.configs.alpha").config()
     end,
