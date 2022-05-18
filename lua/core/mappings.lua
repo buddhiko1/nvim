@@ -1,6 +1,5 @@
 local map = require("utils").map
 
-
 -- window
 map("n", "s", "")
 map("n", "wh", "<C-w>h")
@@ -12,12 +11,10 @@ map("n", "woo", "<C-w>o")
 map("n", "wvv", "<cmd> :vsp<CR>")
 map("n", "wbb", "<cmd> :sp<CR>")
 
-
 -- tab
 map("n", "<C-h>", ":tabprevious<CR>")
 map("n", "<C-l>", ":tabnext<CR>")
 map("n", "<C-d>", ":tabclose<CR>")
-
 
 -- motion
 map("n", "J", "5j")
@@ -26,8 +23,8 @@ map("n", "B", "^")
 map("n", "E", "g_")
 
 
-map("v", "E", "g_")
 map("v", "B", "^")
+map("v", "E", "g_")
 map("v", "J", ":move '>+1<CR>gv-gv")
 map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "<", "<gv")
@@ -35,9 +32,9 @@ map("v", ">", ">gv")
 
 map("i", "<C-j>", "<ESC>1ji")
 map("i", "<C-k>", "<ESC>1ki")
-map("i", "<C-h>", "<Home>")
-map("i", "<C-l>", "<End>")
-map("i", "<C-w>", "<ESC>wi")
+map("i", "<C-b>", "<Home>")
+map("i", "<C-e>", "<End>")
+map("i", "<C-f>", "<ESC>wi")
 map("i", "<C-b>", "<ESC>bi")
 
 
@@ -49,7 +46,6 @@ map({ "n", "x", "o" }, "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { ex
 map({ "n", "x", "o" }, "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 map("", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
 map("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
-
 
 -- behavior
 map("n", "<Esc>", "<cmd> :noh <CR>") -- shut down the search high light
@@ -65,14 +61,12 @@ map("n", "<leader>j", "J") -- join
 
 -- copy
 map("v", "<C-y>", [["+y]])
-map("n", "<C-p>", [["+p]])
-map("i", "<C-p>", [[<ESC>"+pa]])
-
+map("n", "<C-v>", [[i<End><CR><ESC>"+p]])
+map("i", "<C-v>", [[<ESC>"+pa]])
 
 -- statusbar toggle
 map("n", "<leader>y", "<cmd> :set laststatus=0 <CR>")
 map("n", "<leader>yy", "<cmd> :set laststatus=3 <CR>")
-
 
 -- packer
 map("n", "<leader>uu", "<cmd> :PackerSync <CR>")

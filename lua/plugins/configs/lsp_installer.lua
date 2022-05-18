@@ -6,7 +6,7 @@ M.config = function()
   local lsp_installer = load("nvim-lsp-installer")
 
   local options = {
-    automatic_installation = true, -- any lsp server setup by lspconfig is going to get installed automatically!
+    automatic_installation = true,
 
     ui = {
       icons = {

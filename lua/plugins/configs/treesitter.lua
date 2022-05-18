@@ -21,6 +21,7 @@ M.config = function()
       "vim",
       "lua",
       "regex",
+      "fish",
     },
     highlight = {
       enable = true,
