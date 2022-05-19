@@ -58,9 +58,6 @@ map("n", "<leader><leader>", [[i<End><CR><ESC>]])
 
 -- toggle status bar
 map("n", "<leader>y", function()
-  -- for key, value in pairs(vim.opt.laststatus) do
-  --   print('\t', key, value)
-  -- end
   if vim.opt.laststatus['_value'] > 0 then
     vim.cmd "set laststatus=0"
   else

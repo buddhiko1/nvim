@@ -15,4 +15,10 @@ M.load = function(plugin)
   return loaded
 end
 
+M.printTable = function(data)
+  for key, value in pairs(data) do
+    print('\t', key, value)
+  end
+end
+
 return M

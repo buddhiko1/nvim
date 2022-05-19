@@ -70,6 +70,13 @@ local plugins = {
     end,
   },
 
+  -- debug
+  ["mfussenegger/nvim-dap"] = {
+    config = function()
+      require("plugins.configs.nvim_dap").config()
+    end,
+  },
+
 
   -- components
   ["nvim-telescope/telescope.nvim"] = {
@@ -89,7 +96,6 @@ local plugins = {
   },
 
   ["goolord/alpha-nvim"] = {
-    disable = false,
     setup = function()
       require("plugins.configs.alpha").setup()
     end,
@@ -218,7 +224,7 @@ local plugins = {
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
-      require("plugins.configs.null-ls").config()
+      require("plugins.configs.null_ls").config()
     end,
   },
 }

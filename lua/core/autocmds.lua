@@ -11,15 +11,18 @@ autocmd("CmdlineLeave", {
 autocmd({ "VimEnter" }, {
   callback = function()
     local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
-    vim.defer_fn(function() vim.loop.kill(pid, WINCH) end, 200)
+    vim.defer_fn(function()
+      vim.loop.kill(pid, WINCH)
+    end, 200)
   end
 })
 
 -- hide status bar
 autocmd("VimEnter", {
   callback = function()
-    vim.cmd("set laststatus=0")
-  end,
+    vim.cmd("set laststatus=0") -- lualine
+    vim.cmd("autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2") -- alpha 
+  end
 })
 
 -- Open a file from its last left off position
@@ -32,13 +35,12 @@ autocmd("BufReadPost", {
   end,
 })
 
--- hide status bar
--- autocmd("User TelescopeFindPre", {
---   callback = function()
---     vim.notify("xx")
---     vim.cmd("set laststatus=0")
---   end,
--- })
+-- Highlight yanked text
+autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 2500 }
+  end,
+})
 
 -- autocmd({ 'SessionLoadPost' }, {
 --   callback = function()
@@ -75,13 +77,6 @@ autocmd("BufReadPost", {
 --       vim.opt_local.tabstop = 4
 --       vim.opt_local.shiftwidth = 4
 --       vim.opt_local.softtabstop = 4
---    end,
--- })
-
--- Highlight yanked text
--- autocmd("TextYankPost", {
---    callback = function()
---       vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
 --    end,
 -- })
 

@@ -13,7 +13,7 @@ M.config = function()
       section_separators = { left = '', right = '' },
       disabled_filetypes = { 'packer', 'NvimTree' },
       always_divide_middle = true,
-      globalstatus = true,
+      globalstatus = false,
     },
     sections = {
       lualine_a = { 'mode' },

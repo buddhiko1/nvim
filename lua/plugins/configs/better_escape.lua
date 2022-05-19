@@ -8,7 +8,7 @@ M.config = function()
   local options = {
     mapping = { "kj" }, -- a table with mappings to use
     timeout = vim.o.timeoutlen,
-    clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+    clear_empty_lines = true, -- clear line after escaping if there is only whitespace
     keys = "<Esc>",
   }
 
