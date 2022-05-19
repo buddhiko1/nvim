@@ -6,7 +6,7 @@ local M = {}
 M.setup = function()
   -- ctrl + /
   map("n", "<C-_>", "<cmd> :lua require('Comment.api').toggle_current_linewise()<CR>")
-  map("v", "<C-_>", "<cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
+  map("v", "<C-_>", "<esc><cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
 end
 
 M.config = function()

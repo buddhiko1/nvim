@@ -61,8 +61,6 @@ opt.splitright = true
 opt.list = true -- show space
 opt.listchars = "tab:> ,trail:·"
 
-opt.laststatus = 3 -- global statusline
-
 opt.title = true
 
 opt.fillchars = { eob = " " } -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758

@@ -56,9 +56,17 @@ map("i", "<C-v>", [[<ESC>"+pa]])
 map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><leader>", [[i<End><CR><ESC>]])
 
--- statusbar toggle
-map("n", "<leader>y", "<cmd> :set laststatus=0 <CR>")
-map("n", "<leader>yy", "<cmd> :set laststatus=3 <CR>")
+-- toggle status bar
+map("n", "<leader>y", function()
+  -- for key, value in pairs(vim.opt.laststatus) do
+  --   print('\t', key, value)
+  -- end
+  if vim.opt.laststatus['_value'] > 0 then
+    vim.cmd "set laststatus=0"
+  else
+    vim.cmd "set laststatus=3"
+  end
+end)
 
 -- packer
 map("n", "<leader>uu", "<cmd> :PackerSync <CR>")

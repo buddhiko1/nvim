@@ -5,7 +5,7 @@ local M = {}
 
 M.setup = function()
   -- theme switch
-  map("n", "<leader>th", "colors_name == 'dawnfox' ? '<cmd> :colorscheme duskfox <CR>' : '<cmd> :colorscheme dawnfox <CR>'", { expr = true })
+  map("n", "<leader>v", "colors_name == 'dawnfox' ? '<cmd> :colorscheme duskfox <CR>' : '<cmd> :colorscheme dawnfox <CR>'", { expr = true })
 end
 
 M.config = function()
