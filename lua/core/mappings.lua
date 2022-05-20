@@ -65,6 +65,7 @@ map("n", "<leader>y", function()
   end
 end)
 
+
 -- packer
 map("n", "<leader>uu", "<cmd> :PackerSync <CR>")
 

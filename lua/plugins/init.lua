@@ -89,7 +89,6 @@ local plugins = {
   },
 
   ["ahmedkhalf/project.nvim"] = {
-    after = "telescope.nvim",
     config = function()
       require("plugins.configs.project").config()
     end,
@@ -137,13 +136,6 @@ local plugins = {
     end,
     config = function()
       require("plugins.configs.fterm").config()
-    end,
-  },
-
-  ["rcarriga/nvim-notify"] = {
-    after = "telescope.nvim",
-    config = function()
-      require("plugins.configs.notify").config()
     end,
   },
 
@@ -217,15 +209,6 @@ local plugins = {
 
   ["hrsh7th/cmp-cmdline"] = {
     after = "cmp-path",
-  },
-
-
-  -- formatting
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require("plugins.configs.null_ls").config()
-    end,
   },
 }
 

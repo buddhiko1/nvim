@@ -4,6 +4,7 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
+  map("n", "<leader>fp", "<cmd> :Telescope projects <CR>")
   map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
   map("n", "<leader>fw", "<cmd> :Telescope live_grep <CR>")
   map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>")

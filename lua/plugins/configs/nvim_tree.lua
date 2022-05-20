@@ -36,6 +36,12 @@ local options = {
     dotfiles = true,
   },
   ignore_ft_on_setup = { "alpha" },
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {},
+  },
   view = {
     width = 25,
     side = 'left',
@@ -48,6 +54,11 @@ local options = {
     relativenumber = false,
     signcolumn = 'yes'
   },
+  actions = {
+    open_file = {
+      resize_window = true
+    }
+  }
 }
 
 local vim_setup = function()

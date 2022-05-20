@@ -35,6 +35,7 @@ autocmd("BufReadPost", {
   end,
 })
 
+
 -- Highlight yanked text
 autocmd("TextYankPost", {
   callback = function()
