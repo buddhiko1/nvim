@@ -12,13 +12,10 @@ end
 local render = function(f)
   f.make_tabs(function(info)
     local icon_color = f.icon_color(info.filename)
-
     if info.current then
       f.set_fg(icon_color)
     end
-
     f.add(' ' .. info.index .. ' ')
-
     if info.filename then
       f.add(info.modified and '+')
       f.add(info.filename)
@@ -30,7 +27,6 @@ local render = function(f)
   end)
 
   f.add_spacer()
-
   local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
   f.add { '  ' .. errors .. '  ', fg = "#e86671" }
 end
