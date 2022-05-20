@@ -6,7 +6,6 @@ local M = {}
 
 M.setup = function()
   map("n", "<leader>h", function()
-    vim.cmd "NvimTreeClose"
     vim.cmd "Alpha"
   end)
 end

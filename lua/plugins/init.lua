@@ -113,13 +113,15 @@ local plugins = {
     end,
   },
 
-  ["kyazdani42/nvim-tree.lua"] = {
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+  ["MunifTanjim/nui.nvim"] = {},
+
+  ["nvim-neo-tree/neo-tree.nvim"] = {
+    after = "nui.nvim",
     setup = function()
-      require("plugins.configs.nvim_tree").setup()
+      require("plugins.configs.neo_tree").setup()
     end,
     config = function()
-      require("plugins.configs.nvim_tree").config()
+      require("plugins.configs.neo_tree").config()
     end,
   },
 
