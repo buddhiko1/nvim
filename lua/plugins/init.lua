@@ -103,13 +103,13 @@ local plugins = {
     end,
   },
 
-  ["akinsho/bufferline.nvim"] = {
+  ["rafcamlet/tabline-framework.nvim"] = {
     after = "nvim-web-devicons",
     setup = function()
-      require("plugins.configs.bufferline").setup()
+      require("plugins.configs.tabline").setup()
     end,
     config = function()
-      require("plugins.configs.bufferline").config()
+      require("plugins.configs.tabline").config()
     end,
   },
 

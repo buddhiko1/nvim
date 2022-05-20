@@ -3,7 +3,6 @@ local g = vim.g
 
 g.mapleader = " "
 
-
 -- filetype and encode
 g.did_load_filetypes = 0
 g.do_filetype_lua = 1 -- use filetype.lua instead of filetype.vim

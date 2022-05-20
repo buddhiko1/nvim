@@ -74,7 +74,7 @@ local options = {
         nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
       },
       ["<2-LeftMouse>"] = "open",
-      ["<cr>"] = "open",
+      ["<cr>"] = "open_tabnew",
       ["s"] = "open_split",
       ["v"] = "open_vsplit",
       ["t"] = "open_tabnew",
