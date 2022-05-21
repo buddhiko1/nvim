@@ -5,7 +5,7 @@ local M = {}
 
 M.setup = function()
   -- theme switch
-  map("n", "<leader>v", function ()
+  map("n", "<leader>v", function()
     local theme = vim.g.colors_name
     if theme == "dawnfox" then
       vim.cmd("colorscheme duskfox")

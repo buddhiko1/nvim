@@ -32,7 +32,7 @@ end
 
 local _show = function()
   local tabline = load("tabline_framework")
-  local palette = require("utils").get_palette()
+  -- local palette = require("utils").get_palette()
   tabline.setup {
     render = _show_render,
     -- hl = { fg = palette.fg1, bg = palette.bg1 },
@@ -50,6 +50,7 @@ local _hide = function()
     hl_fill = { fg = palette.fg1, bg = palette.bg1 }
   }
   vim.fn.setenv("CUSTOME_TABLE_STATUS", _HIDDEN)
+
 end
 
 local _toggle = function()
@@ -67,7 +68,7 @@ M.setup = function()
   map("n", "q", "<cmd> :tabclose <CR>")
   map("n", "L", "<cmd> :tabnext <CR>")
   map("n", "H", "<cmd> :tabprevious <CR>")
-  map("n", "''", _toggle)
+  map("n", "S", _toggle)
 end
 
 M.config = function()
