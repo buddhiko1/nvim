@@ -14,6 +14,7 @@ autocmd({ "VimEnter" }, {
 autocmd("VimEnter", {
   callback = function()
     vim.cmd("set laststatus=0") -- lualine
+    vim.cmd("command! -nargs=1 -complete=help H tab help <args>") -- abbr
     vim.cmd("autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2") -- alpha 
   end
 })

@@ -22,7 +22,6 @@ map("n", "K", "5k")
 map("n", "B", "^")
 map("n", "E", "g_")
 
-
 map("v", "B", "^")
 map("v", "E", "g_")
 map("v", "J", ":move '>+1<CR>gv-gv")
@@ -36,7 +35,6 @@ map("i", "<C-b>", "<Home>")
 map("i", "<C-e>", "<End>")
 map("i", "<C-h>", "<ESC>i")
 map("i", "<C-l>", "<ESC>2li")
-
 
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
 -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
