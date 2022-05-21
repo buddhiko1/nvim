@@ -12,11 +12,10 @@ local _show_render = function(f)
     end
     f.add(' ' .. info.index .. ' ')
     if info.filename then
-      f.add(info.modified and '+')
       f.add(info.filename)
       f.add(' ' .. f.icon(info.filename))
     else
-      f.add(info.modified and '+[no name]' or '[no name]')
+      f.add('[no name]')
     end
     f.add ' '
   end)
