@@ -11,9 +11,9 @@ M.config = function()
       theme = 'auto',
       component_separators = { left = '|', right = '|' },
       section_separators = { left = '', right = '' },
-      disabled_filetypes = { 'packer', 'NvimTree' },
-      always_divide_middle = true,
-      globalstatus = false,
+      disabled_filetypes = { 'packer' },
+      always_divide_middle = false,
+      globalstatus = true,
     },
     sections = {
       lualine_a = { 'mode' },

@@ -137,12 +137,12 @@ local plugins = {
     end,
   },
 
-  -- ["nvim-lualine/lualine.nvim"] = {
-  --   after = "nvim-web-devicons",
-  --   config = function()
-  --     require("plugins.configs.lualine").config()
-  --   end,
-  -- },
+  ["nvim-lualine/lualine.nvim"] = {
+    after = "nvim-web-devicons",
+    config = function()
+      require("plugins.configs.lualine").config()
+    end,
+  },
 
   ["numToStr/FTerm.nvim"] = {
     setup = function()

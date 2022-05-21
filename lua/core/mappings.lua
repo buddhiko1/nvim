@@ -51,6 +51,7 @@ map("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 map("v", "<C-y>", [["+y]])
 map("n", "<C-v>", [["+p]])
 map("i", "<C-v>", [[<ESC>"+pa]])
+map("n", "y'", [["0p]])
 
 -- assistant
 map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])

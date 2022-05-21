@@ -73,6 +73,7 @@ local options = {
         button("SPC f f", "  Find File  ", "<cmd> :Telescope find_files<CR>"),
         button("SPC f w", "  Find Word  ", "<cmd> :Telescope live_grep<CR>"),
         button("SPC f n", "  New File  ", ":tabedit<CR>i"),
+        button("SPC q q", "  Exit  ", ":qa!<CR>"),
       },
       opts = {
         spacing = 1,
