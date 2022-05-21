@@ -15,10 +15,10 @@ M.load = function(plugin)
   return loaded
 end
 
-M.printTable = function(data)
-  for key, value in pairs(data) do
-    print('\t', key, value)
-  end
+M.get_palette = function()
+  local theme = vim.g.colors_name
+  local palette = require('nightfox.palette').load(theme)
+  return palette
 end
 
 return M

@@ -5,7 +5,15 @@ local M = {}
 
 M.setup = function()
   -- theme switch
-  map("n", "<leader>v", "colors_name == 'dawnfox' ? '<cmd> :colorscheme duskfox <CR>' : '<cmd> :colorscheme dawnfox <CR>'", { expr = true })
+  map("n", "<leader>v", function ()
+    local theme = vim.g.colors_name
+    if theme == "dawnfox" then
+      vim.cmd("colorscheme duskfox")
+    else
+      vim.cmd("colorscheme dawnfox")
+    end
+    require("plugins.configs.tabline").reload() -- sync tabline color
+  end)
 end
 
 M.config = function()

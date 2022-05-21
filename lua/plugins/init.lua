@@ -28,6 +28,12 @@ local plugins = {
 
 
   -- coding
+  ["norcalli/nvim-colorizer.lua"] = {
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+
   ["lukas-reineke/indent-blankline.nvim"] = {
     event = "BufRead",
     config = function()
@@ -125,12 +131,12 @@ local plugins = {
     end,
   },
 
-  ["nvim-lualine/lualine.nvim"] = {
-    after = "nvim-web-devicons",
-    config = function()
-      require("plugins.configs.lualine").config()
-    end,
-  },
+  -- ["nvim-lualine/lualine.nvim"] = {
+  --   after = "nvim-web-devicons",
+  --   config = function()
+  --     require("plugins.configs.lualine").config()
+  --   end,
+  -- },
 
   ["numToStr/FTerm.nvim"] = {
     setup = function()

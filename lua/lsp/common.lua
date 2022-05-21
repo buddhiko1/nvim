@@ -25,7 +25,7 @@ M.on_attach = function(client, bufnr)
   map("n", "wf", "<cmd>lua vim.lsp.buf.list_workspace_folders()<CR>", opt)
 
   -- formatting
-  vim.api.nvim_create_autocmd("BufLeave", {
+  vim.api.nvim_create_autocmd("TabLeave", {
     buffer = bufnr,
     callback = function()
       vim.lsp.buf.format { async = true }

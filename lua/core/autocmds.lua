@@ -1,12 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- hide command after 5 seconds
-autocmd("CmdlineLeave", {
-  callback = function()
-    vim.defer_fn(function() vim.cmd('echo ""') end, 5000)
-  end,
-})
-
 -- fix fullscreen bug of alacritty
 autocmd({ "VimEnter" }, {
   callback = function()
@@ -25,6 +18,13 @@ autocmd("VimEnter", {
   end
 })
 
+-- hide command after a while
+autocmd("CmdlineLeave", {
+  callback = function()
+    vim.defer_fn(function() vim.cmd('echo ""') end, 5000)
+  end,
+})
+
 -- Open a file from its last left off position
 autocmd("BufReadPost", {
   callback = function()
@@ -34,7 +34,6 @@ autocmd("BufReadPost", {
     end
   end,
 })
-
 
 -- Highlight yanked text
 autocmd("TextYankPost", {
