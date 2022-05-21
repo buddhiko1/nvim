@@ -56,16 +56,6 @@ map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><leader>", [[i<End><CR><ESC>]])
 map("n", "<leader>ee", "<cmd> :wqa!<CR>")
 
--- toggle status bar
-map("n", "<leader>y", function()
-  if vim.opt.laststatus['_value'] > 0 then
-    vim.cmd "set laststatus=0"
-  else
-    vim.cmd "set laststatus=3"
-  end
-end)
-
-
 -- packer
 map("n", "<leader>uu", "<cmd> :PackerSync <CR>")
 

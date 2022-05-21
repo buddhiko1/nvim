@@ -13,6 +13,7 @@ M.setup = function()
       vim.cmd("colorscheme dawnfox")
     end
     require("plugins.configs.tabline").reload() -- sync tabline color
+    vim.cmd("set laststatus=0") --lualine bug fix
   end)
 end
 

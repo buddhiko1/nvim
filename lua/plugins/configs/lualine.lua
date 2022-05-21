@@ -1,8 +1,17 @@
 local load = require("utils").load
+local map = require("utils").map
 
 local M = {}
 
 M.config = function()
+  map("n", "<leader>y", function()
+    if vim.opt.laststatus['_value'] > 0 then
+      vim.cmd "set laststatus=0"
+    else
+      vim.cmd "set laststatus=3"
+    end
+  end)
+
   local lualine = load("lualine")
 
   local options = {
@@ -36,6 +45,7 @@ M.config = function()
   }
 
   lualine.setup(options)
+  vim.cmd("set laststatus=0")
 end
 
 return M

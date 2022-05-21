@@ -1,7 +1,7 @@
 local opt = vim.opt
 local g = vim.g
 
-g.mapleader = " "
+g.mapleader = ";"
 
 -- filetype and encode
 g.did_load_filetypes = 0
