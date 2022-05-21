@@ -54,6 +54,7 @@ map("n", "y'", [["0p]])
 -- assistant
 map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><leader>", [[i<End><CR><ESC>]])
+map("n", "<leader>ee", "<cmd> :wqa!<CR>")
 
 -- toggle status bar
 map("n", "<leader>y", function()

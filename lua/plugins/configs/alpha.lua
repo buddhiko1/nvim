@@ -68,12 +68,12 @@ local options = {
     {
       type = "group",
       val = {
-        button("SPC f p", "  Projects  ", "<cmd> :Telescope projects<CR>"),
-        button("SPC f o", "  Recent File  ", "<cmd> :Telescope oldfiles<CR>"),
-        button("SPC f f", "  Find File  ", "<cmd> :Telescope find_files<CR>"),
-        button("SPC f w", "  Find Word  ", "<cmd> :Telescope live_grep<CR>"),
-        button("SPC f n", "  New File  ", ":tabedit<CR>i"),
-        button("SPC q q", "  Exit  ", ":qa!<CR>"),
+        button("SPC f p", "  Projects  "),
+        button("SPC f o", "  Recent File  "),
+        button("SPC f f", "  Find File  "),
+        button("SPC f w", "  Find Word  "),
+        button("SPC f n", "  New File  "),
+        button("SPC e e", "  Exit  "),
       },
       opts = {
         spacing = 1,
