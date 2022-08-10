@@ -70,7 +70,7 @@ local plugins = {
     end,
   },
 
-  ["Pocco81/AutoSave.nvim"] = {
+  ["Pocco81/auto-save.nvim"] = {
     config = function()
       require("plugins.configs.autosave").config()
     end,

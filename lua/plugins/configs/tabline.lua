@@ -67,7 +67,7 @@ M.setup = function()
   map("n", "q", "<cmd> :tabclose <CR>")
   map("n", "L", "<cmd> :tabnext <CR>")
   map("n", "H", "<cmd> :tabprevious <CR>")
-  map("n", "S", _toggle)
+  map("n", "T", _toggle)
 end
 
 M.config = function()
