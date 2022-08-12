@@ -8,11 +8,11 @@ M.config = function()
   local options = {
     enabled = true,
     execution_message = {
-		  message = function()
-			  return (" ")
-		  end,
-		  dim = 0.18, -- dim the color of `message`
-		  cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+      message = function()
+        return (" ")
+      end,
+      dim = 0.18, -- dim the color of `message`
+      cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
     },
     -- execution_message = "Saved",
     events = { "InsertLeave", "TextChanged" },
