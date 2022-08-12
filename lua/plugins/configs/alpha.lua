@@ -5,7 +5,7 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>h", function()
+  map("n", "<leader>r", function()
     vim.cmd "Alpha"
   end)
 end

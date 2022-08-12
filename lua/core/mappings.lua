@@ -11,11 +11,6 @@ map("n", "wo", "<C-w>o")
 map("n", "wv", "<cmd> :vsp<CR>")
 map("n", "wb", "<cmd> :sp<CR>")
 
--- tab
-map("n", "<C-h>", ":tabprevious<CR>")
-map("n", "<C-l>", ":tabnext<CR>")
-map("n", "<C-d>", ":tabclose<CR>")
-
 -- motion
 map("n", "J", "5j")
 map("n", "K", "5k")
