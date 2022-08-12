@@ -56,6 +56,6 @@ map("n", "<leader>uu", "<cmd> :PackerSync <CR>")
 
 -- remapping
 map("n", "<Esc>", "<cmd> :noh <CR>") -- shut down the search high light
-map("n", "<leader>q", "q") -- recording
+map("n", "<leader>r", "q") -- recording
 map("n", "<leader>j", "J") -- join
 map("n", "<A-v>", "<C-v>")
