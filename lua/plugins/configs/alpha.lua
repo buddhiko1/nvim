@@ -20,7 +20,7 @@ local logo = {
 }
 
 local function button(sc, txt, keybind)
-  local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
+  local sc_ = sc:gsub("%s", ""):gsub("LD", "<leader>")
 
   local opts = {
     position = "center",
@@ -68,12 +68,12 @@ local options = {
     {
       type = "group",
       val = {
-        button("SPC f p", "  Projects  "),
-        button("SPC f o", "  Recent File  "),
-        button("SPC f f", "  Find File  "),
-        button("SPC f w", "  Find Word  "),
-        button("SPC f n", "  New File  "),
-        button("SPC e e", "  Exit  "),
+        button("LD f p", "  Projects  "),
+        button("LD f o", "  Recent File  "),
+        button("LD f f", "  Find File  "),
+        button("LD f w", "  Find Word  "),
+        button("LD f n", "  New File  "),
+        button("LD e e", "  Exit  "),
       },
       opts = {
         spacing = 1,
