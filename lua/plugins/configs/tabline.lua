@@ -71,7 +71,8 @@ M.setup = function()
 end
 
 M.config = function()
-  _hide()
+  -- _hide()
+  _show()
 end
 
 M.reload = function()
