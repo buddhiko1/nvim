@@ -6,7 +6,7 @@ M.config = function()
   local autosave = load("auto-save")
 
   local options = {
-    enabled = false,
+    enabled = true,
     execution_message = {
       message = function()
         return (" ")

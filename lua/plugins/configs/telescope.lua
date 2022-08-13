@@ -19,7 +19,7 @@ M.config = function()
   local telescope = load("telescope")
   local options = {
     defaults = {
-      initial_mode = "normal",
+      initial_mode = "insert",
 
       -- mapping
       mappings = {
