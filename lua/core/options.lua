@@ -82,7 +82,7 @@ opt.mouse = "a"
 opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
--- opt.undofile = false
+opt.undofile = false
 -- opt.undodir = "/home/shun/.config/nvim/undodir"
 
 -- disable some builtin vim plugins

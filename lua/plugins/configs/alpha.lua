@@ -71,8 +71,7 @@ local options = {
         button("LD f p", "  Projects  "),
         button("LD f o", "  Recent File  "),
         button("LD f f", "  Find File  "),
-        button("LD f w", "  Find Word  "),
-        button("LD f n", "  New File  "),
+        button("LD f g", "  Live Grep  "),
         button("LD e e", "  Exit  "),
       },
       opts = {

@@ -101,12 +101,14 @@ local plugins = {
   },
 
   ["ahmedkhalf/project.nvim"] = {
+    after = 'telescope.nvim',
     config = function()
       require("plugins.configs.project").config()
     end,
   },
 
   ["goolord/alpha-nvim"] = {
+    after = 'tabline-framework.nvim',
     setup = function()
       require("plugins.configs.alpha").setup()
     end,
