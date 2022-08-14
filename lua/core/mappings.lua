@@ -49,8 +49,7 @@ map("n", "y'", [["0p]])
 -- assistant
 map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
-map("n", "<leader>ee", "<cmd> :wqa!<CR>")
-map("n", "<leader>fn", "<cmd> :edit undefined<CR>")
+map("n", "<leader>e", "<cmd> :wqa!<CR>")
 
 -- packer
 map("n", "<leader>uu", "<cmd> :PackerSync <CR>")

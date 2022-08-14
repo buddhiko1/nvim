@@ -5,7 +5,7 @@ local M = {}
 
 M.setup = function()
   map("n", "<leader>n", "<cmd> :NeoTreeRevealToggle <CR>")
-  map("n", "<leader>bb", "<cmd> :NeoTreeFloatToggle <CR>")
+  map("n", "<leader>b", "<cmd> :NeoTreeFloatToggle <CR>")
   map("n", "<leader>nn", "<cmd> :Neotree source=git_status <CR>")
 end
 
@@ -75,7 +75,7 @@ local options = {
         nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
       },
       ["<2-LeftMouse>"] = "open",
-      ["<cr>"] = "open_tabnew",
+      -- ["<cr>"] = "open_tabnew",
       ["s"] = "open_split",
       ["v"] = "open_vsplit",
       ["t"] = "open_tabnew",

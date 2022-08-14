@@ -68,12 +68,11 @@ local options = {
     {
       type = "group",
       val = {
-        button("LD b b", "  Browser File"),
-        button("LD f p", "  Projects  "),
-        button("LD f o", "  Recent File  "),
-        button("LD f f", "  Find File  "),
-        button("LD f g", "  Live Grep  "),
-        button("LD e e", "  Exit  "),
+        button("LD b", "  Browser File "),
+        button("LD p", "  Projects  "),
+        button("LD f", "  Recent File  "),
+        button("LD g", "  Live Grep  "),
+        button("LD e", "  Exit  "),
       },
       opts = {
         spacing = 1,
@@ -87,7 +86,7 @@ M.config = function()
   local alpha = load("alpha")
   alpha.setup(options)
   -- vim.cmd("autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2")
-  vim.cmd(" autocmd WinEnter <buffer> set showtabline=2")
+  vim.cmd("autocmd WinEnter <buffer> set showtabline=2")
 end
 
 return M
