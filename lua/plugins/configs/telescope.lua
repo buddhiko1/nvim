@@ -84,6 +84,7 @@ M.config = function()
   }
 
   telescope.setup(options)
+  telescope.load_extension("projects")
 end
 
 return M

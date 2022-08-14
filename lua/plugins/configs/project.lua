@@ -9,7 +9,6 @@ M.config = function()
     patterns = { ".git", "package.json" },
   }
   project.setup(options)
-  require("telescope").load_extension("projects")
 end
 
 return M
