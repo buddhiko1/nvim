@@ -5,7 +5,7 @@ local M = {}
 
 M.setup = function()
   map("n", "<leader>n", "<cmd> :NeoTreeFloatToggle <CR>")
-  map("n", "<leader>g", "<cmd> :Neotree source=git_status <CR>")
+  map("n", "<leader>nn", "<cmd> :Neotree source=git_status <CR>")
 end
 
 local options = {

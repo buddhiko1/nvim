@@ -4,12 +4,12 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
+  map("n", "<leader>g", "<cmd> :Telescope live_grep <CR>")
+  map("n", "<leader>f", "<cmd> :Telescope oldfiles <CR>")
+  map("n", "<leader>p", "<cmd> :Telescope projects <CR>")
   map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>")
-  map("n", "<leader>ft", "<cmd> :Telescope help_tags <CR>")
-  map("n", "<leader>fp", "<cmd> :Telescope projects <CR>")
+  map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>")
   map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
-  map("n", "<leader>fg", "<cmd> :Telescope live_grep <CR>")
-  map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>")
   map("n", "<leader>fb", "<cmd> :Telescope buffers <CR>")
   map("n", "<leader>fc", "<cmd> :Telescope git_commits <CR>")
   map("n", "<leader>fs", "<cmd> :Telescope git_status <CR>")
@@ -34,10 +34,10 @@ M.config = function()
 
           ["<C-u>"] = "preview_scrolling_up",
           ["<C-d>"] = "preview_scrolling_down",
-          ["<S-d>"] = "close",
+          [";f"] = "close",
         },
         n = {
-          ["<S-d>"] = "close",
+          [";f"] = "close",
           ["q"] = "close"
         },
       },
