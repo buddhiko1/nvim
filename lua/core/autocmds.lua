@@ -20,19 +20,19 @@ autocmd("VimEnter", {
 -- hide command after a while
 autocmd("CmdlineLeave", {
   callback = function()
-    vim.defer_fn(function() vim.cmd('echo ""') end, 5000)
+    vim.defer_fn(function() vim.cmd('echo ""') end, 7000)
   end,
 })
 
 -- -- Open a file from its last left off position
-autocmd("BufWinEnter", {
-  callback = function()
-    if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
-      vim.cmd "normal! g'\""
-      vim.cmd "normal zz"
-    end
-  end,
-})
+-- autocmd("BufWinEnter", {
+--   callback = function()
+--     if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
+--       vim.cmd "normal! g'\""
+--       vim.cmd "normal zz"
+--     end
+--   end,
+-- })
 
 -- Highlight yanked text
 autocmd("TextYankPost", {
