@@ -16,18 +16,19 @@ M.config = function()
     },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
-      map({ 'n', 'v' }, 'hs', ':Gitsigns stage_hunk<CR>', { buffer = bufnr })
-      map('n', 'gss', gs.stage_buffer, { buffer = bufnr })
+      map('n', 'gp', gs.prev_hunk, { buffer = bufnr })
+      map('n', 'gn', gs.next_hunk, { buffer = bufnr })
+      map({ 'n', 'v' }, 'gs', gs.stage_hunk, { buffer = bufnr })
       map('n', 'gu', gs.undo_stage_hunk, { buffer = bufnr })
-      map({ 'n', 'v' }, 'hr', ':Gitsigns reset_hunk<CR>', { buffer = bufnr })
+      map('n', 'gss', gs.stage_buffer, { buffer = bufnr })
       map('n', 'grr', gs.reset_buffer, { buffer = bufnr })
+      map({ 'n', 'v' }, 'gr', gs.reset_hunk, { buffer = bufnr })
       map('n', 'gb', function() gs.blame_line { full = true } end, { buffer = bufnr })
       map('n', 'gtb', gs.toggle_current_line_blame, { buffer = bufnr })
       map('n', 'gd', gs.diffthis, { buffer = bufnr })
       map('n', 'gdd', function() gs.diffthis('~') end, { buffer = bufnr })
       map('n', 'gtd', gs.toggle_deleted, { buffer = bufnr })
-      map('n', 'gp', gs.preview_hunk, { buffer = bufnr })
-      map('n', 'gh', ':<C-U>Gitsigns select_hunk<CR>', { buffer = bufnr })
+      map('n', 'gv', gs.preview_hunk, { buffer = bufnr })
     end
   }
 
