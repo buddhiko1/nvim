@@ -21,8 +21,10 @@ local _show_render = function(f)
   end)
 
   f.add_spacer()
-  -- local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-  -- f.add { '  ' .. errors .. '  ', fg = "#e86671" }
+  local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+  if errors > 0 then
+    f.add { errors .. '  ', fg = "#e86671" }
+  end
 end
 
 local _hidden_render = function(f)

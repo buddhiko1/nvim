@@ -22,7 +22,7 @@ M.config = function()
       section_separators = { left = '', right = '' },
       disabled_filetypes = { 'packer' },
       always_divide_middle = false,
-      globalstatus = true,
+      globalstatus = false,
     },
     sections = {
       lualine_a = { 'mode' },
