@@ -9,7 +9,7 @@ M.setup = function()
     local theme = vim.g.colors_name
     if theme == "dawnfox" then
       vim.cmd("colorscheme duskfox")
-      vim.cmd("highlight Cursor guibg=#b30000 guifg=black")
+      vim.cmd("highlight Cursor guibg=#cc0000 guifg=black")
       vim.cmd("set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor")
     else
       vim.cmd("colorscheme dawnfox")
