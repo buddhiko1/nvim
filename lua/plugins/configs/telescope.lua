@@ -10,7 +10,6 @@ M.setup = function()
   map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>")
   map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>")
   map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
-  map("n", "<leader>fb", "<cmd> :Telescope buffers <CR>")
   map("n", "<leader>fc", "<cmd> :Telescope git_commits <CR>")
   map("n", "<leader>fs", "<cmd> :Telescope git_status <CR>")
 end

@@ -68,6 +68,7 @@ local options = {
     {
       type = "group",
       val = {
+        button("LD b b", "  Browser File"),
         button("LD f p", "  Projects  "),
         button("LD f o", "  Recent File  "),
         button("LD f f", "  Find File  "),

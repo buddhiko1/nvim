@@ -4,7 +4,8 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>n", "<cmd> :NeoTreeFloatToggle <CR>")
+  map("n", "<leader>n", "<cmd> :NeoTreeRevealToggle <CR>")
+  map("n", "<leader>bb", "<cmd> :NeoTreeFloatToggle <CR>")
   map("n", "<leader>nn", "<cmd> :Neotree source=git_status <CR>")
 end
 
@@ -62,8 +63,8 @@ local options = {
     },
   },
   window = {
-    position = "float",
-    width = 40,
+    position = "right",
+    width = 35,
     mapping_options = {
       noremap = true,
       nowait = true,
@@ -104,7 +105,7 @@ local options = {
   filesystem = {
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
-      hide_dotfiles = true,
+      hide_dotfiles = false,
       hide_gitignored = true,
       hide_by_name = {
         "node_modules"
@@ -155,7 +156,7 @@ local options = {
   },
   git_status = {
     window = {
-      position = "float",
+      position = "right",
       mappings = {
         ["gu"]  = "git_unstage_file",
         ["ga"]  = "git_add_file",

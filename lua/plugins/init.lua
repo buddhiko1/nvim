@@ -129,6 +129,12 @@ local plugins = {
 
   ["MunifTanjim/nui.nvim"] = {},
 
+  ["s1n7ax/nvim-window-picker"] = {
+    config = function()
+       require("window-picker").setup()
+    end,
+  },
+
   ["nvim-neo-tree/neo-tree.nvim"] = {
     after = "nui.nvim",
     setup = function()
