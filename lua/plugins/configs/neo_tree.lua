@@ -6,11 +6,11 @@ local M = {}
 M.setup = function()
   map("n", "<leader>n", "<cmd> :NeoTreeRevealToggle <CR>")
   map("n", "<leader>b", "<cmd> :NeoTreeFloatToggle <CR>")
-  map("n", "<leader>nn", "<cmd> :Neotree source=git_status <CR>")
+  map("n", "<leader>c", "<cmd> :Neotree source=git_status <CR>")
 end
 
 local options = {
-  close_if_last_window = false,
+  close_if_last_window = true,
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
@@ -105,7 +105,7 @@ local options = {
   filesystem = {
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
-      hide_dotfiles = false,
+      hide_dotfiles = true,
       hide_gitignored = true,
       hide_by_name = {
         "node_modules"
