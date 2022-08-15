@@ -1,5 +1,6 @@
 local load = require("utils").load
 local map = require("utils").map
+local is_windows = require("utils").is_windows
 
 local M = {}
 
@@ -10,9 +11,10 @@ end
 
 M.config = function()
   local fterm = load("FTerm")
+  local cmd = is_windows() and "powershell" or "fish"
   local options = {
-    cmd = "powershell",
-    border = 'single',
+    cmd = is_windows and "powershell" or "fish",
+    border = "single",
     dimensions = {
       height = 0.9,
       width = 0.9,

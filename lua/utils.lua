@@ -21,6 +21,10 @@ M.get_palette = function()
   return palette
 end
 
+M.is_windows = function()
+  return vim.loop.os_uname().sysname == "Windows_NT"
+end
+
 M.switch_alacritty_theme = function(theme)
   local alacritty_path = "C:/Users/adhip/AppData/Roaming/alacritty/"
   local config_path = alacritty_path.."alacritty.yml"
