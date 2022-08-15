@@ -8,3 +8,4 @@
 4. Change start path value appropriately in start.vbs.
 5. Send start.vbs to desktop.
 6. Create shortcut for start.vbs's shortcut.
+7. Change icon of shortcut.

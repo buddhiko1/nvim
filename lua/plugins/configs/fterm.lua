@@ -11,6 +11,7 @@ end
 M.config = function()
   local fterm = load("FTerm")
   local options = {
+    cmd = "powershell",
     border = 'single',
     dimensions = {
       height = 0.9,
