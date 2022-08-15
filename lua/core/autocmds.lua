@@ -6,7 +6,7 @@ autocmd({ "VimEnter" }, {
     local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
     vim.defer_fn(function()
       vim.loop.kill(pid, WINCH)
-    end, 200)
+    end, 500)
   end
 })
 
