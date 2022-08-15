@@ -35,7 +35,7 @@ local options = {
     icon = {
       folder_closed = "",
       folder_open = "",
-      folder_empty = "",
+      folder_empty = "",
     },
     modified = {
       symbol = "[+]",
