@@ -16,26 +16,25 @@ opt.confirm = true
 
 opt.autoread = true
 
-opt.hidden = true
+opt.hidden = false
 
-opt.updatetime = 300
-opt.timeoutlen = 350
+opt.timeoutlen = 350 -- for mapped key sequence
 
-opt.wrap = true
+opt.wrap = true -- line wrap
 opt.tw = 0
 opt.whichwrap = '<,>,[,]' -- go to previous/next line
 
-opt.expandtab = true
+opt.expandtab = true --replace tab with space
 opt.tabstop = 2
 opt.softtabstop = 2
 
 opt.shiftround = true
 opt.shiftwidth = 2
--- opt.autoindent = true
+opt.autoindent = true
 opt.smartindent = true
 
 -- display
-opt.ruler = false
+opt.ruler = false --the line and column number of the cursor position
 opt.termguicolors = true
 
 opt.scrolloff = 8
