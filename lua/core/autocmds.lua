@@ -18,11 +18,11 @@ autocmd("VimEnter", {
 })
 
 -- hide command after a while
-autocmd("CmdlineLeave", {
-  callback = function()
-    vim.defer_fn(function() vim.cmd('echo ""') end, 7000)
-  end,
-})
+-- autocmd("CmdlineLeave", {
+--   callback = function()
+--     vim.defer_fn(function() vim.cmd('echo ""') end, 6000)
+--   end,
+-- })
 
 -- -- Open a file from its last left off position
 -- autocmd("BufWinEnter", {

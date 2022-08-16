@@ -16,6 +16,7 @@ map("n", "J", "5j")
 map("n", "K", "5k")
 map("n", "B", "^")
 map("n", "E", "g_")
+map("n", "<Space>", "w")
 
 map("v", "B", "^")
 map("v", "E", "g_")
@@ -26,7 +27,7 @@ map("v", ">", ">gv")
 
 map("i", "<C-j>", "<ESC>jli")
 map("i", "<C-k>", "<ESC>kli")
-map("i", "<C-b>", "<Home>")
+map("i", "<C-b>", "<ESC>bi")
 map("i", "<C-e>", "<End>")
 map("i", "<C-h>", "<ESC>i")
 map("i", "<C-l>", "<ESC>2li")
@@ -41,16 +42,20 @@ map("", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true 
 map("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 -- copy and past
-map("v", "<C-y>", [["+y]])
-map("n", "<C-v>", [["+p]])
-map("i", "<C-v>", [[<ESC>"+pa]])
-map("n", "y'", [["0p]])
+map("i", "<C-p>", [[<ESC>"+pa]])
+map("n", "yy", [["+yy]])
+map({ "n", "v" }, "y", [["+y]])
+map({ "n", "v"}, "d", [["+d]])
+map("n", "dd", [["+dd]])
+map("n", "p", [["+p]])
 
 -- assistant
 map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 map("n", "<leader>e", "<cmd> :wqa!<CR>")
+map({ "n", "v", "i" }, "<leader>h", ":vertical help ")
 
+map("n", "<leader>e", "<cmd> :wqa!<CR>")
 -- packer
 map("n", "<leader>uu", "<cmd> :PackerSync <CR>")
 

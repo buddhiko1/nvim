@@ -11,9 +11,9 @@ end
 
 M.config = function()
   local fterm = load("FTerm")
-  local cmd = is_windows() and "powershell" or "fish"
+  local cmd = is_windows() and "powershell /nologo" or os.getenv("SHELL")
   local options = {
-    cmd = is_windows and "powershell /nologo" or "fish",
+    cmd = cmd,
     border = "single",
     dimensions = {
       height = 0.9,
