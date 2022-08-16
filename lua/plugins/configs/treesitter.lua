@@ -15,7 +15,6 @@ M.config = function()
       "graphql",
       "bash",
       "markdown",
-      "latex",
       "yaml",
       "json",
       "vim",

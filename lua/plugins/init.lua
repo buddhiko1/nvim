@@ -196,16 +196,10 @@ local plugins = {
     event = "InsertEnter",
   },
 
-  ["L3MON4D3/LuaSnip"] = {
-    wants = "friendly-snippets",
-    after = "nvim-cmp",
+  ["saadparwaiz1/cmp_luasnip"] = {
     config = function()
       require("plugins.configs.luasnip").config()
-    end,
-  },
-
-  ["saadparwaiz1/cmp_luasnip"] = {
-    after = "LuaSnip",
+    end
   },
 
   ["hrsh7th/cmp-nvim-lua"] = {
