@@ -25,7 +25,7 @@ M.config = function()
     write_all_buffers = false,
     on_off_commands = false,
     clean_command_line_interval = 1000,
-    debounce_delay = 135,
+    debounce_delay = 5000,
     fast_wrap = {},
     disable_filetype = { "TelescopePrompt", "vim" },
   }

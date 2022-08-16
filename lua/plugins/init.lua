@@ -47,13 +47,6 @@ local plugins = {
     end,
   },
 
-  ["max397574/better-escape.nvim"] = {
-    event = "InsertCharPre",
-    config = function()
-      require("plugins.configs.better_escape").config()
-    end,
-  },
-
   ["numToStr/Comment.nvim"] = {
     setup = function()
       require("plugins.configs.comment").setup()

@@ -1,8 +1,12 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- fix fullscreen bug of alacritty
+-- init
 autocmd({ "VimEnter" }, {
   callback = function()
+    -- hide status bar
+    vim.cmd("command! -nargs=1 -complete=help H tab help <args>") -- abbr
+   
+    -- fix fullscreen bug of alacritty
     local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
     vim.defer_fn(function()
       vim.loop.kill(pid, WINCH)
@@ -10,19 +14,12 @@ autocmd({ "VimEnter" }, {
   end
 })
 
--- hide status bar
-autocmd("VimEnter", {
-  callback = function()
-    vim.cmd("command! -nargs=1 -complete=help H tab help <args>") -- abbr
-  end
-})
-
 -- hide command after a while
--- autocmd("CmdlineLeave", {
---   callback = function()
---     vim.defer_fn(function() vim.cmd('echo ""') end, 6000)
---   end,
--- })
+autocmd("CmdlineLeave", {
+  callback = function()
+    vim.defer_fn(function() vim.cmd('echo ""') end, 6000)
+  end,
+})
 
 -- -- Open a file from its last left off position
 -- autocmd("BufAdd", {
@@ -40,12 +37,6 @@ autocmd("TextYankPost", {
     vim.highlight.on_yank { higroup = "Visual", timeout = 2500 }
   end,
 })
-
--- autocmd({ 'SessionLoadPost' }, {
---   callback = function()
---     require('nvim-tree').toggle(false, true)
---   end,
--- })
 
 -- Uncomment this if you want to open nvim with a dir
 -- autocmd("BufEnter", {

@@ -13,13 +13,13 @@ M.config = function()
   local comment = load("Comment")
 
   local options = {
-    toggler = {
-      line = 'tll',
-      block = 'tbb',
-    },
     opleader = {
       line = 'tl',
       block = 'tb',
+    },
+    toggler = {
+      line = 'tll',
+      block = 'tbb',
     },
     extra = {
       above = 'tO',
