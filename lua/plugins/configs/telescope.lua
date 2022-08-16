@@ -29,10 +29,9 @@ M.config = function()
           ["<C-n>"] = "cycle_history_next",
           ["<C-p>"] = "cycle_history_prev",
 
-          ["<C-c>"] = "close",
-
           ["<C-u>"] = "preview_scrolling_up",
           ["<C-d>"] = "preview_scrolling_down",
+
           [";f"] = "close",
         },
         n = {
@@ -77,7 +76,7 @@ M.config = function()
       },
       selection_strategy = "reset",
       sorting_strategy = "ascending",
-      file_ignore_patterns = { "node_modules" },
+      file_ignore_patterns = { "node_modules", ".git"},
     },
     -- extensions = {"projects"}
   }

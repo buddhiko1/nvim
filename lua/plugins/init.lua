@@ -75,13 +75,6 @@ local plugins = {
     end,
   },
 
-  -- debug
-  ["mfussenegger/nvim-dap"] = {
-    config = function()
-      require("plugins.configs.nvim_dap").config()
-    end,
-  },
-
 
   -- components
   ["nvim-telescope/telescope.nvim"] = {
@@ -152,6 +145,14 @@ local plugins = {
     end,
     config = function()
       require("plugins.configs.fterm").config()
+    end,
+  },
+
+
+  -- debug
+  ["mfussenegger/nvim-dap"] = {
+    config = function()
+      require("plugins.configs.nvim_dap").config()
     end,
   },
 

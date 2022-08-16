@@ -20,13 +20,13 @@ local options = {
     },
     indent = {
       indent_size = 2,
-      padding = 1, -- extra padding on left hand side
-      -- indent guides
+      padding = 1, -- padding on left hand side
+      -- indent style 
       with_markers = true,
       indent_marker = "│",
       last_indent_marker = "└",
       highlight = "NeoTreeIndentMarker",
-      -- expander config, needed for nesting files
+      -- expander config
       with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
       expander_collapsed = "",
       expander_expanded = "",
@@ -49,10 +49,10 @@ local options = {
     git_status = {
       symbols = {
         -- Change type
-        added     = "+", -- but this is redundant info if you use git_status_colors on the name
-        modified  = "", -- but this is redundant info if you use git_status_colors on the name
-        deleted   = "", -- this can only be used in the git_status source
-        renamed   = "", -- this can only be used in the git_status source
+        added     = "+",
+        modified  = "",
+        deleted   = "",
+        renamed   = "",
         -- Status type
         untracked = "?",
         ignored   = "",
@@ -83,19 +83,18 @@ local options = {
       ["C"] = "close_node",
       ["a"] = {
         "add",
-        -- some commands may take optional config options, see `:h neo-tree-mappings` for details
         config = {
           show_path = "none" -- "none", "relative", "absolute"
         }
       },
-      ["ad"] = "add_directory", -- also accepts the config.show_path option.
+      ["ad"] = "add_directory",
       ["d"] = "delete",
       ["r"] = "rename",
       ["y"] = "copy_to_clipboard",
       ["x"] = "cut_to_clipboard",
       ["p"] = "paste_from_clipboard",
-      ["c"] = "copy", -- takes text input for destination
-      ["m"] = "move", -- takes text input for destination
+      ["c"] = "copy",
+      ["m"] = "move",
       ["q"] = "close_window",
       ["R"] = "refresh",
       ["?"] = "show_help",
@@ -108,26 +107,24 @@ local options = {
       hide_dotfiles = true,
       hide_gitignored = true,
       hide_by_name = {
-        "node_modules"
+        "node_modules",
+        ".git"
       },
-      hide_by_pattern = { -- uses glob style patterns
+      hide_by_pattern = {
         --"*.meta"
       },
-      never_show = { -- remains hidden even if visible is toggled to true
-        --".DS_Store",
-        --"thumbs.db"
+      never_show = {
+        "node_modules",
+        ".git"
       },
     },
-    follow_current_file = false, -- This will find and focus the file in the active buffer every
+    follow_current_file = true, -- This will find and focus the file in the active buffer every
     -- time the current file is changed while the tree is open.
     group_empty_dirs = false, -- when true, empty folders will be grouped together
-    hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-    -- in whatever position is specified in window.position
-    -- "open_current",  -- netrw disabled, opening a directory opens within the
-    -- window like netrw would, regardless of window.position
+    hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree in whatever position is specified in window.position
+    -- "open_current",  -- netrw disabled, opening a directory opens within the window like netrw would, regardless of window.position
     -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-    use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
-    -- instead of relying on nvim autocmd events.
+    use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes instead of relying on nvim autocmd events.
     window = {
       mappings = {
         ["<bs>"] = "navigate_up",
@@ -142,8 +139,7 @@ local options = {
     }
   },
   buffers = {
-    follow_current_file = true, -- This will find and focus the file in the active buffer every
-    -- time the current file is changed while the tree is open.
+    follow_current_file = true, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
     group_empty_dirs = true, -- when true, empty folders will be grouped together
     show_unloaded = true,
     window = {

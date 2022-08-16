@@ -14,6 +14,7 @@ M.config = function()
       topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
       changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
     },
+    update_debounce = 500,
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
       map('n', 'gp', gs.prev_hunk, { buffer = bufnr })

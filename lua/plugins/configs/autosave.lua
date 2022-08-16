@@ -15,7 +15,7 @@ M.config = function()
       cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
     },
     -- execution_message = "Saved",
-    events = { "BufLeave" },
+    events = { "InsertLeave", "TextChanged" },
     conditions = {
       exists = true,
       filename_is_not = {},
