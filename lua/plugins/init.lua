@@ -185,7 +185,6 @@ local plugins = {
 
   -- complements
   ["hrsh7th/nvim-cmp"] = {
-    after = "friendly-snippets",
     config = function()
       require("plugins.configs.cmp").config()
     end,
