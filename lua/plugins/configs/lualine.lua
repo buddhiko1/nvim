@@ -4,7 +4,7 @@ local map = require("utils").map
 local M = {}
 
 M.config = function()
-  map("n", "S", function()
+  map("n", ";S", function()
     if vim.opt.laststatus['_value'] > 0 then
       vim.cmd "set laststatus=0"
     else
