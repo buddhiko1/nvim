@@ -191,13 +191,7 @@ local plugins = {
     end,
   },
 
-  ["rafamadriz/friendly-snippets"] = {
-    module = "cmp_nvim_lsp",
-    event = "InsertEnter",
-  },
-
   ["L3MON4D3/LuaSnip"] = {
-    wants = "friendly-snippets",
     after = "nvim-cmp",
     config = function()
       require("plugins.configs.luasnip").config()
@@ -216,17 +210,11 @@ local plugins = {
     after = "cmp-nvim-lua",
   },
 
-  ["hrsh7th/cmp-buffer"] = {
-    after = "cmp-nvim-lsp",
-  },
+  ["hrsh7th/cmp-buffer"] = {},
 
-  ["hrsh7th/cmp-path"] = {
-    after = "cmp-buffer",
-  },
+  ["hrsh7th/cmp-path"] = {},
 
-  ["hrsh7th/cmp-cmdline"] = {
-    after = "cmp-path",
-  },
+  ["hrsh7th/cmp-cmdline"] = {},
 }
 
 local to_list = function(pluginMap)
