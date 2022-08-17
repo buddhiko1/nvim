@@ -75,6 +75,7 @@ local plugins = {
     end,
   },
 
+  ["ggandor/lightspeed.nvim"] = {},
 
   -- components
   ["nvim-telescope/telescope.nvim"] = {
@@ -196,7 +197,7 @@ local plugins = {
       require("plugins.configs.luasnip").config()
     end,
   },
-  
+
   ["saadparwaiz1/cmp_luasnip"] = {
     after = "LuaSnip",
   },
