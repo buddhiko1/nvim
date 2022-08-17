@@ -1,5 +1,5 @@
 local plugins = {
-  -- editor
+  -- package
   ["nvim-lua/plenary.nvim"] = {},
 
   ["wbthomason/packer.nvim"] = {
@@ -196,10 +196,16 @@ local plugins = {
     event = "InsertEnter",
   },
 
-  ["saadparwaiz1/cmp_luasnip"] = {
+  ["L3MON4D3/LuaSnip"] = {
+    wants = "friendly-snippets",
+    after = "nvim-cmp",
     config = function()
       require("plugins.configs.luasnip").config()
-    end
+    end,
+  },
+  
+  ["saadparwaiz1/cmp_luasnip"] = {
+    after = "LuaSnip",
   },
 
   ["hrsh7th/cmp-nvim-lua"] = {

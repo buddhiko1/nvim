@@ -21,7 +21,7 @@ M.config = function()
     },
     formatting = {
       format = function(_, vim_item)
-        local icons = require "plugins.configs.lsp_icons"
+        local icons = require "plugins.configs.cmp_icons"
         vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
         return vim_item
       end,

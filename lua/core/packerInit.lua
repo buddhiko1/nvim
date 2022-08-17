@@ -16,7 +16,7 @@ if not present then
     packer_path,
   }
 
-  vim.cmd "packadd packer.nvim"
+  vim.cmd("packadd packer.nvim")
 
   present, packer = pcall(require, "packer")
 
