@@ -1,5 +1,5 @@
 ## ArchLinux 
-- Run PackerSync by hand when fresh install.
+- Run PackerSync when fresh install.
 
 ## Windows
 1. Install alacritty.

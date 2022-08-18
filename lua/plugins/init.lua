@@ -119,12 +119,13 @@ local plugins = {
   -- for switch neo-tree window
   ["s1n7ax/nvim-window-picker"] = {
     config = function()
-       require("window-picker").setup()
+      require("window-picker").setup()
     end,
   },
 
   ["nvim-neo-tree/neo-tree.nvim"] = {
     after = "nui.nvim",
+    branch = "main",
     setup = function()
       require("plugins.configs.neo_tree").setup()
     end,
