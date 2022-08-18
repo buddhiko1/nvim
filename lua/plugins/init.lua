@@ -119,7 +119,7 @@ local plugins = {
   -- for switch neo-tree window
   ["s1n7ax/nvim-window-picker"] = {
     config = function()
-       require("window-picker").setup()
+      require("window-picker").setup()
     end,
   },
 
@@ -186,7 +186,6 @@ local plugins = {
 
   -- complements
   ["hrsh7th/nvim-cmp"] = {
-    after = "friendly-snippets",
     config = function()
       require("plugins.configs.cmp").config()
     end,
