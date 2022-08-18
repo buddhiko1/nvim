@@ -125,7 +125,6 @@ local plugins = {
 
   ["nvim-neo-tree/neo-tree.nvim"] = {
     after = "nui.nvim",
-    branch = "main",
     setup = function()
       require("plugins.configs.neo_tree").setup()
     end,
