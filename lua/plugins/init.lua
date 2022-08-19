@@ -8,7 +8,6 @@ local plugins = {
 
   ["lewis6991/impatient.nvim"] = {},
 
-
   -- ui
   ["EdenEast/nightfox.nvim"] = {
     setup = function()

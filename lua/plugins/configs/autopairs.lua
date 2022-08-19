@@ -7,7 +7,7 @@ M.config = function()
   local cmp = load("cmp")
   local options = {
     fast_wrap = {},
-    disable_filetype = { "TelescopePrompt", "vim", "guihua", "guihua_rust", "clap_input"  },
+    disable_filetype = { "TelescopePrompt", "vim" },
   }
   autopairs.setup(options)
 
