@@ -10,10 +10,11 @@ local _show_render = function(f)
     if info.current then
       f.set_fg(icon_color)
     end
-    f.add(' ' .. info.index .. ' ')
+    f.add('  ')
     if info.filename then
       f.add(info.filename)
       f.add(' ' .. f.icon(info.filename))
+      f.add(' ')
     else
       f.add('[no name]')
     end
