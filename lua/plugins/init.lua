@@ -182,6 +182,14 @@ local plugins = {
     end,
   },
 
+  ["glepnir/lspsaga.nvim"] = {
+    setup = function()
+      require("plugins.configs.lsp_saga").setup()
+    end,
+    config = function()
+      require("plugins.configs.lsp_saga").config()
+    end,
+  },
 
   -- complements
   ["hrsh7th/nvim-cmp"] = {
