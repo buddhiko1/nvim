@@ -65,7 +65,6 @@ M.config = function()
     sources = {
       { name = "nvim_lsp" },
       { name = "path" },
-      { name = "cmdline" },
       { name = "buffer" },
       { name = "luasnip" },
       { name = "nvim_lua" },
@@ -73,6 +72,22 @@ M.config = function()
   }
 
   cmp.setup(options)
+
+  cmp.setup.cmdline(':', {
+      sources = {
+        { name = 'cmdline' },
+      },
+    })
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' },
+    },
+  })
+
+  -- disable guihua completion for lsp_navigator
+  if vim.o.ft == 'clap_input' and vim.o.ft == 'guihua' and vim.o.ft == 'guihua_rust' then
+    cmp.setup.buffer { completion = { enable = false } }
+  end
 end
 
 return M
