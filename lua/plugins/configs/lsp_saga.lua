@@ -7,7 +7,7 @@ M.setup = function ()
   map("n", "<leader>sf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
   map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>", { silent = true })
-  map("v", "<leader>sa", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
+  map("v", "<leader>saa", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
 
   map("n", "<leader>sr", "<cmd>Lspsaga rename<CR>", { silent = true })
 
@@ -32,11 +32,11 @@ M.setup = function ()
   -- Signature help
   map("n", "<leader>sh", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
   -- scroll in hover doc or  definition preview window
-  map("n", "<C-j>", function()
+  map("n", "<C-f>", function()
       require("lspsaga.action").smart_scroll_with_saga(1)
   end, { silent = true })
   -- scroll in hover doc or  definition preview window
-  map("n", "<C-k>", function()
+  map("n", "<C-b>", function()
       require("lspsaga.action").smart_scroll_with_saga(-1)
   end, { silent = true })
 end
