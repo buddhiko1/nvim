@@ -62,7 +62,7 @@ local plugins = {
     end,
   },
 
-  ["Pocco81/auto-save.nvim"] = {
+  ["nullishamy/autosave.nvim"] = {
     config = function()
       require("plugins.configs.autosave").config()
     end,
@@ -136,15 +136,6 @@ local plugins = {
     after = "nvim-web-devicons",
     config = function()
       require("plugins.configs.lualine").config()
-    end,
-  },
-
-  ["numToStr/FTerm.nvim"] = {
-    setup = function()
-      require("plugins.configs.fterm").setup()
-    end,
-    config = function()
-      require("plugins.configs.fterm").config()
     end,
   },
 

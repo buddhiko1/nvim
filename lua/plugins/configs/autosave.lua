@@ -3,31 +3,35 @@ local load = require("utils").load
 local M = {}
 
 M.config = function()
-  local autosave = load("auto-save")
+  local autosave = load("autosave")
+  local filters = load('autosave.filters')
 
   local options = {
-    enabled = true,
-    execution_message = {
-      message = function()
-        return (" ")
-      end,
-      dim = 0.18, -- dim the color of `message`
-      cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+    events = {
+      register = true, -- Should autosave register its autocommands
+      triggers = { -- The autocommands to register, if enabled
+          'InsertLeave', 'TextChanged'
+        }
     },
-    -- execution_message = "Saved",
-    events = { "InsertLeave", "TextChanged" },
-    conditions = {
-      exists = true,
-      filename_is_not = {},
-      filetype_is_not = {},
-      modifiable = true,
+    debounce = {
+      enabled = true, -- Should debouncing be enabled
+      delay = 1000 -- If enabled, only save the file at most every `delay` ms
     },
-    write_all_buffers = false,
-    on_off_commands = false,
-    clean_command_line_interval = 1000,
-    debounce_delay = 5000,
-    fast_wrap = {},
-    disable_filetype = { "TelescopePrompt", "vim", "terminal" },
+    filters = { -- The filters to apply, see above for all options.
+        filters.writeable,
+        filters.not_empty,
+        filters.modified,
+        filters.filetype("TelescopePrompt"),
+        filters.filetype("vim"),
+    },
+    hooks = {
+        on_enable = nil,  -- Called when the plugin is enabled for the first time.
+        pre_write = nil,  -- Called before the write sequence begins. (This happens before filter checks)
+        post_write = function()
+          vim.cmd("echo '  '")
+          vim.defer_fn(function() vim.cmd('echo ""') end, 700)
+        end
+    }
   }
 
   autosave.setup(options)

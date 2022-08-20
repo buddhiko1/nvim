@@ -4,7 +4,19 @@ local map = require("utils").map
 
 local M = {}
 
+local _config_diagnostic_ui = function()
+  local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+  for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  end
+end
+
 M.setup = function ()
+  -- terminal
+  map("n", "<leader>v", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+  map("t", "<leader>v", "<C-\\><C-n><cmd>Lspsaga close_floaterm<CR>", { silent = true })
+
   -- action
   map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>", { silent = true })
   map("v", "<leader>saa", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
@@ -108,6 +120,7 @@ M.config = function()
   }
 
   saga.init_lsp_saga(options)
+  _config_diagnostic_ui()
 end
 
 return M
