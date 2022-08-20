@@ -48,6 +48,7 @@ M.config = function()
       end, {
         "i",
         "s",
+        "c"
       }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
@@ -60,6 +61,7 @@ M.config = function()
       end, {
         "i",
         "s",
+        "c"
       }),
     },
     sources = {
