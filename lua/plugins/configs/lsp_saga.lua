@@ -35,6 +35,9 @@ end
 
 M.setup = function()
   -- action
+  map("n", "<Space>f", function()
+    vim.lsp.buf.formatting()
+  end, { silent = true })
   map("n", "<leader>ss", _toggle_virtual_text, { silent = true })
   map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>", { silent = true })
   map("v", "<leader>saa", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
