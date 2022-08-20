@@ -26,9 +26,7 @@ M.config = function()
     },
     hooks = {
       on_enable = nil, -- Called when the plugin is enabled for the first time.
-      pre_write = function()
-        -- vim.lsp.buf.formatting()
-      end, -- Called before the write sequence begins. (This happens before filter checks)
+      pre_write = nil,
       post_write = function()
         vim.cmd("echo '  '")
         vim.defer_fn(function() vim.cmd('echo ""') end, 700)

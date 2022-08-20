@@ -74,10 +74,10 @@ M.config = function()
   cmp.setup(options)
 
   cmp.setup.cmdline(':', {
-      sources = {
-        { name = 'cmdline' },
-      },
-    })
+    sources = {
+      { name = 'cmdline' },
+    },
+  })
   cmp.setup.cmdline('/', {
     sources = {
       { name = 'buffer' },

@@ -16,7 +16,10 @@ M.config = function()
   for _, lsp in pairs(servers) do
     lspconfig[lsp].setup {
       capabilities = capabilities, -- advertise nvim-cmp to lsp
-      -- on_attach = function() end,
+      on_attach = function(client, buffer)
+        -- auto format
+        vim.lsp.buf.formatting()
+      end,
       flags = {
         debounce_text_changes = debounce
       },
