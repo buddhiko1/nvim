@@ -36,7 +36,10 @@ M.config = function()
         },
         n = {
           [";f"] = "close",
-          ["q"] = "close"
+          ["q"] = "close",
+          ["h"] = "which_key",
+          ["t"] = "file_tab",
+          ["v"] = "file_vsplit"
         },
       },
 
