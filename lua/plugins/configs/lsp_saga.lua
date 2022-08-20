@@ -12,6 +12,12 @@ local _config_diagnostic_ui = function()
   end
 end
 
+local _disable_virtual_text = function()
+  vim.diagnostic.config({
+    virtual_text = false,
+  })
+end
+
 M.setup = function()
   -- action
   map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>", { silent = true })
@@ -117,6 +123,7 @@ M.config = function()
 
   saga.init_lsp_saga(options)
   _config_diagnostic_ui()
+  _disable_virtual_text()
 end
 
 return M
