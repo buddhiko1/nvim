@@ -1,9 +1,6 @@
 local load = require("utils").load
 local map = require("utils").map
 
-local _SHOW = "show"
-local _HIDDEN = "hidden"
-
 local _show_render = function(f)
   f.make_tabs(function(info)
     local icon_color = f.icon_color(info.filename)
@@ -41,7 +38,7 @@ local _show = function()
     -- hl_sel = { fg = palette.fg1, bg = palette.green.bright },
     -- hl_fill = { fg = palette.fg0, bg = palette.bg0 }
   }
-  vim.fn.setenv("CUSTOME_TABLE_STATUS", _SHOW)
+  vim.g.show_tabline = true
 end
 
 local _hide = function()
@@ -51,13 +48,11 @@ local _hide = function()
     render = _hidden_render,
     hl_fill = { fg = palette.fg1, bg = palette.bg1 }
   }
-  vim.fn.setenv("CUSTOME_TABLE_STATUS", _HIDDEN)
-
+  vim.g.show_tabline = false
 end
 
 local _toggle = function()
-  local status = vim.fn.getenv("CUSTOME_TABLE_STATUS")
-  if status == _SHOW then
+  if vim.g.show_tabline then
     _hide()
   else
     _show()
@@ -79,8 +74,7 @@ M.config = function()
 end
 
 M.reload = function()
-  local status = vim.fn.getenv("CUSTOME_TABLE_STATUS")
-  if status == _SHOW then
+  if vim.g.show_tabline then
     _show()
   else
     _hide()

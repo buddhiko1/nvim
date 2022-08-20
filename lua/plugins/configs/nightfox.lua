@@ -6,12 +6,12 @@ local is_windows = require("utils").is_windows
 local M = {}
 
 local _switch_theme = function(theme)
-  -- must switch alacritty theme frist for fixing fullscreen bug on windows 
+  -- must switch alacritty theme frist for fixing fullscreen bug on windows
   if is_windows() then
     switch_alacritty_theme(theme)
   end
 
-  vim.cmd("colorscheme "..theme)
+  vim.cmd("colorscheme " .. theme)
 
   -- switch cursor theme
   if theme == "duskfox" then
