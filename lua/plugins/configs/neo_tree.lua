@@ -21,7 +21,7 @@ local options = {
     indent = {
       indent_size = 2,
       padding = 1, -- padding on left hand side
-      -- indent style 
+      -- indent style
       with_markers = true,
       indent_marker = "│",
       last_indent_marker = "└",
@@ -154,13 +154,13 @@ local options = {
     window = {
       position = "right",
       mappings = {
-        ["gu"]  = "git_unstage_file",
-        ["gf"]  = "git_add_file",
+        ["gu"] = "git_unstage_file",
+        ["gf"] = "git_add_file",
         ["ga"] = "git_add_all",
-        ["gr"]  = "git_revert_file",
-        ["gc"]  = "git_commit",
-        ["gp"]  = "git_push",
-        ["gg"]  = "git_commit_and_push",
+        ["gr"] = "git_revert_file",
+        ["gc"] = "git_commit",
+        ["gp"] = "git_push",
+        ["gg"] = "git_commit_and_push",
       }
     }
   }

@@ -10,27 +10,29 @@ M.config = function()
     events = {
       register = true, -- Should autosave register its autocommands
       triggers = { -- The autocommands to register, if enabled
-          'InsertLeave', 'TextChanged'
-        }
+        'InsertLeave', 'TextChanged'
+      }
     },
     debounce = {
       enabled = true, -- Should debouncing be enabled
       delay = 1000 -- If enabled, only save the file at most every `delay` ms
     },
     filters = { -- The filters to apply, see above for all options.
-        filters.writeable,
-        filters.not_empty,
-        filters.modified,
-        filters.filetype("TelescopePrompt"),
-        filters.filetype("vim"),
+      filters.writeable,
+      filters.not_empty,
+      filters.modified,
+      filters.filetype("TelescopePrompt"),
+      filters.filetype("vim"),
     },
     hooks = {
-        on_enable = nil,  -- Called when the plugin is enabled for the first time.
-        pre_write = nil,  -- Called before the write sequence begins. (This happens before filter checks)
-        post_write = function()
-          vim.cmd("echo '  '")
-          vim.defer_fn(function() vim.cmd('echo ""') end, 700)
-        end
+      on_enable = nil, -- Called when the plugin is enabled for the first time.
+      pre_write = function()
+        -- vim.lsp.buf.formatting()
+      end, -- Called before the write sequence begins. (This happens before filter checks)
+      post_write = function()
+        vim.cmd("echo '  '")
+        vim.defer_fn(function() vim.cmd('echo ""') end, 700)
+      end
     }
   }
 

@@ -38,7 +38,7 @@ map({ "n", "x", "o" }, "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { ex
 map("i", "<C-p>", [[<ESC>"+pa]])
 map("n", "yy", [["+yy]])
 map({ "n", "v" }, "y", [["+y]])
-map({ "n", "v"}, "d", [["+d]])
+map({ "n", "v" }, "d", [["+d]])
 map("n", "dd", [["+dd]])
 map("n", "p", [["+p]])
 

@@ -35,6 +35,14 @@ autocmd("TextYankPost", {
   end,
 })
 
+
+autocmd("TabLeave", {
+  callback = function()
+    vim.lsp.buf.formatting()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 2500 }
+  end,
+})
+
 -- Uncomment this if you want to open nvim with a dir
 -- autocmd("BufEnter", {
 --    callback = function()

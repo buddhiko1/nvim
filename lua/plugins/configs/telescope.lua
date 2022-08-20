@@ -76,7 +76,7 @@ M.config = function()
       },
       selection_strategy = "reset",
       sorting_strategy = "ascending",
-      file_ignore_patterns = { "node_modules", ".git"},
+      file_ignore_patterns = { "node_modules", ".git" },
     },
     -- extensions = {"projects"}
   }

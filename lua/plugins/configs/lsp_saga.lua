@@ -12,7 +12,7 @@ local _config_diagnostic_ui = function()
   end
 end
 
-M.setup = function ()
+M.setup = function()
   -- action
   map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>", { silent = true })
   map("v", "<leader>saa", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
@@ -34,14 +34,14 @@ M.setup = function ()
   -- viewer
   map("n", "<leader>sd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
   map("n", "<leader>sf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-  map("n","<leader>so", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+  map("n", "<leader>so", "<cmd>LSoutlineToggle<CR>", { silent = true })
   map("n", "<leader>sv", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
   map("n", "<leader>sh", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
   map("n", "<C-f>", function()
-      require("lspsaga.action").smart_scroll_with_saga(1)
+    require("lspsaga.action").smart_scroll_with_saga(1)
   end, { silent = true })
   map("n", "<C-b>", function()
-      require("lspsaga.action").smart_scroll_with_saga(-1)
+    require("lspsaga.action").smart_scroll_with_saga(-1)
   end, { silent = true })
 end
 
@@ -54,11 +54,11 @@ M.config = function()
     saga_winblend = 0, -- Values between 0-30 are typically most useful.
     diagnostic_source_bracket = {}, -- add bracket or something with diagnostic source, just have 2 elements
     symbol_in_winbar = { -- show symbols in winbar must nightly
-        in_custom = false,
-        enable = false,
-        separator = ' ',
-        show_file = true,
-        click_support = false,
+      in_custom = false,
+      enable = false,
+      separator = ' ',
+      show_file = true,
+      click_support = false,
     },
     show_outline = {
       win_position = 'right',
@@ -80,7 +80,7 @@ M.config = function()
       virtual_text = true,
     },
 
-    -- icons 
+    -- icons
     diagnostic_header = { " ", " ", " ", " " },
     code_action_icon = "💡",
     definition_preview_icon = "  ",
@@ -90,18 +90,18 @@ M.config = function()
       link = '  ',
     },
 
-    -- key 
-    move_in_saga = { prev = '<C-p>',next = '<C-n>'}, -- when cursor in saga window you config these to move
+    -- key
+    move_in_saga = { prev = '<C-p>', next = '<C-n>' }, -- when cursor in saga window you config these to move
     finder_action_keys = {
-        open = "o",
-        vsplit = "v",
-        split = "vv",
-        tabe = "t",
-        quit = "q",
+      open = "o",
+      vsplit = "v",
+      split = "vv",
+      tabe = "t",
+      quit = "q",
     },
     code_action_keys = {
-        quit = "q",
-        exec = "<CR>",
+      quit = "q",
+      exec = "<CR>",
     },
     rename_action_quit = ";;",
 

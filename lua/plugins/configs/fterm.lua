@@ -27,8 +27,8 @@ M.config = function()
     ft = 'gitui', -- file type
     cmd = "gitui",
     dimensions = {
-        height = 0.9,
-        width = 0.9
+      height = 0.9,
+      width = 0.9
     }
   })
   map('n', '<leader>cc', function()
