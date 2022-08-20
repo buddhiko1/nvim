@@ -139,6 +139,14 @@ local plugins = {
     end,
   },
 
+  ["numToStr/FTerm.nvim"] = {
+    setup = function()
+      require("plugins.configs.fterm").setup()
+    end,
+    config = function()
+      require("plugins.configs.fterm").config()
+    end,
+  },
 
   -- debug
   -- ["mfussenegger/nvim-dap"] = {

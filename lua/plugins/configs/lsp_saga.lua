@@ -13,10 +13,6 @@ local _config_diagnostic_ui = function()
 end
 
 M.setup = function ()
-  -- terminal
-  map("n", "<leader>v", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
-  map("t", "<leader>v", "<C-\\><C-n><cmd>Lspsaga close_floaterm<CR>", { silent = true })
-
   -- action
   map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>", { silent = true })
   map("v", "<leader>saa", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })

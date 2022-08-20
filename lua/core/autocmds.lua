@@ -5,7 +5,7 @@ autocmd({ "VimEnter" }, {
   callback = function()
     -- hide status bar
     vim.cmd("command! -nargs=1 -complete=help H tab help <args>") -- abbr
-   
+
     -- fix fullscreen bug of alacritty
     local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
     vim.defer_fn(function()
@@ -14,22 +14,19 @@ autocmd({ "VimEnter" }, {
   end
 })
 
--- hide command after a while
+-- clear command after a while
 autocmd("CmdlineLeave", {
   callback = function()
     vim.defer_fn(function() vim.cmd('echo ""') end, 6000)
   end,
 })
 
--- -- Open a file from its last left off position
--- autocmd("BufAdd", {
---   callback = function()
---     if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
---       vim.cmd "normal! g'\""
---       vim.cmd "normal zz"
---     end
---   end,
--- })
+-- clear commandline message
+autocmd("CursorHold", {
+  callback = function()
+    vim.cmd("echo ''")
+  end,
+})
 
 -- Highlight yanked text
 autocmd("TextYankPost", {
