@@ -26,10 +26,12 @@ M.config = function()
     },
     hooks = {
       on_enable = nil, -- Called when the plugin is enabled for the first time.
-      pre_write = nil,
+      pre_write = function()
+        vim.lsp.buf.formatting()
+      end,
       post_write = function()
         vim.cmd("echo '  '")
-        vim.defer_fn(function() vim.cmd('echo ""') end, 700)
+        vim.defer_fn(function() vim.cmd('echo ""') end, 1000)
       end
     }
   }
