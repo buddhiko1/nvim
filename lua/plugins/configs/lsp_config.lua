@@ -7,11 +7,11 @@ M.config = function()
   local lspconfig = load("lspconfig")
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
   local debounce = 150
-  local servers = { 'cssls', 'html', 'tsserver', 'graphql', 'jsonls', 'sqlls', 'sumneko_lua', 'dockerls', 'yamlls',
-    'marksman' }
+  local servers = { "cssls", "html", "tsserver", "graphql", "jsonls", "sqlls", "sumneko_lua", "dockerls", "yamlls",
+    "marksman", "jsonls" }
 
   for _, lsp in pairs(servers) do
     lspconfig[lsp].setup {

@@ -149,11 +149,12 @@ local plugins = {
   },
 
   -- debug
-  -- ["mfussenegger/nvim-dap"] = {
-  --   config = function()
-  --     require("plugins.configs.nvim_dap").config()
-  --   end,
-  -- },
+  ["mfussenegger/nvim-dap"] = {
+    setup = function()
+      require("plugins.configs.nvim_dap").setup()
+      require("plugins.configs.nvim_dap").config()
+    end
+  },
 
 
   -- lsp
