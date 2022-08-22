@@ -152,6 +152,8 @@ local plugins = {
   ["mfussenegger/nvim-dap"] = {
     setup = function()
       require("plugins.configs.nvim_dap").setup()
+    end,
+    config = function()
       require("plugins.configs.nvim_dap").config()
     end
   },
