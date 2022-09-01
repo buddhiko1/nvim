@@ -67,7 +67,7 @@ local options = {
         button("LD f", "  Recent File  "),
         button("LD b", "  Browser File "),
         button("LD g", "  Live Grep  "),
-        button("LD e", "  Exit  "),
+        button("LD q", "  Quit  "),
       },
       opts = {
         spacing = 1,
