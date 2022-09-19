@@ -25,7 +25,7 @@ M.config = function()
 
   local gitui = fterm:new({
     ft = 'gitui', -- file type
-    cmd = "gitui",
+    cmd = "/usr/bin/ssh-add 2>> /dev/null && gitui",
     dimensions = {
       height = 0.9,
       width = 0.9
