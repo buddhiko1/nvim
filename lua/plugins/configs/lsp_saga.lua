@@ -108,7 +108,6 @@ M.config = function()
     -- icons
     diagnostic_header = { " ", " ", " ", " " },
     code_action_icon = "💡",
-    definition_preview_icon = "  ",
     finder_icons = {
       def = '  ',
       ref = '諭 ',
