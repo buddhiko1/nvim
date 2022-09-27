@@ -7,6 +7,7 @@ local M = {}
 M.setup = function()
   map('n', '<leader>v', '<CMD>lua require("FTerm").toggle()<CR>')
   map('t', '<leader>v', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+  map('t', '<leader>q', '<C-\\><C-n><CMD>lua require("FTerm").exit()<CR>')
 end
 
 M.config = function()
