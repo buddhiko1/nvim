@@ -31,13 +31,14 @@ M.is_file_exists = function(name)
 end
 
 M.switch_alacritty_theme = function(theme)
-  local alacritty_path = "C:/Users/adhip/AppData/Roaming/alacritty/"
+  local alacritty_path = M.is_windows() and "C:/Users/adhip/AppData/Roaming/alacritty/" or "~/.config/alacritty/"
   local config_path = alacritty_path .. "alacritty.yml"
   local themes_path = alacritty_path .. "themes"
   local backup_path = alacritty_path .. "alacritty.backup.yml"
-  local theme_file = theme .. "yml"
-  local command = "silent !alacritty-theme-switch.cmd -c " ..
-      config_path .. " -t " .. themes_path .. " -b " .. backup_path .. " -s " .. theme_file
+  local theme_file = theme .. ".yml"
+  local options = " -c " .. config_path .. " -t " .. themes_path .. " -b " .. backup_path .. " -s " .. theme_file
+  local command = M.is_windows() and "silent !alacritty-theme-switch.cmd" or "silent !alacritty-theme-switch"
+  command = command .. options
   vim.cmd(command)
 end
 

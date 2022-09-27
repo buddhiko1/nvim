@@ -35,7 +35,7 @@ end
 
 M.setup = function()
   -- action
-  map("n", "<Space>f", function()
+  map("n", "<leader>fm", function()
     vim.lsp.buf.formatting()
   end, { silent = true })
   map("n", "<leader>ss", _toggle_virtual_text, { silent = true })
@@ -77,7 +77,6 @@ M.config = function()
     -- ui
     border_style = "rounded",
     saga_winblend = 0, -- Values between 0-30 are typically most useful.
-    diagnostic_source_bracket = {}, -- add bracket or something with diagnostic source, just have 2 elements
     symbol_in_winbar = { -- show symbols in winbar must nightly
       in_custom = false,
       enable = false,
@@ -131,7 +130,6 @@ M.config = function()
 
     -- property
     rename_in_select = true,
-    show_diagnostic_source = true,
     max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
     code_action_num_shortcut = true, -- if true can press number to execute the codeaction in codeaction window
     finder_request_timeout = 1500,

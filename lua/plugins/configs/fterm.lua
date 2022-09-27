@@ -31,8 +31,19 @@ M.config = function()
       width = 0.9
     }
   })
+  local ng = fterm:new({
+    ft = 'ng', -- file type
+    cmd = "ns",
+    dimensions = {
+      height = 1.0,
+      width = 1.0
+    }
+  })
   map('n', '<leader>cc', function()
     gitui:toggle()
+  end)
+  map('n', '<f5>', function()
+    ng:toggle()
   end)
 end
 

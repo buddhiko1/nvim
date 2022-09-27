@@ -1,15 +1,12 @@
 local load = require("utils").load
 local map = require("utils").map
 local switch_alacritty_theme = require("utils").switch_alacritty_theme
-local is_windows = require("utils").is_windows
 
 local M = {}
 
 local _switch_theme = function(theme)
-  -- must switch alacritty theme frist for fixing fullscreen bug on windows
-  if is_windows() then
-    switch_alacritty_theme(theme)
-  end
+  -- must switch alacritty theme frist for fixing screen bug
+  switch_alacritty_theme(theme)
 
   vim.cmd("colorscheme " .. theme)
 
