@@ -91,7 +91,8 @@ local options = {
       ["s"] = "open_split",
       ["v"] = "open_vsplit",
       ["t"] = "open_tabnew",
-      ["w"] = "open_with_window_picker",
+      ["o"] = "open_with_window_picker",
+      ["w"] = "none", -- remove mapping
       ["C"] = "close_node",
       ["a"] = {
         "add",

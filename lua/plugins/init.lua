@@ -117,8 +117,11 @@ local plugins = {
 
   -- for switch neo-tree window
   ["s1n7ax/nvim-window-picker"] = {
+    setup = function()
+      require("plugins.configs.window_picker").setup()
+    end,
     config = function()
-      require("window-picker").setup()
+      require("plugins.configs.window_picker").config()
     end,
   },
 
@@ -224,6 +227,16 @@ local plugins = {
   ["hrsh7th/cmp-path"] = {},
 
   ["hrsh7th/cmp-cmdline"] = {},
+
+  -- tagbar, must install ctags-git first.
+  ["preservim/tagbar"] = {
+    setup = function()
+      require("plugins.configs.ctags").setup()
+    end,
+    config = function()
+      require("plugins.configs.ctags").config()
+    end,
+  }
 }
 
 local to_list = function(pluginMap)
