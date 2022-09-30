@@ -91,7 +91,6 @@ local options = {
       ["s"] = "open_split",
       ["v"] = "open_vsplit",
       ["t"] = "open_tabnew",
-      ["o"] = "none",
       ["w"] = "none", -- remove mapping
       ["C"] = "close_node",
       ["a"] = {

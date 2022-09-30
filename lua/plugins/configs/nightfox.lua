@@ -64,8 +64,8 @@ M.config = function()
   nightfox.setup(options)
 
   -- init theme
-  -- _switch_theme("duskfox")
-  _switch_theme("dawnfox")
+  _switch_theme("duskfox")
+  -- _switch_theme("dawnfox")
 end
 
 return M
