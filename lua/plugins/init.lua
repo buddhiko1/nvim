@@ -1,15 +1,20 @@
 local plugins = {
   -- package
-  ["nvim-lua/plenary.nvim"] = {},
-
   ["wbthomason/packer.nvim"] = {
+    requires = { "nvim-lua/plenary.nvim", "lewis6991/impatient.nvim" },
     event = "VimEnter"
   },
 
-  ["lewis6991/impatient.nvim"] = {},
+  ["kyazdani42/nvim-web-devicons"] = {
+    event = "VimEnter",
+    config = function()
+      require("plugins.configs.icons").config()
+    end,
+  },
 
-  -- ui
+  -- theme
   ["EdenEast/nightfox.nvim"] = {
+    event = "VimEnter",
     setup = function()
       require("plugins.configs.nightfox").setup()
     end,
@@ -17,14 +22,6 @@ local plugins = {
       require("plugins.configs.nightfox").config()
     end
   },
-
-  ["kyazdani42/nvim-web-devicons"] = {
-    after = "nightfox.nvim",
-    config = function()
-      require("plugins.configs.icons").config()
-    end,
-  },
-
 
   -- coding
   ["norcalli/nvim-colorizer.lua"] = {
@@ -55,10 +52,24 @@ local plugins = {
     end,
   },
 
+  ["windwp/nvim-ts-autotag"] = {
+    config = function()
+      require("plugins.configs.autotag").config()
+    end
+  },
+
   ["windwp/nvim-autopairs"] = {
-    after = "nvim-cmp",
     config = function()
       require("plugins.configs.autopairs").config()
+    end,
+  },
+
+  ["nvim-treesitter/nvim-treesitter"] = {
+    after = { "nvim-ts-autotag", "nvim-autopairs" },
+    event = { "BufRead", "BufNewFile" },
+    run = ":TSUpdate",
+    config = function()
+      require("plugins.configs.treesitter").config()
     end,
   },
 
@@ -77,29 +88,20 @@ local plugins = {
   ["ggandor/lightspeed.nvim"] = {},
 
   -- components
-  ["nvim-telescope/telescope.nvim"] = {
-    setup = function()
-      require("plugins.configs.telescope").setup()
-    end,
-    config = function()
-      require("plugins.configs.telescope").config()
-    end,
-  },
-
   ["ahmedkhalf/project.nvim"] = {
-    after = 'telescope.nvim',
+    event = "VimEnter",
     config = function()
       require("plugins.configs.project").config()
     end,
   },
 
-  ["goolord/alpha-nvim"] = {
-    after = 'tabline-framework.nvim',
+  ["nvim-telescope/telescope.nvim"] = {
+    after = "project",
     setup = function()
-      require("plugins.configs.alpha").setup()
+      require("plugins.configs.telescope").setup()
     end,
     config = function()
-      require("plugins.configs.alpha").config()
+      require("plugins.configs.telescope").config()
     end,
   },
 
@@ -113,15 +115,13 @@ local plugins = {
     end,
   },
 
-  ["MunifTanjim/nui.nvim"] = {},
-
-  ["nvim-neo-tree/neo-tree.nvim"] = {
-    after = "nui.nvim",
+  ["goolord/alpha-nvim"] = {
+    after = 'tabline-framework.nvim',
     setup = function()
-      require("plugins.configs.neo_tree").setup()
+      require("plugins.configs.alpha").setup()
     end,
     config = function()
-      require("plugins.configs.neo_tree").config()
+      require("plugins.configs.alpha").config()
     end,
   },
 
@@ -129,6 +129,16 @@ local plugins = {
     after = "nvim-web-devicons",
     config = function()
       require("plugins.configs.lualine").config()
+    end,
+  },
+
+  ["nvim-neo-tree/neo-tree.nvim"] = {
+    requires = "MunifTanjim/nui.nvim",
+    setup = function()
+      require("plugins.configs.neo_tree").setup()
+    end,
+    config = function()
+      require("plugins.configs.neo_tree").config()
     end,
   },
 
@@ -151,19 +161,9 @@ local plugins = {
     end
   },
 
-
   -- lsp
-  ["nvim-treesitter/nvim-treesitter"] = {
-    event = { "BufRead", "BufNewFile" },
-    run = ":TSUpdate",
-    config = function()
-      require("plugins.configs.treesitter").config()
-    end,
-  },
-
-  ["williamboman/nvim-lsp-installer"] = {},
-
   ["neovim/nvim-lspconfig"] = {
+    requires = "williamboman/nvim-lsp-installer",
     config = function()
       require("plugins.configs.lsp_installer").config()
       require("plugins.configs.lsp_config").config()
@@ -187,14 +187,7 @@ local plugins = {
   },
 
   -- complements
-  ["hrsh7th/nvim-cmp"] = {
-    config = function()
-      require("plugins.configs.cmp").config()
-    end,
-  },
-
   ["L3MON4D3/LuaSnip"] = {
-    after = "nvim-cmp",
     config = function()
       require("plugins.configs.luasnip").config()
     end,
@@ -204,19 +197,23 @@ local plugins = {
     after = "LuaSnip",
   },
 
-  ["hrsh7th/cmp-nvim-lua"] = {
-    after = "cmp_luasnip",
-  },
+  ["hrsh7th/cmp-nvim-lua"] = {},
 
-  ["hrsh7th/cmp-nvim-lsp"] = {
-    after = "cmp-nvim-lua",
-  },
+  ["hrsh7th/cmp-nvim-lsp"] = {},
 
   ["hrsh7th/cmp-buffer"] = {},
 
   ["hrsh7th/cmp-path"] = {},
 
   ["hrsh7th/cmp-cmdline"] = {},
+
+  ["hrsh7th/nvim-cmp"] = {
+    after = { "cmp-nvim-lsp", "cmp-buffer", "cmp-path", "cmp-cmdline", "cmp-nvim-lua", "cmp_luasnip" },
+    config = function()
+      require("plugins.configs.cmp").config()
+    end,
+  },
+
 
   -- tagbar, must install ctags-git first.
   ["preservim/tagbar"] = {
