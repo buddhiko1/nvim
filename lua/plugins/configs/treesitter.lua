@@ -40,10 +40,10 @@ M.config = function()
       enable = true,
     },
     -- config for 'nvim-ts-autotag' plugin
-    autotag = {
-      enable = true,
-      filetypes = { "html", "xml" },
-    }
+    -- autotag = {
+    --   enable = true,
+    --   filetypes = { "html", "xml" },
+    -- }
   }
 
   treesitter.setup(options)

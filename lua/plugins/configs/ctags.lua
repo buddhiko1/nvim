@@ -3,7 +3,7 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>a", "<cmd> :TagbarToggle<CR>")
+  map("n", "<leader>a", "<cmd> :TagbarToggle <CR>")
 end
 
 M.config = function()

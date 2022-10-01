@@ -173,7 +173,12 @@ local plugins = {
     after = "LuaSnip",
   },
 
-  --["windwp/nvim-ts-autotag"] = {},
+  ["windwp/nvim-ts-autotag"] = {
+    event = { "BufRead" },
+    setup = function()
+      require("plugins.configs.autotag").config()
+    end,
+  },
 
   ["windwp/nvim-autopairs"] = {
     after = "nvim-cmp",
