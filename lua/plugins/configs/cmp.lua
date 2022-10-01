@@ -4,6 +4,7 @@ local M = {}
 
 M.config = function()
   local cmp = load("cmp")
+  local luasnip = load("luasnip")
 
   local options = {
     window = {
@@ -16,7 +17,7 @@ M.config = function()
     },
     snippet = {
       expand = function(args)
-        require("luasnip").lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     formatting = {
@@ -40,7 +41,7 @@ M.config = function()
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif require("luasnip").expand_or_jumpable() then
+        elseif luasnip.expand_or_jumpable() then
           vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
         else
           fallback()
@@ -53,7 +54,7 @@ M.config = function()
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif require("luasnip").jumpable(-1) then
+        elseif luasnip.jumpable(-1) then
           vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
         else
           fallback()

@@ -6,7 +6,6 @@ local plugins = {
   },
 
   ["kyazdani42/nvim-web-devicons"] = {
-    event = "VimEnter",
     config = function()
       require("plugins.configs.icons").config()
     end,
@@ -14,7 +13,6 @@ local plugins = {
 
   -- theme
   ["EdenEast/nightfox.nvim"] = {
-    event = "VimEnter",
     setup = function()
       require("plugins.configs.nightfox").setup()
     end,
@@ -52,20 +50,7 @@ local plugins = {
     end,
   },
 
-  ["windwp/nvim-ts-autotag"] = {
-    config = function()
-      require("plugins.configs.autotag").config()
-    end
-  },
-
-  ["windwp/nvim-autopairs"] = {
-    config = function()
-      require("plugins.configs.autopairs").config()
-    end,
-  },
-
   ["nvim-treesitter/nvim-treesitter"] = {
-    after = { "nvim-ts-autotag", "nvim-autopairs" },
     event = { "BufRead", "BufNewFile" },
     run = ":TSUpdate",
     config = function()
@@ -89,14 +74,12 @@ local plugins = {
 
   -- components
   ["ahmedkhalf/project.nvim"] = {
-    event = "VimEnter",
     config = function()
       require("plugins.configs.project").config()
     end,
   },
 
   ["nvim-telescope/telescope.nvim"] = {
-    after = "project",
     setup = function()
       require("plugins.configs.telescope").setup()
     end,
@@ -142,6 +125,16 @@ local plugins = {
     end,
   },
 
+  ["preservim/tagbar"] = {
+    -- tagbar, must install ctags-git first.
+    setup = function()
+      require("plugins.configs.ctags").setup()
+    end,
+    config = function()
+      require("plugins.configs.ctags").config()
+    end,
+  },
+
   ["numToStr/FTerm.nvim"] = {
     setup = function()
       require("plugins.configs.fterm").setup()
@@ -161,9 +154,58 @@ local plugins = {
     end
   },
 
+  -- complements
+  ["L3MON4D3/LuaSnip"] = {
+    config = function()
+      require("plugins.configs.luasnip").config()
+    end,
+  },
+
+  ["hrsh7th/nvim-cmp"] = {
+    after = "LuaSnip",
+    config = function()
+      require("plugins.configs.cmp").config()
+    end,
+  },
+
+
+  ["saadparwaiz1/cmp_luasnip"] = {
+    after = "LuaSnip",
+  },
+
+  --["windwp/nvim-ts-autotag"] = {},
+
+  ["windwp/nvim-autopairs"] = {
+    after = "nvim-cmp",
+    config = function()
+      require("plugins.configs.autopairs").config()
+    end,
+  },
+
+  ["hrsh7th/cmp-nvim-lua"] = {
+    after = "nvim-cmp",
+  },
+
+  ["hrsh7th/cmp-nvim-lsp"] = {
+    after = "nvim-cmp",
+  },
+
+  ["hrsh7th/cmp-buffer"] = {
+    after = "nvim-cmp",
+  },
+
+  ["hrsh7th/cmp-path"] = {
+    after = "nvim-cmp",
+  },
+
+  ["hrsh7th/cmp-cmdline"] = {
+    after = "nvim-cmp",
+  },
+
   -- lsp
   ["neovim/nvim-lspconfig"] = {
     requires = "williamboman/nvim-lsp-installer",
+    after = { "nvim-lsp-installer", "cmp-nvim-lsp" },
     config = function()
       require("plugins.configs.lsp_installer").config()
       require("plugins.configs.lsp_config").config()
@@ -185,45 +227,6 @@ local plugins = {
       require("plugins.configs.lsp_saga").config()
     end,
   },
-
-  -- complements
-  ["L3MON4D3/LuaSnip"] = {
-    config = function()
-      require("plugins.configs.luasnip").config()
-    end,
-  },
-
-  ["saadparwaiz1/cmp_luasnip"] = {
-    after = "LuaSnip",
-  },
-
-  ["hrsh7th/cmp-nvim-lua"] = {},
-
-  ["hrsh7th/cmp-nvim-lsp"] = {},
-
-  ["hrsh7th/cmp-buffer"] = {},
-
-  ["hrsh7th/cmp-path"] = {},
-
-  ["hrsh7th/cmp-cmdline"] = {},
-
-  ["hrsh7th/nvim-cmp"] = {
-    after = { "cmp-nvim-lsp", "cmp-buffer", "cmp-path", "cmp-cmdline", "cmp-nvim-lua", "cmp_luasnip" },
-    config = function()
-      require("plugins.configs.cmp").config()
-    end,
-  },
-
-
-  -- tagbar, must install ctags-git first.
-  ["preservim/tagbar"] = {
-    setup = function()
-      require("plugins.configs.ctags").setup()
-    end,
-    config = function()
-      require("plugins.configs.ctags").config()
-    end,
-  }
 }
 
 local to_list = function(pluginMap)
