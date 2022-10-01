@@ -81,7 +81,6 @@ M.config = function()
       sorting_strategy = "ascending",
       file_ignore_patterns = { "node_modules", ".git" },
     },
-    -- extensions = {"projects"}
   }
 
   telescope.setup(options)

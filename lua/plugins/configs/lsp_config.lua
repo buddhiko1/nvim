@@ -11,7 +11,7 @@ M.config = function()
 
   local debounce = 150
   local servers = { "cssls", "html", "tsserver", "graphql", "jsonls", "sqlls", "sumneko_lua", "dockerls", "yamlls",
-    "marksman", "jsonls" }
+    "marksman", "jsonls", "angularls" }
 
   for _, lsp in pairs(servers) do
     lspconfig[lsp].setup {
