@@ -168,7 +168,6 @@ local plugins = {
     end,
   },
 
-
   ["saadparwaiz1/cmp_luasnip"] = {
     after = "LuaSnip",
   },

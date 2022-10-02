@@ -15,11 +15,13 @@ M.config = function()
         border = "single",
       },
     },
+
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
       end,
     },
+
     formatting = {
       format = function(_, vim_item)
         local icons = require "plugins.configs.cmp_icons"
@@ -27,22 +29,14 @@ M.config = function()
         return vim_item
       end,
     },
+
     mapping = {
-      ["<C-,>"] = cmp.mapping.complete(),
-      ["<C-.>"] = cmp.mapping.close(),
-      ["<C-k>"] = cmp.mapping.select_prev_item(),
-      ["<C-j>"] = cmp.mapping.select_next_item(),
-      ["<C-h>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-l>"] = cmp.mapping.scroll_docs(4),
-      ["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      },
+      ["<CR>"] = cmp.mapping.confirm { select = true },
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
-          vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+          luasnip.expand_or_jumpable()
         else
           fallback()
         end
@@ -55,7 +49,7 @@ M.config = function()
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
-          vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+          luasnip.jumpable(-1)
         else
           fallback()
         end
@@ -65,6 +59,7 @@ M.config = function()
         "c"
       }),
     },
+
     sources = {
       { name = "nvim_lsp" },
       { name = "path" },
@@ -86,11 +81,6 @@ M.config = function()
       { name = 'buffer' },
     },
   })
-
-  -- disable guihua completion for lsp_navigator
-  if vim.o.ft == 'clap_input' and vim.o.ft == 'guihua' and vim.o.ft == 'guihua_rust' then
-    cmp.setup.buffer { completion = { enable = false } }
-  end
 end
 
 return M

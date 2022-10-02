@@ -10,8 +10,20 @@ M.config = function()
   capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
   local debounce = 150
-  local servers = { "cssls", "html", "tsserver", "graphql", "jsonls", "sqlls", "sumneko_lua", "dockerls", "yamlls",
-    "marksman", "jsonls", "angularls" }
+  local servers = { 
+    "cssls",
+    "html",
+    "tsserver",
+    "graphql",
+    "jsonls",
+    "sqlls",
+    "sumneko_lua",
+    "dockerls",
+    "yamlls",
+    "marksman",
+    "jsonls",
+    "angularls"
+  }
 
   for _, lsp in pairs(servers) do
     lspconfig[lsp].setup {
