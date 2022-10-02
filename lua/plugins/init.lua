@@ -50,6 +50,12 @@ local plugins = {
     end,
   },
 
+  ["kylechui/nvim-surround"] = {
+    config = function()
+      require("plugins.configs.surround").config()
+    end,
+  },
+
   ["nvim-treesitter/nvim-treesitter"] = {
     event = { "BufRead", "BufNewFile" },
     run = ":TSUpdate",
