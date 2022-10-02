@@ -42,13 +42,15 @@ map({ "n", "v" }, "d", [["+d]])
 map("n", "dd", [["+dd]])
 map("n", "p", [["+p]])
 
--- assistant
+-- "u" undo,"." redo
+map({ "n" }, "<leader>z", "<cmd> :u<CR>")
+
+-- other assistant
 map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 map("n", "<leader>q", "<cmd> :wqa!<CR>")
 map({ "n", "v", "i" }, "<leader><leader>", "<ESC>")
 map({ "n", "v", "i" }, "<leader>h", ":vertical help ")
-map({ "n" }, "<leader>z", "<cmd> :u<CR>")
 map({ "n", "v" }, "<leader>x", "<cmd> :q<CR>")
 
 -- packer

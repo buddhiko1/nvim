@@ -8,19 +8,30 @@ M.config = function()
   -- :help nvim-surround
   local options = {
     keymaps = {
+      -- insert
       insert = "<C-s>",
-      insert_line = "<C-s>s",
+      insert_line = "<C-S>",
       normal = "ys",
-      normal_cur = "yS", -- current line
-      normal_line = "yss", -- new line
+      normal_cur = "yss", -- current line
+      normal_line = "yS", -- new line
       visual = "S",
       visual_line = "SS",
+    
+      -- change and delete
       delete = "ds",
       change = "cs",
     },
+    aliases = {
+      ["a"] = ">",
+      ["b"] = ")",
+      ["B"] = "}",
+      ["r"] = "]",
+      ["q"] = { '"', "'", "`" },
+      ["s"] = { "}", "]", ")", ">", '"', "'", "`" },
+    },
+    move_cursor = false
   }
 
   surround.setup(options)
 end
-
 return M
