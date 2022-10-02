@@ -57,7 +57,7 @@ M.setup = function()
   end, { silent = true })
 
   -- viewer
-  map("n", "<leader>sd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+  map("n", "<leader>sd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
   map("n", "<leader>sf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
   map("n", "<leader>so", "<cmd>LSoutlineToggle<CR>", { silent = true })
   map("n", "<leader>sv", "<cmd>Lspsaga hover_doc<CR>", { silent = true })

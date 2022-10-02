@@ -135,6 +135,12 @@ local plugins = {
     end,
   },
 
+  ["dstein64/nvim-scrollview"] = {
+    config = function()
+      require("plugins.configs.scrollbar").config()
+    end,
+  },
+
   ["numToStr/FTerm.nvim"] = {
     setup = function()
       require("plugins.configs.fterm").setup()
