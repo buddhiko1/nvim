@@ -14,7 +14,18 @@ local _switch_alacritty_theme = function(theme)
   vim.cmd(command)
 end
 
-local _highlight_cursor = function (is_day_theme)
+local _get_terminal_theme = function()
+  local file = "/home/shun/.config/alacritty/themes/.selected_theme"
+  local lines = {}
+  for line in io.lines(file) do
+    lines[#lines + 1] = line
+  end
+  local content = lines[1]
+  local theme = string.match(content, '.*themes/(%a+).yml')
+  return theme
+end
+
+local _highlight_cursor = function(is_day_theme)
   if is_day_theme then
     vim.cmd("highlight Cursor guibg=black guifg=white")
     vim.cmd("set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20")
@@ -75,11 +86,8 @@ M.config = function()
   }
 
   nightfox.setup(options)
-
-  -- init theme
-  -- _switch_theme("duskfox")
-  _switch_theme("nightfox")
-  -- _switch_theme("dawnfox")
+  local theme = _get_terminal_theme()
+  _switch_theme(theme)
 end
 
 return M
