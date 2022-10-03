@@ -36,13 +36,12 @@ M.config = function()
           ["<C-K>"] = "preview_scrolling_up",
           ["<C-J>"] = "preview_scrolling_down",
 
-          [";f"] = "close",
+          [";q"] = "close",
         },
         n = {
           ["<C-n>"] = "cycle_history_next",
           ["<C-p>"] = "cycle_history_prev",
 
-          [";f"] = "close",
           ["q"] = "close",
 
           ["h"] = "which_key",
