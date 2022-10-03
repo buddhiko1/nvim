@@ -49,7 +49,7 @@ map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 map("n", "<leader>q", "<cmd> :wqa!<CR>")
 map({ "n", "v", "i" }, "<leader><leader>", "<ESC>")
-map({ "n", "v" }, "<leader>h", ":vertical help ")
+map({ "n", "v" }, "<leader>m", ":vertical help ")
 map({ "n", "v" }, "<leader>x", "<cmd> :q<CR>")
 
 -- remapping

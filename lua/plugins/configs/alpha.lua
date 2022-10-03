@@ -63,10 +63,10 @@ local options = {
     {
       type = "group",
       val = {
-        button("LD fr", "  Recent File  "),
-        button("LD fp", "  Projects  "),
+        button("LD hr", "  Recent File  "),
+        button("LD hp", "  Projects  "),
         button("LD  t", "  Browser File "),
-        button("LD fg", "  Live Grep  "),
+        button("LD hg", "  Live Grep  "),
         button("LD  q", "  Quit  "),
       },
       opts = {
