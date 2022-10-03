@@ -1,7 +1,6 @@
 local map = require("utils").map
 
 -- window
--- map("n", "s", "")
 map("n", "wh", "<C-w>h")
 map("n", "wl", "<C-w>l")
 map("n", "wk", "<C-w>k")
@@ -23,8 +22,8 @@ map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
-map("i", "<C-j>", "<ESC>jli")
-map("i", "<C-k>", "<ESC>kli")
+-- map("i", "<C-j>", "<ESC>jli")
+-- map("i", "<C-k>", "<ESC>kli")
 map("i", "<C-b>", "<ESC>bi")
 map("i", "<C-e>", "<End>")
 map("i", "<C-h>", "<ESC>i")
@@ -50,14 +49,14 @@ map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 map("n", "<leader>q", "<cmd> :wqa!<CR>")
 map({ "n", "v", "i" }, "<leader><leader>", "<ESC>")
-map({ "n", "v", "i" }, "<leader>h", ":vertical help ")
+map({ "n", "v" }, "<leader>h", ":vertical help ")
 map({ "n", "v" }, "<leader>x", "<cmd> :q<CR>")
-
--- packer
-map("n", "<leader>uu", "<cmd> :PackerSync <CR>")
 
 -- remapping
 map("n", "<Esc>", "<cmd> :noh <CR>") -- shut down the search high light
 map("n", "<leader>r", "q") -- recording
 map("n", "<leader>j", "J") -- join
 map("n", "<A-v>", "<C-v>")
+
+-- packer
+map("n", "<leader>p", "<cmd> :PackerSync <CR>")

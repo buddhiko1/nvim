@@ -32,7 +32,7 @@ M.config = function()
       width = 0.9
     }
   })
-  map("n", "<leader>cc", function()
+  map("n", "<leader>u", function()
     gitui:open()
   end)
 

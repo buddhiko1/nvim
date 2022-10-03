@@ -1,5 +1,6 @@
 local load = require("utils").load
 local map = require("utils").map
+-- local print_table = require("utils").print_table
 
 local _show_render = function(f)
   f.make_tabs(function(info)
@@ -8,6 +9,7 @@ local _show_render = function(f)
       f.set_fg(icon_color)
     end
     f.add('  ')
+    -- print_table(info)
     if info.filename then
       f.add(info.filename)
       f.add(' ' .. f.icon(info.filename))
@@ -31,7 +33,7 @@ end
 
 local _show = function()
   local tabline = load("tabline_framework")
-  -- local palette = require("utils").get_palette()
+  -- local palette = require("utils").get_theme_palette()
   tabline.setup {
     render = _show_render,
     -- hl = { fg = palette.fg1, bg = palette.bg1 },
@@ -43,7 +45,7 @@ end
 
 local _hide = function()
   local tabline = load("tabline_framework")
-  local palette = require("utils").get_palette()
+  local palette = require("utils").get_theme_palette()
   tabline.setup {
     render = _hidden_render,
     hl_fill = { fg = palette.fg1, bg = palette.bg1 }

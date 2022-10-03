@@ -63,11 +63,11 @@ local options = {
     {
       type = "group",
       val = {
-        button("LD f", "  Recent File  "),
-        button("LD p", "  Projects  "),
-        button("LD b", "  Browser File "),
-        button("LD g", "  Live Grep  "),
-        button("LD q", "  Quit  "),
+        button("LD fr", "  Recent File  "),
+        button("LD fp", "  Projects  "),
+        button("LD  t", "  Browser File "),
+        button("LD fg", "  Live Grep  "),
+        button("LD  q", "  Quit  "),
       },
       opts = {
         spacing = 1,

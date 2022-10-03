@@ -10,7 +10,7 @@ M.config = function()
   capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
   local debounce = 150
-  local servers = { 
+  local servers = {
     "cssls",
     "html",
     "tsserver",

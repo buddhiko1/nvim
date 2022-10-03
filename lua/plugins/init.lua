@@ -85,7 +85,12 @@ local plugins = {
     end,
   },
 
+  ["nvim-telescope/telescope-fzf-native.nvim"] = { -- to significantly improve telescope sorting performance.
+    run = "make"
+  },
+
   ["nvim-telescope/telescope.nvim"] = {
+    tag = '0.1.0',
     setup = function()
       require("plugins.configs.telescope").setup()
     end,

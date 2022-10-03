@@ -4,8 +4,8 @@ local map = require("utils").map
 local M = {}
 
 M.config = function()
-  map("n", ";l", function()
-    if vim.opt.laststatus['_value'] > 0 then
+  map("n", "<leader>b", function()
+    if vim.opt.laststatus["_value"] > 0 then
       vim.cmd "set laststatus=0"
     else
       vim.cmd "set laststatus=3"
@@ -17,26 +17,26 @@ M.config = function()
   local options = {
     options = {
       icons_enabled = true,
-      theme = 'auto',
-      component_separators = { left = '|', right = '|' },
-      section_separators = { left = '', right = '' },
-      disabled_filetypes = { 'packer' },
+      theme = "auto",
+      component_separators = { left = "|", right = "|" },
+      section_separators = { left = "", right = "" },
+      disabled_filetypes = { "packer", "neo-tree", "tagbar" },
       always_divide_middle = false,
       globalstatus = false,
     },
     sections = {
-      lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics' },
+      lualine_a = { "mode" },
+      lualine_b = { "branch", "diff", "diagnostics" },
       lualine_c = {},
-      lualine_x = { 'encoding' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' }
+      lualine_x = { "encoding" },
+      lualine_y = { "progress" },
+      lualine_z = { "location" }
     },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
       lualine_c = {},
-      lualine_x = { 'location' },
+      lualine_x = { "location" },
       lualine_y = {},
       lualine_z = {}
     },

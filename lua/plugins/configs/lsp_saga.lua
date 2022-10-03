@@ -35,7 +35,7 @@ end
 
 M.setup = function()
   -- action
-  map("n", "<leader>fm", function()
+  map("n", "<leader>sm", function()
     vim.lsp.buf.formatting()
   end, { silent = true })
   map("n", "<leader>st", _toggle_virtual_text, { silent = true })

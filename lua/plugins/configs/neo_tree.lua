@@ -4,9 +4,8 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>n", "<cmd> :NeoTreeRevealToggle <CR>")
-  map("n", "<leader>b", "<cmd> :NeoTreeFloatToggle <CR>")
-  map("n", "<leader>c", "<cmd> :Neotree source=git_status <CR>")
+  map("n", "<leader>l", "<cmd> :NeoTreeRevealToggle <CR>")
+  map("n", "<leader>t", "<cmd> :NeoTreeFloatToggle <CR>")
 end
 
 local options = {

@@ -1,6 +1,6 @@
 local load = require("utils").load
-local map = require("utils").map
 local is_windows = require("utils").is_windows
+local get_terminal_theme = require("utils").get_terminal_theme
 
 local _switch_alacritty_theme = function(theme)
   local alacritty_path = is_windows() and "C:/Users/adhip/AppData/Roaming/alacritty/" or "~/.config/alacritty/"
@@ -12,17 +12,6 @@ local _switch_alacritty_theme = function(theme)
   local command = is_windows() and "silent !alacritty-theme-switch.cmd" or "silent !alacritty-theme-switch"
   command = command .. options
   vim.cmd(command)
-end
-
-local _get_terminal_theme = function()
-  local file = "/home/shun/.config/alacritty/themes/.selected_theme"
-  local lines = {}
-  for line in io.lines(file) do
-    lines[#lines + 1] = line
-  end
-  local content = lines[1]
-  local theme = string.match(content, '.*themes/(%a+).yml')
-  return theme
 end
 
 local _highlight_cursor = function(is_day_theme)
@@ -46,19 +35,6 @@ end
 local M = {}
 
 M.setup = function()
-  -- keymap for toggle theme
-  map("n", "<leader>t", function()
-    local theme = vim.g.colors_name
-    if theme == "dawnfox" then
-      _switch_theme("duskfox")
-    else
-      _switch_theme("dawnfox")
-    end
-    -- sync tabline color
-    require("plugins.configs.tabline").reload()
-    --lualine bug fix
-    vim.cmd("set laststatus=0")
-  end)
 end
 
 M.config = function()
@@ -86,7 +62,7 @@ M.config = function()
   }
 
   nightfox.setup(options)
-  local theme = _get_terminal_theme()
+  local theme = get_terminal_theme()
   _switch_theme(theme)
 end
 

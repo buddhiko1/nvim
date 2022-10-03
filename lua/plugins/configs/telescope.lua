@@ -4,18 +4,22 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>g", "<cmd> :Telescope live_grep <CR>")
-  map("n", "<leader>f", "<cmd> :Telescope oldfiles <CR>")
-  map("n", "<leader>p", "<cmd> :Telescope projects <CR>")
-  map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>")
-  map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>")
+  map("n", "<leader>fp", "<cmd> :Telescope projects <CR>")
   map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
-  map("n", "<leader>fc", "<cmd> :Telescope git_commits <CR>")
-  map("n", "<leader>fs", "<cmd> :Telescope git_status <CR>")
+  map("n", "<leader>fr", "<cmd> :Telescope oldfiles <CR>")
+
+  map("n", "<leader>fg", "<cmd> :Telescope live_grep <CR>")
+
+  map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>")
+  map("n", "<leader>fc", "<cmd> :Telescope commands <CR>")
+  map("n", "<leader>fs", "<cmd> :Telescope search_history <CR>")
+  map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>")
+  map("n", "<leader>fo", "<cmd> :Telescope vim_options <CR>")
 end
 
 M.config = function()
   local telescope = load("telescope")
+  local actions = load("telescope.actions")
   local options = {
     defaults = {
       initial_mode = "normal",
@@ -29,15 +33,20 @@ M.config = function()
           ["<C-n>"] = "cycle_history_next",
           ["<C-p>"] = "cycle_history_prev",
 
-          ["<C-u>"] = "preview_scrolling_up",
-          ["<C-d>"] = "preview_scrolling_down",
+          ["<C-K>"] = "preview_scrolling_up",
+          ["<C-J>"] = "preview_scrolling_down",
 
           [";f"] = "close",
         },
         n = {
+          ["<C-n>"] = "cycle_history_next",
+          ["<C-p>"] = "cycle_history_prev",
+
           [";f"] = "close",
           ["q"] = "close",
+
           ["h"] = "which_key",
+
           ["t"] = "file_tab",
           ["v"] = "file_vsplit"
         },
@@ -80,10 +89,21 @@ M.config = function()
       selection_strategy = "reset",
       sorting_strategy = "ascending",
       file_ignore_patterns = { "node_modules", ".git" },
+
+      -- extensions
+      extensions = {
+        fzf = {
+          fuzzy = true, -- false will only do exact matching
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case", -- or "ignore_case" or "respect_case", the default case_mode is "smart_case".
+        }
+      },
     },
   }
 
   telescope.setup(options)
+  telescope.load_extension('fzf')
   telescope.load_extension("projects")
 end
 

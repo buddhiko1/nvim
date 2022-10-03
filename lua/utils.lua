@@ -15,7 +15,18 @@ M.load = function(plugin)
   return loaded
 end
 
-M.get_palette = function()
+M.get_terminal_theme = function()
+  local file = "/home/shun/.config/alacritty/themes/.selected_theme"
+  local lines = {}
+  for line in io.lines(file) do
+    lines[#lines + 1] = line
+  end
+  local content = lines[1]
+  local theme = string.match(content, '.*themes/(%a+).yml')
+  return theme
+end
+
+M.get_theme_palette = function()
   local theme = vim.g.colors_name
   local palette = require('nightfox.palette').load(theme)
   return palette
@@ -30,4 +41,9 @@ M.is_file_exists = function(name)
   if f ~= nil then io.close(f) return true else return false end
 end
 
+M.print_table = function(data)
+  for k, v in pairs(data) do
+    print('data[' .. k .. ']', v)
+  end
+end
 return M
