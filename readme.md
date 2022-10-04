@@ -6,14 +6,9 @@
 5. Run PackerSync when fresh install.
 6. Install graphql-language-service-cli.
    - `pnpm add -g graphql-language-service-cli`.   
-
 7. Install telescope dependencies.
    - https://github.com/BurntSushi/ripgrep
    - https://github.com/nvim-telescope/telescope-fzf-native.nvim
-
-8. Install previewer depencecise.
-   - `pacman -S pandoc`
-   - `pacman -S texlive-core`
 
 ## ArchLinux   
 

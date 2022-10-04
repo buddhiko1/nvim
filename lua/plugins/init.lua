@@ -78,8 +78,8 @@ local plugins = {
 
   ["ggandor/lightspeed.nvim"] = {},
 
-  -- pdf previewer
-  ["frabjous/knap"] = {
+  ["iamcco/markdown-preview.nvim"] = { -- pdf previewer
+    run = function() vim.fn["mkdp#util#install"]() end,
     setup = function()
       require("plugins.configs.previewer").setup()
     end,
