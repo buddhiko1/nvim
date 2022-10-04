@@ -1,6 +1,6 @@
 local load = require("utils").load
 local map = require("utils").map
--- local print_table = require("utils").print_table
+local disable_mapping_at = require("utils").disable_mapping_at
 
 local _show_render = function(f)
   f.make_tabs(function(info)
@@ -9,7 +9,6 @@ local _show_render = function(f)
       f.set_fg(icon_color)
     end
     f.add('  ')
-    -- print_table(info)
     if info.filename then
       f.add(info.filename)
       f.add(' ' .. f.icon(info.filename))
@@ -67,7 +66,9 @@ M.setup = function()
   map("n", "q", "<cmd> :tabclose <CR>")
   map("n", "L", "<cmd> :tabnext <CR>")
   map("n", "H", "<cmd> :tabprevious <CR>")
-  map("n", "<leader>t", _toggle)
+  map("n", "<leader>t", function()
+    return disable_mapping_at("alpha") and _toggle()
+  end)
 end
 
 M.config = function()

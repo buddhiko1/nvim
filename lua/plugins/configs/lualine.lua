@@ -1,19 +1,23 @@
 local load = require("utils").load
 local map = require("utils").map
+local disable_mapping_at = require("utils").disable_mapping_at
 
 local M = {}
 
+local _toggle = function()
+  if vim.opt.laststatus["_value"] > 0 then
+    vim.cmd "set laststatus=0"
+  else
+    vim.cmd "set laststatus=3"
+  end
+end
+
 M.config = function()
   map("n", "<leader>b", function()
-    if vim.opt.laststatus["_value"] > 0 then
-      vim.cmd "set laststatus=0"
-    else
-      vim.cmd "set laststatus=3"
-    end
+    return disable_mapping_at("alpha") and _toggle()
   end)
 
   local lualine = load("lualine")
-
   local options = {
     options = {
       icons_enabled = true,

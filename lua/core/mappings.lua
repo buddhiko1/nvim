@@ -42,7 +42,7 @@ map("n", "dd", [["+dd]])
 map("n", "p", [["+p]])
 
 -- "u" undo,"." redo
-map({ "n" }, "<leader>z", "<cmd> :u<CR>")
+-- map({ "n" }, "<leader>z", "<cmd> :u<CR>")
 
 -- other assistant
 map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])

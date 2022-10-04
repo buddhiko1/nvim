@@ -3,9 +3,6 @@ local autocmd = vim.api.nvim_create_autocmd
 -- init
 autocmd({ "VimEnter" }, {
   callback = function()
-    -- hide status bar
-    vim.cmd("command! -nargs=1 -complete=help H tab help <args>") -- abbr
-
     -- fix fullscreen bug of alacritty
     local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
     vim.defer_fn(function()

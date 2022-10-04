@@ -1,9 +1,12 @@
 local map = require("utils").map
+local disable_mapping_at = require("utils").disable_mapping_at
 
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>a", "<cmd> :TagbarToggle <CR>")
+  map("n", "<leader>a", function()
+    return disable_mapping_at("alpha") and vim.cmd("TagbarToggle")
+  end)
 end
 
 M.config = function()

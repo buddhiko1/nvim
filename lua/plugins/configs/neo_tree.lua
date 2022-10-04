@@ -1,10 +1,13 @@
 local load = require("utils").load
 local map = require("utils").map
+local disable_mapping_at = require("utils").disable_mapping_at
 
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>l", "<cmd> :NeoTreeRevealToggle <CR>")
+  map("n", "<leader>l", function()
+    return disable_mapping_at("alpha") and vim.cmd("NeoTreeRevealToggle")
+  end)
   map("n", "<leader>/", "<cmd> :NeoTreeFloatToggle <CR>")
 end
 

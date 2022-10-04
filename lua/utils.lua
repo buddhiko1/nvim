@@ -41,6 +41,10 @@ M.is_file_exists = function(name)
   if f ~= nil then io.close(f) return true else return false end
 end
 
+M.disable_mapping_at = function(filetype)
+  return vim.bo.filetype ~= filetype
+end
+
 M.print_table = function(data)
   for k, v in pairs(data) do
     print('data[' .. k .. ']', v)
