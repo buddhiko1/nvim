@@ -78,6 +78,16 @@ local plugins = {
 
   ["ggandor/lightspeed.nvim"] = {},
 
+  -- pdf previewer
+  ["frabjous/knap"] = {
+    setup = function()
+      require("plugins.configs.previewer").setup()
+    end,
+    config = function()
+      require("plugins.configs.previewer").config()
+    end,
+  },
+
   -- components
   ["ahmedkhalf/project.nvim"] = {
     config = function()

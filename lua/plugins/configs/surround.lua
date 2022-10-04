@@ -16,7 +16,7 @@ M.config = function()
       normal_line = "yS", -- new line
       visual = "S",
       visual_line = "SS",
-    
+
       -- change and delete
       delete = "ds",
       change = "cs",

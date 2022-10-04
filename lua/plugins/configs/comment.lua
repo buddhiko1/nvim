@@ -14,17 +14,17 @@ M.config = function()
 
   local options = {
     opleader = {
-      line = 'tl',
-      block = 'tb',
+      line = "tl",
+      block = "tb",
     },
     toggler = {
-      line = 'tll',
-      block = 'tbb',
+      line = "tll",
+      block = "tbb",
     },
     extra = {
-      above = 'tO',
-      below = 'to',
-      eol = 'te', -- Add comment at the end of line
+      above = "tO",
+      below = "to",
+      eol = "te", -- Add comment at the end of line
     },
   }
 

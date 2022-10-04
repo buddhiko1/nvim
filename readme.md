@@ -4,12 +4,19 @@
 3. Change alacritty_path's value appropriately in utils.lua.
 4. Install ctags-git.
 5. Run PackerSync when fresh install.
-6. Install graphql-language-service-cli(pnpm add -g graphql-language-service-cli).
-6. Install telescope dependencies.
-  > https://github.com/BurntSushi/ripgrep
-  > https://github.com/nvim-telescope/telescope-fzf-native.nvim
+6. Install graphql-language-service-cli.
+   - `pnpm add -g graphql-language-service-cli`.   
 
-## ArchLinux 
+7. Install telescope dependencies.
+   - https://github.com/BurntSushi/ripgrep
+   - https://github.com/nvim-telescope/telescope-fzf-native.nvim
+
+8. Install previewer depencecise.
+   - `pacman -S pandoc`
+   - `pacman -S texlive-core`
+
+## ArchLinux   
+
 
 ## Windows
 1. Change start path appropriately in start.vbs.

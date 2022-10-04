@@ -59,4 +59,4 @@ map("n", "<leader>j", "J") -- join
 map("n", "<A-v>", "<C-v>")
 
 -- packer
-map("n", "<leader>p", "<cmd> :PackerSync <CR>")
+map("n", "<leader>u", "<cmd> :PackerSync <CR>")
