@@ -65,8 +65,8 @@ local options = {
       val = {
         button("LD hr", "  Recent File  "),
         button("LD hp", "  Projects  "),
-        button("LD  t", "  Browser File "),
-        button("LD hg", "  Live Grep  "),
+        button("LD  /", "  Browser File "),
+        button("LD hs", "  Live Grep  "),
         button("LD  q", "  Quit  "),
       },
       opts = {
