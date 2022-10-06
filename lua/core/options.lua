@@ -18,7 +18,7 @@ opt.autoread = true
 
 opt.hidden = false
 
-opt.timeoutlen = 1000 -- for mapped key sequence
+opt.timeoutlen = 800 -- for mapped key sequence
 
 opt.wrap = true -- line wrap
 opt.tw = 0

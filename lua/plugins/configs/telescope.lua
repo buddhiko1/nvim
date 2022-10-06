@@ -27,15 +27,15 @@ M.config = function()
       -- mapping
       mappings = {
         i = {
-          ["<C-j>"] = "move_selection_next",
+          ["<c-j>"] = "move_selection_next",
           ["<C-k>"] = "move_selection_previous",
 
           ["<C-n>"] = "cycle_history_next",
           ["<C-p>"] = "cycle_history_prev",
 
-          ["<C-K>"] = "preview_scrolling_up",
-          ["<C-J>"] = "preview_scrolling_down",
-
+          ["<C-J>"] = "preview_scrolling_up",
+          ["<C-K>"] = "preview_scrolling_down",
+          ["<C-u>"] = false,
           [";q"] = "close",
         },
         n = {
