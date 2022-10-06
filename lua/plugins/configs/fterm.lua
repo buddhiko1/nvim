@@ -25,7 +25,7 @@ M.config = function()
   fterm.setup(options)
 
   local gitui = fterm:new({
-    ft = "gitui", -- file type
+    ft = "gitui",
     cmd = "g",
     dimensions = {
       height = 0.9,
@@ -36,8 +36,20 @@ M.config = function()
     gitui:open()
   end)
 
+  local btop = fterm:new({
+    ft = "fterm_btop",
+    cmd = "btop",
+    dimensions = {
+      height = 0.9,
+      width = 0.9
+    }
+  })
+  map("n", "<leader>i", function()
+    btop:toggle()
+  end)
+
   local ng = fterm:new({
-    ft = "ng", -- file type
+    ft = "ng",
     cmd = "ns",
     dimensions = {
       height = 1.0,

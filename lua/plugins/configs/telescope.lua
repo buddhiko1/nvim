@@ -4,17 +4,17 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>hp", "<cmd> :Telescope projects <CR>")
-  map("n", "<leader>hf", "<cmd> :Telescope find_files <CR>")
-  map("n", "<leader>hr", "<cmd> :Telescope oldfiles <CR>")
+  map("n", "<leader>fp", "<cmd> :Telescope projects <CR>")
+  map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
+  map("n", "<leader>fr", "<cmd> :Telescope oldfiles <CR>")
 
-  map("n", "<leader>hs", "<cmd> :Telescope live_grep <CR>")
+  map("n", "<leader>fs", "<cmd> :Telescope live_grep <CR>")
 
-  map("n", "<leader>ht", "<cmd> :Telescope help_tags <CR>")
-  map("n", "<leader>hc", "<cmd> :Telescope commands <CR>")
-  map("n", "<leader>hh", "<cmd> :Telescope search_history <CR>")
-  map("n", "<leader>hk", "<cmd> :Telescope keymaps <CR>")
-  map("n", "<leader>ho", "<cmd> :Telescope vim_options <CR>")
+  map("n", "<leader>ft", "<cmd> :Telescope help_tags <CR>")
+  map("n", "<leader>fc", "<cmd> :Telescope commands <CR>")
+  map("n", "<leader>fh", "<cmd> :Telescope search_history <CR>")
+  map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>")
+  map("n", "<leader>fo", "<cmd> :Telescope vim_options <CR>")
 end
 
 M.config = function()
