@@ -1,8 +1,7 @@
 local load = require("utils").load
 local map = require("utils").map
-local disable_mapping_at = require("utils").disable_mapping_at
 
-local _show_render = function(f)
+local _display_render = function(f)
   f.make_tabs(function(info)
     local icon_color = f.icon_color(info.filename)
     if info.current then
@@ -14,7 +13,7 @@ local _show_render = function(f)
       f.add(' ' .. f.icon(info.filename))
       f.add(' ')
     else
-      f.add('[no name]')
+      f.add(vim.bo.filetype)
     end
     f.add ' '
   end)
@@ -30,33 +29,32 @@ local _hidden_render = function(f)
   return f.add ''
 end
 
-local _show = function()
-  local tabline = load("tabline_framework")
-  -- local palette = require("utils").get_theme_palette()
-  tabline.setup {
-    render = _show_render,
-    -- hl = { fg = palette.fg1, bg = palette.bg1 },
-    -- hl_sel = { fg = palette.fg1, bg = palette.green.bright },
-    -- hl_fill = { fg = palette.fg0, bg = palette.bg0 }
-  }
-  vim.g.show_tabline = true
+local _is_hiding_filetype = function()
+  local _disable_file_types = { "alpha", "TelescopePromt" }
+  for i, filetype in ipairs(_disable_file_types) do
+    if vim.bo.filetype == filetype then
+      return true
+    end
+  end
+  return false
 end
 
-local _hide = function()
+local _draw_tabline = function()
+
   local tabline = load("tabline_framework")
   local palette = require("utils").get_theme_palette()
-  tabline.setup {
-    render = _hidden_render,
-    hl_fill = { fg = palette.fg1, bg = palette.bg1 }
-  }
-  vim.g.show_tabline = false
-end
-
-local _toggle = function()
-  if vim.g.show_tabline then
-    _hide()
+  if vim.g.display_tabline then
+    tabline.setup {
+      render = _display_render,
+      -- hl = { fg = palette.fg1, bg = palette.bg1 },
+      -- hl_sel = { fg = palette.fg1, bg = palette.green.bright },
+      -- hl_fill = { fg = palette.fg0, bg = palette.bg0 }
+    }
   else
-    _show()
+    tabline.setup {
+      render = _hidden_render,
+      hl_fill = { fg = palette.fg1, bg = palette.bg1 }
+    }
   end
 end
 
@@ -67,21 +65,22 @@ M.setup = function()
   map("n", "L", "<cmd> :tabnext <CR>")
   map("n", "H", "<cmd> :tabprevious <CR>")
   map("n", "<leader>t", function()
-    return disable_mapping_at("alpha") and _toggle()
+    if not _is_hiding_filetype() then
+      vim.g.display_tabline = not vim.g.display_tabline
+      _draw_tabline()
+    end
   end)
 end
 
 M.config = function()
-  -- _hide()
-  _show()
-end
-
-M.reload = function()
-  if vim.g.show_tabline then
-    _show()
-  else
-    _hide()
-  end
+  vim.g.display_tabline = true
+  vim.api.nvim_create_autocmd({ "BufRead" }, {
+    callback = function()
+      if not _is_hiding_filetype() then
+        _draw_tabline()
+      end
+    end
+  })
 end
 
 return M
