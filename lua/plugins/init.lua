@@ -62,7 +62,15 @@ local plugins = {
     end,
   },
 
-  ["ggandor/lightspeed.nvim"] = {},
+  -- motion plugin
+  ["ggandor/leap.nvim"] = {
+    setup = function()
+      require("plugins.configs.leap").setup()
+    end,
+    config = function()
+      require("plugins.configs.leap").config()
+    end,
+  },
 
   ["VonHeikemen/fine-cmdline.nvim"] = {
     setup = function()
