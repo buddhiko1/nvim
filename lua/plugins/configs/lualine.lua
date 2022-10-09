@@ -24,7 +24,17 @@ M.config = function()
       theme = "auto",
       component_separators = { left = "|", right = "|" },
       section_separators = { left = "", right = "" },
-      disabled_filetypes = { "packer", "neo-tree", "tagbar" },
+      disabled_filetypes = {
+        "packer",
+        "neo-tree",
+        "tagbar",
+        "dapui_scopes",
+        "dapui_breakpoints",
+        "dapui_stacks",
+        "dapui_watches",
+        "dap-repl",
+        "dapui_console"
+      },
       always_divide_middle = false,
       globalstatus = false,
     },

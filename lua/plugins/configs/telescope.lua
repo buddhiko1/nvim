@@ -19,7 +19,6 @@ end
 
 M.config = function()
   local telescope = load("telescope")
-  local actions = load("telescope.actions")
   local options = {
     defaults = {
       initial_mode = "normal",
@@ -27,16 +26,14 @@ M.config = function()
       -- mapping
       mappings = {
         i = {
-          ["<c-j>"] = "move_selection_next",
-          ["<C-k>"] = "move_selection_previous",
-
           ["<C-n>"] = "cycle_history_next",
           ["<C-p>"] = "cycle_history_prev",
 
-          ["<C-J>"] = "preview_scrolling_up",
-          ["<C-K>"] = "preview_scrolling_down",
+          ["<C-j>"] = "preview_scrolling_up",
+          ["<C-k>"] = "preview_scrolling_down",
+
           ["<C-u>"] = false,
-          [";q"] = "close",
+          ["<Esc>"] = "close",
         },
         n = {
           ["<C-n>"] = "cycle_history_next",

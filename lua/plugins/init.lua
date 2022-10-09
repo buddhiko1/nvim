@@ -1,7 +1,6 @@
 local plugins = {
-  -- package
   ["wbthomason/packer.nvim"] = {
-    requires = { "nvim-lua/plenary.nvim", "lewis6991/impatient.nvim" },
+    requires = { "nvim-lua/plenary.nvim", "lewis6991/impatient.nvim", "MunifTanjim/nui.nvim" },
     event = "VimEnter"
   },
 
@@ -19,19 +18,6 @@ local plugins = {
     config = function()
       require("plugins.configs.nightfox").config()
     end
-  },
-
-  -- coding
-  ["norcalli/nvim-colorizer.lua"] = {
-    config = function()
-      require 'colorizer'.setup {
-        'css';
-        'javascript';
-        html = {
-          mode = 'foreground';
-        }
-      }
-    end,
   },
 
   ["lukas-reineke/indent-blankline.nvim"] = {
@@ -57,8 +43,8 @@ local plugins = {
   },
 
   ["nvim-treesitter/nvim-treesitter"] = {
-    event = { "BufRead", "BufNewFile" },
-    run = ":TSUpdate",
+    after = "nvim-ts-autotag",
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     config = function()
       require("plugins.configs.treesitter").config()
     end,
@@ -78,7 +64,25 @@ local plugins = {
 
   ["ggandor/lightspeed.nvim"] = {},
 
-  ["iamcco/markdown-preview.nvim"] = { -- pdf previewer
+  ["VonHeikemen/fine-cmdline.nvim"] = {
+    setup = function()
+      require("plugins.configs.cmdline").setup()
+    end,
+    config = function()
+      require("plugins.configs.cmdline").config()
+    end,
+  },
+
+  ["VonHeikemen/searchbox.nvim"] = {
+    setup = function()
+      require("plugins.configs.searchbox").setup()
+    end,
+    config = function()
+      require("plugins.configs.searchbox").config()
+    end,
+  },
+
+  ["iamcco/markdown-preview.nvim"] = {
     run = function() vim.fn["mkdp#util#install"]() end,
     setup = function()
       require("plugins.configs.previewer").setup()
@@ -88,14 +92,14 @@ local plugins = {
     end,
   },
 
-  -- components
   ["ahmedkhalf/project.nvim"] = {
     config = function()
       require("plugins.configs.project").config()
     end,
   },
 
-  ["nvim-telescope/telescope-fzf-native.nvim"] = { -- to significantly improve telescope sorting performance.
+  -- to significantly improve telescope sorting performance.
+  ["nvim-telescope/telescope-fzf-native.nvim"] = {
     run = "make"
   },
 
@@ -119,6 +123,7 @@ local plugins = {
     end,
   },
 
+  -- homepage
   ["goolord/alpha-nvim"] = {
     after = 'tabline-framework.nvim',
     setup = function()
@@ -129,6 +134,7 @@ local plugins = {
     end,
   },
 
+  -- status line
   ["nvim-lualine/lualine.nvim"] = {
     after = "nvim-web-devicons",
     config = function()
@@ -146,8 +152,8 @@ local plugins = {
     end,
   },
 
+  -- tagbar, must install ctags-git first.
   ["preservim/tagbar"] = {
-    -- tagbar, must install ctags-git first.
     setup = function()
       require("plugins.configs.ctags").setup()
     end,
@@ -162,6 +168,7 @@ local plugins = {
     end,
   },
 
+  -- terminal
   ["numToStr/FTerm.nvim"] = {
     setup = function()
       require("plugins.configs.fterm").setup()
@@ -178,6 +185,15 @@ local plugins = {
     end,
     config = function()
       require("plugins.configs.nvim_dap").config()
+    end
+  },
+
+  ["rcarriga/nvim-dap-ui"] = {
+    setup = function()
+      require("plugins.configs.nvim_dap_ui").setup()
+    end,
+    config = function()
+      require("plugins.configs.nvim_dap_ui").config()
     end
   },
 

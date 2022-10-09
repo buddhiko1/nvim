@@ -16,7 +16,6 @@ M.config = function()
     "tsserver",
     "graphql",
     "jsonls",
-    "sqlls",
     "sumneko_lua",
     "dockerls",
     "yamlls",

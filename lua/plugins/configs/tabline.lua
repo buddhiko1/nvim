@@ -12,8 +12,10 @@ local _display_render = function(f)
       f.add(info.filename)
       f.add(' ' .. f.icon(info.filename))
       f.add(' ')
-    else
+    elseif vim.bo.filetype then
       f.add(vim.bo.filetype)
+    else
+      f.add("[no name]")
     end
     f.add ' '
   end)

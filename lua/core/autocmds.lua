@@ -1,13 +1,28 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- init
 autocmd({ "VimEnter" }, {
   callback = function()
+    vim.cmd("set laststatus=0")
+    -- require("lualine").hide()
     -- fix fullscreen bug of alacritty
     local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
     vim.defer_fn(function()
       vim.loop.kill(pid, WINCH)
     end, 500)
+  end
+})
+
+-- autocmd({ "WinEnter" }, {
+--   callback = function()
+--     vim.cmd("set laststatus=0")
+--   end
+-- })
+
+autocmd({ "VimLeave" }, {
+  callback = function()
+    vim.cmd("!kill -9 node")
+    -- require("dap").disconnect()
+    -- require("dap").close()
   end
 })
 
