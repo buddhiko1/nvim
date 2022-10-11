@@ -21,16 +21,16 @@ M.config = function()
       filters.writeable,
       filters.not_empty,
       filters.modified,
+      -- exclude filetype
       filters.filetype("TelescopePrompt"),
+      filters.filetype("neo-tree"),
+      filters.filetype("Outline"),
       filters.filetype("vim"),
     },
     hooks = {
       on_enable = nil, -- Called when the plugin is enabled for the first time.
       pre_write = nil,
-      post_write = function()
-        vim.cmd("echo '  '")
-        vim.defer_fn(function() vim.cmd('echo ""') end, 1000)
-      end
+      post_write = nil
     }
   }
 

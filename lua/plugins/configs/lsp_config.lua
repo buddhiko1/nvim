@@ -15,7 +15,6 @@ local _config_diagnostic = function()
   })
 end
 
-
 local _lsp_flags = {
   debounce_text_changes = 150,
 }

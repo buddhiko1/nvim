@@ -19,8 +19,8 @@ M.config = function()
   local mason_lspconfig = load("mason-lspconfig")
 
   local options = {
-	  ensure_installed = M.servers,
-	  automatic_installation = true,
+    ensure_installed = M.servers,
+    automatic_installation = true,
   }
 
   mason_lspconfig.setup(options)

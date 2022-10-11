@@ -1,7 +1,7 @@
 local plugins = {
   ["wbthomason/packer.nvim"] = {
-    requires = { "nvim-lua/plenary.nvim", "lewis6991/impatient.nvim", "MunifTanjim/nui.nvim" },
-    event = "VimEnter"
+    event = "VimEnter",
+    requires = { "nvim-lua/plenary.nvim", "lewis6991/impatient.nvim" },
   },
 
   ["kyazdani42/nvim-web-devicons"] = {
@@ -49,7 +49,7 @@ local plugins = {
     end,
   },
 
-  ["nullishamy/autosave.nvim"] = {
+  ["buddhiko1/autosave.nvim"] = {
     config = function()
       require("plugins.configs.autosave").config()
     end,
@@ -71,21 +71,14 @@ local plugins = {
     end,
   },
 
-  ["VonHeikemen/fine-cmdline.nvim"] = {
+  ["folke/noice.nvim"] = {
+    event = "VimEnter",
+    requires = { "rcarriga/nvim-notify", "MunifTanjim/nui.nvim" },
     setup = function()
-      require("plugins.configs.cmdline").setup()
+      require("plugins.configs.noice").setup()
     end,
     config = function()
-      require("plugins.configs.cmdline").config()
-    end,
-  },
-
-  ["VonHeikemen/searchbox.nvim"] = {
-    setup = function()
-      require("plugins.configs.searchbox").setup()
-    end,
-    config = function()
-      require("plugins.configs.searchbox").config()
+      require("plugins.configs.noice").config()
     end,
   },
 
@@ -140,6 +133,7 @@ local plugins = {
       require("plugins.configs.alpha").config()
     end,
   },
+
 
   -- status line
   ["nvim-lualine/lualine.nvim"] = {
@@ -265,9 +259,6 @@ local plugins = {
 
   ["neovim/nvim-lspconfig"] = {
     after = { "mason-lspconfig.nvim", "cmp-nvim-lsp" },
-    setup = function()
-      require("plugins.configs.lsp_config").setup()
-    end,
     config = function()
       require("plugins.configs.lsp_config").config()
     end,
