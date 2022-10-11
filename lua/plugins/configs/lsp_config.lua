@@ -1,21 +1,6 @@
 local load = require("utils").load
-local map = require("utils").map
 local servers = require("plugins.configs.lsp_mason_lspconfig").servers
 
-vim.g.diagnostics_virtual_text = false
-local _toggle_virtual_text = function()
-  if vim.g.diagnostics_virtual_text then
-    vim.diagnostic.config({
-      virtual_text = false,
-    })
-    vim.g.diagnostics_virtual_text = false
-  else
-    vim.diagnostic.config({
-      virtual_text = true,
-    })
-    vim.g.diagnostics_virtual_text = true
-  end
-end
 
 local _config_diagnostic = function()
   -- ui
@@ -41,10 +26,6 @@ end
 
 local M = {}
 
-M.setup = function()
-  map("n", "<leader>st", _toggle_virtual_text)
-end
-
 M.config = function()
   _config_diagnostic()
 
@@ -65,7 +46,7 @@ M.config = function()
     if require_ok then
       options = vim.tbl_deep_extend("force", server_option, options)
     end
-    lspconfig[server].setup { options }
+    lspconfig[server].setup(options)
   end
 end
 

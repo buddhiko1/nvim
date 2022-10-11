@@ -18,6 +18,12 @@ autocmd({ "VimEnter" }, {
 --   end
 -- })
 
+autocmd({ "DirChanged" }, {
+  callback = function()
+    vim.cmd("set laststatus=0")
+  end
+})
+
 autocmd({ "VimLeave" }, {
   callback = function()
     vim.cmd("!kill -9 node")
