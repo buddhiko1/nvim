@@ -4,12 +4,12 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>wf", ":SearchBoxMatchAll -- <C-r>=expand('<cword>')<CR><CR>")
-  map("n", "<leader>wF", ":SearchBoxMatchAll<CR>")
+  map("n", "<leader>wf", ":SearchBoxMatchAll<CR>")
+  map("n", "<leader>wF", ":SearchBoxMatchAll -- <C-r>=expand('<cword>')<CR><CR>")
+  map("n", "/", ":SearchBoxMatchAll<CR>")
   map("n", "<leader>wr", ":SearchBoxReplace exact=true -- <C-r>=expand('<cword>')<CR><CR>")
   map("n", "<leader>wR", ":SearchBoxReplace exact=true<CR>")
   map("v", "<leader>wr", ":SearchBoxReplace exact=true visual_mode=true -- <C-r>=expand('<cword>')<CR><CR>")
-
 end
 
 M.config = function()

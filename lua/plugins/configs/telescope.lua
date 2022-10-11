@@ -29,10 +29,9 @@ M.config = function()
           ["<C-n>"] = "cycle_history_next",
           ["<C-p>"] = "cycle_history_prev",
 
-          ["<C-j>"] = "preview_scrolling_up",
-          ["<C-k>"] = "preview_scrolling_down",
+          ["<C-u>"] = "preview_scrolling_up",
+          ["<C-d>"] = "preview_scrolling_down",
 
-          ["<C-u>"] = false,
           ["<Esc>"] = "close",
         },
         n = {

@@ -3,10 +3,6 @@ local g = vim.g
 
 g.mapleader = ";"
 
--- filetype and encode
-g.did_load_filetypes = 0
-g.do_filetype_lua = 1 -- use filetype.lua instead of filetype.vim
-
 g.encoding = 'utf-8'
 opt.fileencoding = 'utf-8'
 
@@ -103,6 +99,14 @@ local default_plugins = {
   "vimballPlugin",
   "zip",
   "zipPlugin",
+  "tutor",
+  "rplugin",
+  "syntax",
+  "synmenu",
+  "optwin",
+  "compiler",
+  "bugreport",
+  "ftplugin",
 }
 for _, plugin in pairs(default_plugins) do
   g["loaded_" .. plugin] = 1

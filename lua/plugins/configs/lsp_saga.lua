@@ -1,73 +1,32 @@
 local load = require("utils").load
-
 local map = require("utils").map
 
 local M = {}
 
-local _config_diagnostic_ui = function()
-  local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-  end
-end
-
-
--- toggle virtual text
-vim.diagnostic.config({
-  virtual_text = false,
-})
-vim.g.diagnostics_virtual_text = false
-
-local _toggle_virtual_text = function()
-  if vim.g.diagnostics_virtual_text then
-    vim.diagnostic.config({
-      virtual_text = false,
-    })
-    vim.g.diagnostics_virtual_text = false
-  else
-    vim.diagnostic.config({
-      virtual_text = true,
-    })
-    vim.g.diagnostics_virtual_text = true
-  end
-end
-
 M.setup = function()
   -- action
-  map("n", "<leader>sm", function()
-    vim.lsp.buf.formatting()
-  end, { silent = true })
-  map("n", "<leader>st", _toggle_virtual_text, { silent = true })
-  map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>", { silent = true })
-  map("v", "<leader>saa", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
-  map("n", "<leader>sr", "<cmd>Lspsaga rename<CR>", { silent = true })
+  map("n", "<leader>sm", function() vim.lsp.buf.format() end)
+  map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>")
+  map("v", "<leader>saa", "<cmd><C-U>Lspsaga range_code_action<CR>")
+  map("n", "<leader>sr", "<cmd>Lspsaga rename<CR>")
 
-  map("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-  map("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+  map("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+  map("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
 
   -- motion
-  map("n", "<leader>sp", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-  map("n", "<leader>sn", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-  map("n", "<leader>[", function()
-    require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-  end, { silent = true })
-  map("n", "<leader>]", function()
-    require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-  end, { silent = true })
+  map("n", "<leader>sp", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+  map("n", "<leader>sn", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+  map("n", "<leader>[", function() require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR }) end)
+  map("n", "<leader>]", function() require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR }) end)
 
   -- viewer
-  map("n", "<leader>sd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-  map("n", "<leader>sf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-  map("n", "<leader>so", "<cmd>LSoutlineToggle<CR>", { silent = true })
-  map("n", "<leader>sv", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-  map("n", "<leader>sh", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
-  map("n", "<C-f>", function()
-    require("lspsaga.action").smart_scroll_with_saga(1)
-  end, { silent = true })
-  map("n", "<C-b>", function()
-    require("lspsaga.action").smart_scroll_with_saga(-1)
-  end, { silent = true })
+  map("n", "<leader>sd", "<cmd>Lspsaga peek_definition<CR>")
+  map("n", "<leader>sf", "<cmd>Lspsaga lsp_finder<CR>")
+  map("n", "<leader>so", "<cmd>LSoutlineToggle<CR>")
+  map("n", "<leader>sv", "<cmd>Lspsaga hover_doc<CR>")
+  map("n", "<leader>sh", "<Cmd>Lspsaga signature_help<CR>")
+  map("n", "<C-f>", function() require("lspsaga.action").smart_scroll_with_saga(1) end)
+  map("n", "<C-b>", function() require("lspsaga.action").smart_scroll_with_saga(-1) end)
 end
 
 M.config = function()
@@ -76,8 +35,8 @@ M.config = function()
   local options = {
     -- ui
     border_style = "rounded",
-    saga_winblend = 0, -- Values between 0-30 are typically most useful.
-    symbol_in_winbar = { -- show symbols in winbar must nightly
+    saga_winblend = 0,
+    symbol_in_winbar = {
       in_custom = false,
       enable = false,
       separator = ' ',
@@ -86,17 +45,15 @@ M.config = function()
     },
     show_outline = {
       win_position = 'right',
-      --set special filetype win that outline window split.like NvimTree neotree
-      -- defx, db_ui
       win_with = '',
       win_width = 30,
       auto_enter = true,
       auto_preview = true,
       virt_text = '┃',
       jump_key = 'o',
-      auto_refresh = true, -- auto refresh when change buffer
+      auto_refresh = true,
     },
-    code_action_lightbulb = { -- same as nvim-lightbulb but async
+    code_action_lightbulb = {
       enable = true,
       sign = true,
       enable_in_insert = true,
@@ -114,7 +71,7 @@ M.config = function()
     },
 
     -- key
-    move_in_saga = { prev = '<C-p>', next = '<C-n>' }, -- when cursor in saga window you config these to move
+    move_in_saga = { prev = '<C-p>', next = '<C-n>' },
     finder_action_keys = {
       open = "o",
       vsplit = "v",
@@ -130,15 +87,14 @@ M.config = function()
 
     -- property
     rename_in_select = true,
-    max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
-    code_action_num_shortcut = true, -- if true can press number to execute the codeaction in codeaction window
+    max_preview_lines = 10,
+    code_action_num_shortcut = true,
     finder_request_timeout = 1500,
     custom_kind = {},
     server_filetype_map = {},
   }
 
   saga.init_lsp_saga(options)
-  _config_diagnostic_ui()
 end
 
 return M

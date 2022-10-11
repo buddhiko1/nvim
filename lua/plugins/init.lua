@@ -43,7 +43,6 @@ local plugins = {
   },
 
   ["nvim-treesitter/nvim-treesitter"] = {
-    after = "nvim-ts-autotag",
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     config = function()
       require("plugins.configs.treesitter").config()
@@ -161,6 +160,8 @@ local plugins = {
   },
 
   -- tagbar, must install ctags-git first.
+  --["simrat39/symbols-outline.nvim"]
+
   ["preservim/tagbar"] = {
     setup = function()
       require("plugins.configs.ctags").setup()
@@ -223,13 +224,6 @@ local plugins = {
     after = "LuaSnip",
   },
 
-  ["windwp/nvim-ts-autotag"] = {
-    event = { "BufRead" },
-    setup = function()
-      require("plugins.configs.autotag").config()
-    end,
-  },
-
   ["windwp/nvim-autopairs"] = {
     after = "nvim-cmp",
     config = function()
@@ -258,11 +252,22 @@ local plugins = {
   },
 
   -- lsp
-  ["neovim/nvim-lspconfig"] = {
-    requires = "williamboman/nvim-lsp-installer",
-    after = { "nvim-lsp-installer", "cmp-nvim-lsp" },
+  ["williamboman/mason.nvim"] = {
     config = function()
-      require("plugins.configs.lsp_installer").config()
+      require("plugins.configs.lsp_mason").config()
+    end,
+  },
+
+  ["williamboman/mason-lspconfig.nvim"] = {
+    after = "mason.nvim",
+    config = function()
+      require("plugins.configs.lsp_mason_lspconfig").config()
+    end,
+  },
+
+  ["neovim/nvim-lspconfig"] = {
+    after = { "mason-lspconfig.nvim", "cmp-nvim-lsp" },
+    config = function()
       require("plugins.configs.lsp_config").config()
     end,
   },
@@ -275,6 +280,7 @@ local plugins = {
   },
 
   ["glepnir/lspsaga.nvim"] = {
+    branch = "main",
     setup = function()
       require("plugins.configs.lsp_saga").setup()
     end,

@@ -4,7 +4,6 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<CR>", "<cmd>FineCmdline<CR>")
   map("n", ":", "<cmd>FineCmdline<CR>")
 
   map("n", "<leader>m", "<cmd>FineCmdline vertical help <CR>")
