@@ -1,6 +1,5 @@
 local map = require("utils").map
 
--- map("n", "s", "")
 -- window
 map("n", "wh", "<C-w>h")
 map("n", "wl", "<C-w>l")

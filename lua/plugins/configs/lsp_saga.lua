@@ -25,8 +25,8 @@ M.setup = function()
   map("n", "<leader>so", "<cmd>LSoutlineToggle<CR>")
   map("n", "<leader>sv", "<cmd>Lspsaga hover_doc<CR>")
   map("n", "<leader>sh", "<Cmd>Lspsaga signature_help<CR>")
-  map("n", "<C-f>", function() require("lspsaga.action").smart_scroll_with_saga(1) end)
-  map("n", "<C-b>", function() require("lspsaga.action").smart_scroll_with_saga(-1) end)
+  map("n", "<C-u>", function() require("lspsaga.action").smart_scroll_with_saga(1) end)
+  map("n", "<C-d>", function() require("lspsaga.action").smart_scroll_with_saga(-1) end)
 end
 
 M.config = function()

@@ -159,16 +159,14 @@ local plugins = {
     end,
   },
 
-  -- tagbar, must install ctags-git first.
-  --["simrat39/symbols-outline.nvim"]
-
-  ["preservim/tagbar"] = {
+  -- outline.
+  ["simrat39/symbols-outline.nvim"] = {
     setup = function()
-      require("plugins.configs.ctags").setup()
+      require("plugins.configs.outline").setup()
     end,
     config = function()
-      require("plugins.configs.ctags").config()
-    end,
+      require("plugins.configs.outline").config()
+    end
   },
 
   ["dstein64/nvim-scrollview"] = {
@@ -267,6 +265,9 @@ local plugins = {
 
   ["neovim/nvim-lspconfig"] = {
     after = { "mason-lspconfig.nvim", "cmp-nvim-lsp" },
+    setup = function()
+      require("plugins.configs.lsp_config").setup()
+    end,
     config = function()
       require("plugins.configs.lsp_config").config()
     end,
