@@ -44,7 +44,7 @@ M.config = function()
       width = 0.9
     }
   })
-  map("n", "<leader>i", function()
+  map("n", "<leader>is", function()
     btop:toggle()
   end)
 
