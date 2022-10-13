@@ -37,9 +37,6 @@ map({ "n", "v" }, "d", [["+d]])
 map("n", "dd", [["+dd]])
 map("n", "p", [["+p]])
 
--- "u" undo,"." redo
--- map({ "n" }, "<leader>z", "<cmd> :u<CR>")
-
 -- other assistant
 map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
@@ -49,7 +46,7 @@ map({ "n", "v" }, "<leader>x", "<cmd> :q<CR>")
 map("n", "<leader>h", ":vertical help ")
 
 -- remapping
-map("n", "<Esc>", "<cmd> :noh <CR>") -- shut down the search high light
+map("n", "<leader>x", ":noh <CR>") -- shut down the search high light
 map("n", "<leader>r", "q") -- recording
 map("n", "<leader>j", "J") -- join
 map("n", "<A-v>", "<C-v>")
