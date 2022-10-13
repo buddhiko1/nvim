@@ -19,7 +19,7 @@ local _highlight_cursor = function(is_day_theme)
     vim.cmd("highlight Cursor guibg=black guifg=white")
     vim.cmd("set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20")
   else
-    vim.cmd("highlight Cursor guibg=#cc0000 guifg=black")
+    vim.cmd("highlight Cursor guibg=red guifg=black")
     vim.cmd("set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor")
   end
 end

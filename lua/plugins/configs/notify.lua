@@ -4,9 +4,8 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map({ "n", "i", "v" }, "<leader>ix", function()
-    local notify = require("notify")
-    notify.dismiss({ pending = false, silent = false })
+  map({ "n", "i", "v" }, "<leader>ic", function()
+    require("notify").dismiss({ pending = false, silent = false })
   end)
 end
 
@@ -22,7 +21,7 @@ M.config = function()
       TRACE = "✎",
       WARN = ""
     },
-    level = 2,
+    level = 3, -- warning
     minimum_width = 50,
     render = "default",
     stages = "static",

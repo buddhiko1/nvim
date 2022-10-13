@@ -15,6 +15,14 @@ M.load = function(plugin)
   return loaded
 end
 
+M.log = function(text)
+  local notify = require("notify")
+  notify(text, "error", {
+    title = "Debug",
+    icon = ""
+  })
+end
+
 M.get_terminal_theme = function()
   local file = "/home/shun/.config/alacritty/themes/.selected_theme"
   local lines = {}
