@@ -50,7 +50,7 @@ map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 map("n", "<leader>q", "<cmd> :wqa!<CR>")
 map({ "n", "v", "i" }, "<leader><leader>", "<ESC>")
 map({ "n", "v" }, "<leader>x", "<cmd> :q<CR>")
-map("n", "<leader>m", ":vertical help ")
+map("n", "<leader>h", ":vertical help ")
 
 -- remapping
 map("n", "<Esc>", "<cmd> :noh <CR>") -- shut down the search high light
@@ -59,4 +59,4 @@ map("n", "<leader>j", "J") -- join
 map("n", "<A-v>", "<C-v>")
 
 -- packer
-map("n", "<leader>u", "<cmd> :PackerSync <CR>")
+map("n", "<leader>pu", "<cmd> :PackerSync <CR>")

@@ -1,6 +1,11 @@
 local load = require("utils").load
+local map = require("utils").map
 
 local M = {}
+
+M.setup = function ()
+  map("n", "<leader>pl", "<cmd> :Mason <CR>")
+end
 
 M.config = function()
   local mason = load("mason")

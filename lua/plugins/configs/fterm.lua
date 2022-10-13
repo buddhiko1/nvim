@@ -32,7 +32,7 @@ M.config = function()
       width = 0.9
     }
   })
-  map("n", "<leader>gg", function()
+  map("n", "<leader>ug", function()
     gitui:open()
   end)
 
@@ -44,7 +44,7 @@ M.config = function()
       width = 0.9
     }
   })
-  map("n", "<leader>is", function()
+  map("n", "<leader>us", function()
     btop:toggle()
   end)
 
@@ -56,7 +56,7 @@ M.config = function()
       width = 1.0
     }
   })
-  map("n", "<f5>", function()
+  map("n", "<leader>dw", function()
     ng:open()
   end)
 end
