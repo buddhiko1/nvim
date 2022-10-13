@@ -71,6 +71,16 @@ local plugins = {
     end,
   },
 
+  -- color picker
+  ["uga-rosa/ccc.nvim"] = {
+    setup = function()
+      require("plugins.configs.ccc").setup()
+    end,
+    config = function()
+      require("plugins.configs.ccc").config()
+    end,
+  },
+
   ["rcarriga/nvim-notify"] = {
     setup = function()
       require("plugins.configs.notify").setup()

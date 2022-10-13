@@ -45,9 +45,6 @@ opt.showmode = false
 
 opt.signcolumn = "yes:1"
 
-opt.showcmd = false
-opt.cmdheight = 1
-
 opt.splitbelow = true
 opt.splitright = true
 
