@@ -3,8 +3,8 @@ local map = require("utils").map
 
 local M = {}
 
-M.setup = function ()
-  map("n", "<leader>pl", "<cmd> :Mason <CR>")
+M.setup = function()
+  map("n", "<leader>pm", "<cmd> :Mason <CR>")
 end
 
 M.config = function()
@@ -12,6 +12,7 @@ M.config = function()
 
   local options = {
     ui = {
+      border = "single",
       icons = {
         package_installed = "﫠",
         package_pending = "",
