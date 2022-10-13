@@ -233,6 +233,8 @@ local plugins = {
     end,
   },
 
+  ["windwp/nvim-ts-autotag"] = {},
+
   ["hrsh7th/cmp-nvim-lua"] = {
     after = "nvim-cmp",
   },

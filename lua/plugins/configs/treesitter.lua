@@ -38,6 +38,9 @@ M.config = function()
     },
     indent = {
       enable = true,
+    },
+    autotag = {
+      enable = true,
     }
   }
 

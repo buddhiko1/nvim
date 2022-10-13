@@ -22,12 +22,8 @@ map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- map("i", "<C-j>", "<ESC>jli")
--- map("i", "<C-k>", "<ESC>kli")
-map("i", "<C-b>", "<ESC>bi")
-map("i", "<C-e>", "<End>")
-map("i", "<C-h>", "<ESC>i")
-map("i", "<C-l>", "<ESC>2li")
+map("i", "<C-h>", "<Left>")
+map("i", "<C-l>", "<Right>")
 
 -- move line in line visual model when shift is active.
 map({ "n", "x", "o" }, "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
