@@ -4,7 +4,15 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>du", "<cmd> :lua require('dapui').toggle()<CR>")
+  map("n", "<leader>du", function()
+    local dapui = load("dapui")
+    if dapui.is_open() then
+      dapui.close()
+    else
+      dapui.open()
+    end
+  end
+  )
 end
 
 M.config = function()
@@ -83,15 +91,18 @@ M.config = function()
   local lualine = load("lualine")
   dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
-    lualine.hide()
+    vim.cmd("set laststatus=3")
+    -- lualine.hide()
   end
   dap.listeners.before.event_terminated["dapui_config"] = function()
     dapui.close()
-    lualine.hide({ unhide = true })
+    vim.cmd("set laststatus=0")
+    -- lualine.hide({ unhide = true })
   end
   dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
-    lualine.hide({ unhide = true })
+    vim.cmd("set laststatus=0")
+    -- lualine.hide({ unhide = true })
   end
 end
 return M

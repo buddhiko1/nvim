@@ -71,9 +71,19 @@ local plugins = {
     end,
   },
 
+  ["rcarriga/nvim-notify"] = {
+    setup = function()
+      require("plugins.configs.notify").setup()
+    end,
+    config = function()
+      require("plugins.configs.notify").config()
+    end,
+  },
+
   ["folke/noice.nvim"] = {
+    requires = { "MunifTanjim/nui.nvim" },
     event = "VimEnter",
-    requires = { "rcarriga/nvim-notify", "MunifTanjim/nui.nvim" },
+    after = "nvim-notify",
     setup = function()
       require("plugins.configs.noice").setup()
     end,

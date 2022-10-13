@@ -8,6 +8,11 @@ M.config = function()
 
   local options = {
     window = {
+      -- default
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+
+      -- custom
       completion = {
         border = "single",
       },

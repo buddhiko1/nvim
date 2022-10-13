@@ -8,6 +8,6 @@ end
 
 M.config = function()
   local leap = load("leap")
-  -- leap.set_default_keymaps()
+  leap.set_default_keymaps()
 end
 return M

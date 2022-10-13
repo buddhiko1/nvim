@@ -5,6 +5,7 @@ local M = {}
 
 M.setup = function()
   map("n", "<leader>il", "<cmd> :Notifications <CR>")
+  map("n", "<leader>ih", "<cmd> :Noice telescope <CR>")
 end
 
 M.config = function()
@@ -17,21 +18,22 @@ M.config = function()
         [":"] = { icon = " ", hl_group = "DiagnosticInfo", firstc = false },
       },
     },
-    routes = {
-      -- filter notify message
-      {
-        filter = {
-          event = "msg_show",
-          ["not"] = {
-            any = {
-              { warning = true },
-              { error = true }
-            }
-          }
-        },
-        opts = { skip = true },
-      },
-    },
+
+    -- routes = {
+    --   -- filter notify message
+    --   {
+    --     filter = {
+    --       event = "msg_show",
+    --       ["not"] = {
+    --         any = {
+    --           { warning = true },
+    --           { error = true }
+    --         }
+    --       }
+    --     },
+    --     opts = { skip = true },
+    --   },
+    -- },
   }
   noice.setup(options)
 end

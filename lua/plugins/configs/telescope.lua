@@ -70,6 +70,7 @@ M.config = function()
       color_devicons = true,
       path_display = { "truncate" },
       winblend = 0,
+      wrap_results = true,
 
       -- search
       vimgrep_arguments = {

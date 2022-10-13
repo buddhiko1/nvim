@@ -50,6 +50,7 @@ map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 map("n", "<leader>q", "<cmd> :wqa!<CR>")
 map({ "n", "v", "i" }, "<leader><leader>", "<ESC>")
 map({ "n", "v" }, "<leader>x", "<cmd> :q<CR>")
+map("n", "<leader>m", ":vertical help ")
 
 -- remapping
 map("n", "<Esc>", "<cmd> :noh <CR>") -- shut down the search high light
