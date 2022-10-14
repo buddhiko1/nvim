@@ -13,15 +13,10 @@ map("n", "wb", "<cmd> :sp<CR>")
 -- motion
 map("n", "J", "5j")
 map("n", "K", "5k")
-map({ "n", "v" }, "B", "^")
-map({ "n", "v" }, "E", "g_")
-map({ "n", "v" }, "<Space>", "w")
-
 map("v", "J", ":move '>+1<CR>gv-gv")
 map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
-
 map("i", "<C-h>", "<Left>")
 map("i", "<C-l>", "<Right>")
 
@@ -37,15 +32,24 @@ map("n", "dd", [["+dd]])
 map("n", "p", [["+p]])
 map("i", "<C-p>", [[<ESC>"+pa]])
 
--- assistant
+-- edite
+map("n", "<leader>ee", "`.") -- latest edited word
+map("n", "<leader>en", "*") -- search forward for the next instance of the identifier under the cursor
+map("n", "<leader>ep", "#") -- search backward for the next instance of the identifier under the cursor
+map("n", "<leader>eu", "gUw") -- uppercase
+map("n", "<leader>eU", "gUW")
+map("n", "<leader>el", "guw") -- lowercase
+map("n", "<leader>eL", "guW")
+
+-- remapping
 map("n", "<leader><Esc>", "<cmd> :wqa!<CR>")
 map({ "n", "v", "i" }, "<leader><leader>", "<ESC>")
 map("n", "<leader>x", ":noh <CR>") -- shut down the search high light
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
-map("n", "<leader>q", "@")
 
--- remapping
 map("n", "<leader>j", "J") -- join
+map("n", "<leader>q", "@")
+map("n", "<leader>r", "q")
 
 -- packer
 map("n", "<leader>pu", "<cmd> :PackerSync <CR>")
