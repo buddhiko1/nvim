@@ -30,26 +30,22 @@ map({ "n", "x", "o" }, "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { ex
 map({ "n", "x", "o" }, "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
 
 -- copy and past
-map("i", "<C-p>", [[<ESC>"+pa]])
-map("n", "yy", [["+yy]])
 map({ "n", "v" }, "y", [["+y]])
+map("n", "yy", [["+yy]])
 map({ "n", "v" }, "d", [["+d]])
 map("n", "dd", [["+dd]])
 map("n", "p", [["+p]])
+map("i", "<C-p>", [[<ESC>"+pa]])
 
--- other assistant
-map("n", "pp", [[i<End><CR><ESC>pi<End><CR><ESC>]])
-map("n", "<leader><Space>", [[i<End><CR><ESC>]])
-map("n", "<leader>q", "<cmd> :wqa!<CR>")
+-- assistant
+map("n", "<leader><Esc>", "<cmd> :wqa!<CR>")
 map({ "n", "v", "i" }, "<leader><leader>", "<ESC>")
-map({ "n", "v" }, "<leader>x", "<cmd> :q<CR>")
-map("n", "<leader>h", ":vertical help ")
+map("n", "<leader>x", ":noh <CR>") -- shut down the search high light
+map("n", "<leader><Space>", [[i<End><CR><ESC>]])
+map("n", "<leader>q", "@")
 
 -- remapping
-map("n", "<leader>x", ":noh <CR>") -- shut down the search high light
-map("n", "<leader>r", "q") -- recording
 map("n", "<leader>j", "J") -- join
-map("n", "<A-v>", "<C-v>")
 
 -- packer
 map("n", "<leader>pu", "<cmd> :PackerSync <CR>")

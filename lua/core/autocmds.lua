@@ -4,7 +4,6 @@ local log = require("utils").log
 autocmd({ "VimEnter" }, {
   callback = function()
     vim.g.log = log
-
     vim.cmd("set laststatus=0")
     -- require("lualine").hide()
     -- fix fullscreen bug of alacritty

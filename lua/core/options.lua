@@ -6,7 +6,6 @@ g.mapleader = ";"
 g.encoding = 'utf-8'
 opt.fileencoding = 'utf-8'
 
-
 -- behavior
 opt.confirm = true
 
