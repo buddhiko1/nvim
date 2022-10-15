@@ -11,7 +11,7 @@ autocmd({ "VimEnter" }, {
     vim.defer_fn(function()
       vim.loop.kill(pid, WINCH)
     end, 500)
-  end
+  end,
 })
 
 -- autocmd({ "WinEnter" }, {
@@ -23,7 +23,7 @@ autocmd({ "VimEnter" }, {
 autocmd({ "DirChanged" }, {
   callback = function()
     vim.cmd("set laststatus=0")
-  end
+  end,
 })
 
 autocmd({ "VimLeave" }, {
@@ -31,13 +31,15 @@ autocmd({ "VimLeave" }, {
     vim.cmd("!kill -9 node")
     -- require("dap").disconnect()
     -- require("dap").close()
-  end
+  end,
 })
 
 -- clear command after a while
 autocmd("CmdlineLeave", {
   callback = function()
-    vim.defer_fn(function() vim.cmd('echo ""') end, 6000)
+    vim.defer_fn(function()
+      vim.cmd('echo ""')
+    end, 6000)
   end,
 })
 
@@ -51,7 +53,7 @@ autocmd("CursorHold", {
 -- Highlight yanked text
 autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank { higroup = "Visual", timeout = 2500 }
+    vim.highlight.on_yank({ higroup = "Visual", timeout = 2500 })
   end,
 })
 

@@ -30,14 +30,13 @@ M.config = function()
       toggle = "t",
     },
     -- Expand lines larger than the window
-    -- Requires >= 0.7
     expand_lines = vim.fn.has("nvim-0.7") == 1,
     layouts = {
       {
         elements = {
           -- Elements can be strings or table with id and size keys.
-          { id = "scopes", size = 40 },
           "breakpoints",
+          "scopes",
           "stacks",
           "watches",
         },
@@ -54,9 +53,7 @@ M.config = function()
       },
     },
     controls = {
-      -- Requires Neovim nightly (or 0.8 when released)
       enabled = true,
-      -- Display controls in this element
       element = "repl",
       icons = {
         pause = "",
@@ -90,19 +87,19 @@ M.config = function()
   local dap = load("dap")
   local lualine = load("lualine")
   dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
     vim.cmd("set laststatus=3")
-    -- lualine.hide()
+    lualine.hide()
+    dapui.open()
   end
   dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
     vim.cmd("set laststatus=0")
-    -- lualine.hide({ unhide = true })
+    lualine.hide({ unhide = true })
+    dapui.close()
   end
   dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
     vim.cmd("set laststatus=0")
-    -- lualine.hide({ unhide = true })
+    lualine.hide({ unhide = true })
+    dapui.close()
   end
 end
 return M

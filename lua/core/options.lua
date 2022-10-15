@@ -3,8 +3,8 @@ local g = vim.g
 
 g.mapleader = ";"
 
-g.encoding = 'utf-8'
-opt.fileencoding = 'utf-8'
+g.encoding = "utf-8"
+opt.fileencoding = "utf-8"
 
 -- behavior
 opt.confirm = true
@@ -17,7 +17,7 @@ opt.timeoutlen = 800 -- for mapped key sequence
 
 opt.wrap = true -- line wrap
 opt.tw = 0
-opt.whichwrap = '<,>,[,]' -- go to previous/next line
+opt.whichwrap = "<,>,[,]" -- go to previous/next line
 
 opt.expandtab = true --replace tab with space
 opt.tabstop = 2
@@ -54,12 +54,10 @@ opt.title = true
 
 opt.fillchars = { eob = " " } -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
 
-
 -- search
 opt.smartcase = true
 opt.hlsearch = false
 opt.incsearch = true
-
 
 -- function
 opt.wildmenu = true -- auto completion on command

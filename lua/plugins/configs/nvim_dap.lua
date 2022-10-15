@@ -6,23 +6,25 @@ local M = {}
 M.setup = function()
   -- keymap
   map("n", "<leader>dc", "<cmd> :lua require'dap'.continue()<CR>")
-  map("n", "<leader>dd", "<cmd> :lua require'dap'.disconnect()<CR>")
   map("n", "<leader>dq", "<cmd> :lua require'dap'.close()<CR>")
   map("n", "<leader>dt", "<cmd> :lua require'dap'.terminate()<CR>")
   map("n", "<leader>dp", "<cmd> :lua require'dap'.pause.toggle()<CR>")
   map("n", "<leader>db", "<cmd> :lua require'dap'.toggle_breakpoint()<CR>")
+  map("n", "<leader>dB", "<cmd> :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+  map("n", "<leader>dx", "<cmd> :lua require'dap'.clear_breakpoints()<CR>")
 
-  map("n", "<leader>dn", "<cmd> :lua require'dap'.step_over()<CR>")
-  map("n", "<leader>di", "<cmd> :lua require'dap'.step_into()<CR>")
-  map("n", "<leader>do", "<cmd> :lua require'dap'.step_out()<CR>")
+  map("n", "<leader>dh", "<cmd> :lua require'dap'.step_back()<CR>")
+  map("n", "<leader>dl", "<cmd> :lua require'dap'.step_over()<CR>")
+  map("n", "<leader>dj", "<cmd> :lua require'dap'.step_into()<CR>")
+  map("n", "<leader>dk", "<cmd> :lua require'dap'.step_out()<CR>")
   map("n", "<leader>dz", "<cmd> :lua require'dap'.run_to_cursor()<CR>")
+  map("n", "<leader>dK", "<cmd> :lua require'dap'.up()<CR>")
+  map("n", "<leader>dJ", "<cmd> :lua require'dap'.down()<CR>")
 
-  map("n", "<leader>dv", "<cmd> :lua require'dap.ui.variables'.scopes()<CR>")
-  map("n", "<leader>dh", "<cmd> :lua require'dap.ui.variables'.hover()<CR>")
+  map("n", "<leader>d?", "<cmd> :lua require'dap.ui.widgets'.hover()<CR>")
   map("n", "<leader>ds", "<cmd> :lua require'dap'.session()<CR>")
 
   map("n", "<leader>dr", "<cmd> :lua require'dap'.repl.toggle()<CR>")
-  map("n", "<leader>dl", "<cmd> :lua require'dap'.repl.run_last()<CR>")
 
   --icon
   local dap_breakpoint = {
@@ -39,15 +41,22 @@ M.setup = function()
       numhl = "",
     },
     stopped = {
-      text = "",
+      text = "▶",
+      texthl = "LspDiagnosticsSignInformation",
+      linehl = "DiagnosticUnderlineInfo",
+      numhl = "LspDiagnosticsSignInformation",
+    },
+    conditioned = {
+      text = "",
       texthl = "LspDiagnosticsSignInformation",
       linehl = "DiagnosticUnderlineInfo",
       numhl = "LspDiagnosticsSignInformation",
     },
   }
   vim.fn.sign_define("DapBreakpoint", dap_breakpoint.point)
-  vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
   vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+  vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
+  vim.fn.sign_define("DapBreakpointCondition", dap_breakpoint.conditioned)
 end
 
 M.config = function()

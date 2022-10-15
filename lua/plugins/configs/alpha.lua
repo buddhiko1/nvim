@@ -2,8 +2,7 @@ local load = require("utils").load
 
 local M = {}
 
-M.setup = function()
-end
+M.setup = function() end
 
 local logo = {
   [[                               __                ]],
@@ -46,7 +45,7 @@ local options = {
   layout = {
     {
       type = "padding",
-      val = 5
+      val = 5,
     },
     {
       type = "text",
@@ -58,7 +57,7 @@ local options = {
     },
     {
       type = "padding",
-      val = 5
+      val = 5,
     },
     {
       type = "group",
@@ -72,7 +71,7 @@ local options = {
       opts = {
         spacing = 1,
       },
-    }
+    },
   },
   opts = {},
 }

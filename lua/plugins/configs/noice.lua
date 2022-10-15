@@ -4,11 +4,10 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>mh", "<cmd> :Noice telescope <CR>")
+  map("n", "<leader>mh", "<cmd> :Noice telescope<CR>")
 end
 
 M.config = function()
-
   local noice = load("noice")
   local options = {
     cmdline = {

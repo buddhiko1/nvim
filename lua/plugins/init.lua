@@ -17,7 +17,7 @@ local plugins = {
     end,
     config = function()
       require("plugins.configs.nightfox").config()
-    end
+    end,
   },
 
   ["lukas-reineke/indent-blankline.nvim"] = {
@@ -43,7 +43,9 @@ local plugins = {
   },
 
   ["nvim-treesitter/nvim-treesitter"] = {
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    run = function()
+      require("nvim-treesitter.install").update({ with_sync = true })
+    end,
     config = function()
       require("plugins.configs.treesitter").config()
     end,
@@ -103,7 +105,9 @@ local plugins = {
   },
 
   ["iamcco/markdown-preview.nvim"] = {
-    run = function() vim.fn["mkdp#util#install"]() end,
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
     setup = function()
       require("plugins.configs.previewer").setup()
     end,
@@ -120,11 +124,11 @@ local plugins = {
 
   -- to significantly improve telescope sorting performance.
   ["nvim-telescope/telescope-fzf-native.nvim"] = {
-    run = "make"
+    run = "make",
   },
 
   ["nvim-telescope/telescope.nvim"] = {
-    tag = '0.1.0',
+    tag = "0.1.0",
     setup = function()
       require("plugins.configs.telescope").setup()
     end,
@@ -145,7 +149,7 @@ local plugins = {
 
   -- homepage
   ["goolord/alpha-nvim"] = {
-    after = 'tabline-framework.nvim',
+    after = "tabline-framework.nvim",
     setup = function()
       require("plugins.configs.alpha").setup()
     end,
@@ -153,7 +157,6 @@ local plugins = {
       require("plugins.configs.alpha").config()
     end,
   },
-
 
   -- status line
   ["nvim-lualine/lualine.nvim"] = {
@@ -180,7 +183,7 @@ local plugins = {
     end,
     config = function()
       require("plugins.configs.outline").config()
-    end
+    end,
   },
 
   ["dstein64/nvim-scrollview"] = {
@@ -206,16 +209,27 @@ local plugins = {
     end,
     config = function()
       require("plugins.configs.nvim_dap").config()
-    end
+    end,
+  },
+
+  ["theHamsta/nvim-dap-virtual-text"] = {
+    after = "nvim-dap",
+    setup = function()
+      require("plugins.configs.nvim_dap_text").setup()
+    end,
+    config = function()
+      require("plugins.configs.nvim_dap_text").config()
+    end,
   },
 
   ["rcarriga/nvim-dap-ui"] = {
+    after = "nvim-dap",
     setup = function()
       require("plugins.configs.nvim_dap_ui").setup()
     end,
     config = function()
       require("plugins.configs.nvim_dap_ui").config()
-    end
+    end,
   },
 
   -- complements
@@ -264,6 +278,16 @@ local plugins = {
   ["hrsh7th/cmp-cmdline"] = {
     after = "nvim-cmp",
   },
+
+  -- formatter
+  -- ["jose-elias-alvarez/null-ls.nvim"] = {
+  --   setup = function()
+  --     require("plugins.configs.null_ls").setup()
+  --   end,
+  --   config = function()
+  --     require("plugins.configs.null_ls").config()
+  --   end,
+  -- },
 
   -- lsp
   ["williamboman/mason.nvim"] = {

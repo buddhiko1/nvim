@@ -13,13 +13,13 @@ M.config = function()
   local mapping = ccc.mapping
   local options = {
     highlighter = {
-      auto_enable = true
+      auto_enable = true,
     },
     mappings = {
       ["n"] = mapping.goto_next,
       ["p"] = mapping.goto_prev,
       ["<ESC>"] = mapping.quit,
-    }
+    },
   }
   ccc.setup(options)
 end

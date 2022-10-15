@@ -4,8 +4,7 @@ local M = {}
 
 M.config = function()
   local autotag = load("nvim-ts-autotag")
-  local options = { filetypes = { "html", "xml" },
-  }
+  local options = { filetypes = { "html", "xml" } }
   autotag.setup(options)
 end
 
