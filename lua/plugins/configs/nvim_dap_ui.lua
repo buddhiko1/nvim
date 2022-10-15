@@ -1,5 +1,6 @@
 local load = require("utils").load
 local map = require("utils").map
+local showLine = require("plugins.configs.lualine").showLine
 
 local M = {}
 
@@ -85,9 +86,8 @@ M.config = function()
 
   -- active dapui automatically
   local dap = load("dap")
-  local lualine = load("lualine")
   dap.listeners.after["event_initialized"]["dapui_config"] = function(session, body)
-    lualine.hide()
+    showLine()
     dapui.open()
   end
 

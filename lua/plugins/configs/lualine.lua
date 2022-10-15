@@ -6,19 +6,29 @@ local M = {}
 
 vim.g.show_lualine = false
 
-local _toggle = function()
-  local lualine = load("lualine")
+M.showLine = function()
+  local lualine = require("lualine")
+  lualine.hide({ unhide = true })
+  vim.g.show_lualine = true
+end
+
+M.hideLine = function()
+  local lualine = require("lualine")
+  lualine.hide()
+  vim.g.show_lualine = false
+end
+
+M.toggleLine = function()
   if vim.g.show_lualine then
-    lualine.hide()
+    M.hideLine()
   else
-    lualine.hide({ unhide = true })
+    M.showLine()
   end
-  vim.g.show_lualine = not vim.g.show_lualine
 end
 
 M.config = function()
   map("n", "<leader>b", function()
-    return disable_mapping_at("alpha") and _toggle()
+    return disable_mapping_at("alpha") and toggleLine()
   end)
 
   local lualine = load("lualine")

@@ -1,5 +1,6 @@
 local load = require("utils").load
 local map = require("utils").map
+local hideLine = require("plugins.configs.lualine").hideLine
 
 local M = {}
 
@@ -8,8 +9,7 @@ M.setup = function()
   map("n", "<leader>dc", "<cmd> :lua require'dap'.continue()<CR>")
   map("n", "<leader>dq", "<cmd> :lua require'dap'.close()<CR>")
   map("n", "<leader>dt", function()
-    -- vim.cmd("set laststatus=0")
-    -- require("lualine").hide({ unhide = true })
+    hideLine()
     require("dap").terminate()
     require("dapui").close()
   end)
