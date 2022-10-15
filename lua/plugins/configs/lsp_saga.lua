@@ -2,18 +2,18 @@ local load = require("utils").load
 local map = require("utils").map
 
 vim.g.diagnostics_virtual_text = false
+
 local _toggle_virtual_text = function()
   if vim.g.diagnostics_virtual_text then
     vim.diagnostic.config({
       virtual_text = false,
     })
-    vim.g.diagnostics_virtual_text = false
   else
     vim.diagnostic.config({
       virtual_text = true,
     })
-    vim.g.diagnostics_virtual_text = true
   end
+  vim.g.diagnostics_virtual_text = not vim.g.diagnostics_virtual_text
 end
 
 local M = {}

@@ -4,12 +4,16 @@ local disable_mapping_at = require("utils").disable_mapping_at
 
 local M = {}
 
+vim.g.show_lualine = false
+
 local _toggle = function()
-  if vim.opt.laststatus["_value"] > 0 then
-    vim.cmd "set laststatus=0"
+  local lualine = load("lualine")
+  if vim.g.show_lualine then
+    lualine.hide()
   else
-    vim.cmd "set laststatus=3"
+    lualine.hide({ unhide = true })
   end
+  vim.g.show_lualine = not vim.g.show_lualine
 end
 
 M.config = function()
@@ -36,7 +40,7 @@ M.config = function()
         "dapui_console"
       },
       always_divide_middle = false,
-      globalstatus = false,
+      globalstatus = true,
     },
     sections = {
       lualine_a = { "mode" },
@@ -55,11 +59,11 @@ M.config = function()
       lualine_z = {}
     },
     tabline = {},
-    extensions = {}
+    extensions = { "neo-tree", "nvim-dap-ui" }
   }
 
   lualine.setup(options)
-  vim.cmd("set laststatus=0")
+  lualine.hide()
 end
 
 return M

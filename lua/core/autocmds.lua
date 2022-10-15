@@ -5,48 +5,12 @@ autocmd({ "VimEnter" }, {
   callback = function()
     vim.g.log = log
     vim.cmd("set laststatus=0")
-    -- require("lualine").hide()
-    -- fix fullscreen bug of alacritty
-    local pid, WINCH = vim.fn.getpid(), vim.loop.constants.SIGWINCH
-    vim.defer_fn(function()
-      vim.loop.kill(pid, WINCH)
-    end, 500)
-  end,
-})
-
--- autocmd({ "WinEnter" }, {
---   callback = function()
---     vim.cmd("set laststatus=0")
---   end
--- })
-
-autocmd({ "DirChanged" }, {
-  callback = function()
-    vim.cmd("set laststatus=0")
   end,
 })
 
 autocmd({ "VimLeave" }, {
   callback = function()
     vim.cmd("!kill -9 node")
-    -- require("dap").disconnect()
-    -- require("dap").close()
-  end,
-})
-
--- clear command after a while
-autocmd("CmdlineLeave", {
-  callback = function()
-    vim.defer_fn(function()
-      vim.cmd('echo ""')
-    end, 6000)
-  end,
-})
-
--- clear commandline message
-autocmd("CursorHold", {
-  callback = function()
-    vim.cmd("echo ''")
   end,
 })
 
@@ -54,6 +18,22 @@ autocmd("CursorHold", {
 autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank({ higroup = "Visual", timeout = 2500 })
+  end,
+})
+
+-- alpha plugin
+autocmd('User', {
+  pattern = 'AlphaReady',
+  desc = 'disable status, tabline and cmdline for alpha',
+  callback = function()
+    vim.cmd("set showtabline=0")
+  end,
+})
+autocmd('BufUnload', {
+  buffer = 0,
+  desc = 'enable status, tabline and cmdline after alpha',
+  callback = function()
+    vim.cmd("set showtabline=2")
   end,
 })
 

@@ -86,20 +86,19 @@ M.config = function()
   -- active dapui automatically
   local dap = load("dap")
   local lualine = load("lualine")
-  dap.listeners.after.event_initialized["dapui_config"] = function()
-    vim.cmd("set laststatus=3")
+  dap.listeners.after["event_initialized"]["dapui_config"] = function(session, body)
     lualine.hide()
     dapui.open()
   end
-  dap.listeners.before.event_terminated["dapui_config"] = function()
-    vim.cmd("set laststatus=0")
-    lualine.hide({ unhide = true })
-    dapui.close()
-  end
-  dap.listeners.before.event_exited["dapui_config"] = function()
-    vim.cmd("set laststatus=0")
-    lualine.hide({ unhide = true })
-    dapui.close()
-  end
+
+  -- bug,event listener can't be triggered
+  -- dap.listeners.before["event_terminated"]["dapui_config"] = function(session, body)
+  --   print("dap terminated event")
+  --   dapui.close()
+  -- end
+  -- dap.listeners.before["event_exited"]["dapui_config"] = function(session, body)
+  --   print("dap exit event")
+  --   dapui.close()
+  -- end
 end
 return M

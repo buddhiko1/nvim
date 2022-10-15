@@ -79,7 +79,7 @@ local options = {
 M.config = function()
   local alpha = load("alpha")
   alpha.setup(options)
-  vim.cmd("autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2")
+  -- vim.cmd("autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2")
 end
 
 return M

@@ -7,7 +7,12 @@ M.setup = function()
   -- keymap
   map("n", "<leader>dc", "<cmd> :lua require'dap'.continue()<CR>")
   map("n", "<leader>dq", "<cmd> :lua require'dap'.close()<CR>")
-  map("n", "<leader>dt", "<cmd> :lua require'dap'.terminate()<CR>")
+  map("n", "<leader>dt", function()
+    -- vim.cmd("set laststatus=0")
+    -- require("lualine").hide({ unhide = true })
+    require("dap").terminate()
+    require("dapui").close()
+  end)
   map("n", "<leader>dp", "<cmd> :lua require'dap'.pause.toggle()<CR>")
   map("n", "<leader>db", "<cmd> :lua require'dap'.toggle_breakpoint()<CR>")
   map("n", "<leader>dB", "<cmd> :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
@@ -24,8 +29,6 @@ M.setup = function()
   map("n", "<leader>d?", "<cmd> :lua require'dap.ui.widgets'.hover()<CR>")
   map("n", "<leader>ds", "<cmd> :lua require'dap'.session()<CR>")
 
-  map("n", "<leader>dr", "<cmd> :lua require'dap'.repl.toggle()<CR>")
-
   --icon
   local dap_breakpoint = {
     point = {
@@ -41,7 +44,7 @@ M.setup = function()
       numhl = "",
     },
     stopped = {
-      text = "▶",
+      text = "ﰲ",
       texthl = "LspDiagnosticsSignInformation",
       linehl = "DiagnosticUnderlineInfo",
       numhl = "LspDiagnosticsSignInformation",
