@@ -20,7 +20,7 @@ local _lsp_flags = {
 }
 
 local _on_attach = function(client, bufnr)
-  vim.lsp.buf.format({ bufnr = bufnr, timeout = 2000 })
+  vim.lsp.buf.format({ bufnr = bufnr })
 end
 
 local M = {}
@@ -36,7 +36,7 @@ M.config = function()
     local options = {
       capabilities = capabilities,
       on_attach = _on_attach,
-      flags = _lsp_flags
+      flags = _lsp_flags,
     }
 
     server = vim.split(server, "@")[1]

@@ -7,6 +7,11 @@ M.config = function()
   local luasnip = load("luasnip")
 
   local options = {
+    enabled = function()
+      return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+          or require("cmp_dap").is_dap_buffer()
+    end,
+
     window = {
       -- default
       -- completion = cmp.config.window.bordered(),
@@ -87,6 +92,11 @@ M.config = function()
   cmp.setup.cmdline('/', {
     sources = {
       { name = 'buffer' },
+    },
+  })
+  cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+    sources = {
+      { name = "dap" },
     },
   })
 end

@@ -279,6 +279,10 @@ local plugins = {
     after = "nvim-cmp",
   },
 
+  ["rcarriga/cmp-dap"] = {
+    after = "nvim-cmp"
+  },
+
   -- formatter
   -- ["jose-elias-alvarez/null-ls.nvim"] = {
   --   setup = function()
