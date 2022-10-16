@@ -25,7 +25,9 @@ M.setup = function()
   map("n", "<leader>sh", "<cmd>Lspsaga hover_doc<CR>")
 
   -- action
-  map("n", "<leader>sm", function() vim.lsp.buf.format() end)
+  map("n", "<leader>sm", function()
+    vim.lsp.buf.format()
+  end)
   map("n", "<leader>st", _toggle_virtual_text)
   map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>")
   map("n", "<leader>sr", "<cmd>Lspsaga rename<CR>")
@@ -47,7 +49,7 @@ M.config = function()
     symbol_in_winbar = {
       in_custom = false,
       enable = false,
-      separator = ' ',
+      separator = " ",
       show_file = true,
       click_support = false,
     },
@@ -63,13 +65,13 @@ M.config = function()
     diagnostic_header = { " ", " ", " ", " " },
     code_action_icon = "💡",
     finder_icons = {
-      def = '  ',
-      ref = '諭 ',
-      link = '  ',
+      def = "  ",
+      ref = "諭 ",
+      link = "  ",
     },
 
     -- key
-    move_in_saga = { prev = '<C-p>', next = '<C-n>' },
+    move_in_saga = { prev = "<C-p>", next = "<C-n>" },
     finder_action_keys = {
       open = "o",
       vsplit = "v",

@@ -8,8 +8,8 @@ M.config = function()
     excluded_filetypes = { "neo-tree", "tagbar" },
     current_only = true,
     winblend = 0,
-    base = 'right',
-    column = 1
+    base = "right",
+    column = 1,
   }
   scrollbar.setup(options)
 end

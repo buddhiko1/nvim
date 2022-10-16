@@ -18,7 +18,7 @@ local options = {
   enable_diagnostics = true,
   default_component_configs = {
     container = {
-      enable_character_fade = true
+      enable_character_fade = true,
     },
     indent = {
       indent_size = 2,
@@ -51,16 +51,16 @@ local options = {
     git_status = {
       symbols = {
         -- Change type
-        added     = "+",
-        modified  = "",
-        deleted   = "",
-        renamed   = "",
+        added = "+",
+        modified = "",
+        deleted = "",
+        renamed = "",
         -- Status type
         untracked = "?",
-        ignored   = "",
-        unstaged  = "",
-        staged    = "",
-        conflict  = "",
+        ignored = "",
+        unstaged = "",
+        staged = "",
+        conflict = "",
       },
       window = {
         position = "right",
@@ -72,8 +72,8 @@ local options = {
           ["gc"] = "git_commit",
           ["gp"] = "git_push",
           ["gg"] = "git_commit_and_push",
-        }
-      }
+        },
+      },
     },
   },
   window = {
@@ -98,8 +98,8 @@ local options = {
       ["a"] = {
         "add",
         config = {
-          show_path = "none" -- "none", "relative", "absolute"
-        }
+          show_path = "none", -- "none", "relative", "absolute"
+        },
       },
       ["ad"] = "add_directory",
       ["d"] = "delete",
@@ -112,7 +112,7 @@ local options = {
       ["q"] = "close_window",
       ["R"] = "refresh",
       ["?"] = "show_help",
-    }
+    },
   },
   nesting_rules = {},
   filesystem = {
@@ -122,14 +122,14 @@ local options = {
       hide_gitignored = true,
       hide_by_name = {
         "node_modules",
-        ".git"
+        ".git",
       },
       hide_by_pattern = {
         --"*.meta"
       },
       never_show = {
         "node_modules",
-        ".git"
+        ".git",
       },
     },
     follow_current_file = true, -- This will find and focus the file in the active buffer every
@@ -149,8 +149,8 @@ local options = {
         ["<c-x>"] = "clear_filter",
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",
-      }
-    }
+      },
+    },
   },
   buffers = {
     follow_current_file = true, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
@@ -161,7 +161,7 @@ local options = {
         ["bd"] = "buffer_delete",
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
-      }
+      },
     },
   },
 }

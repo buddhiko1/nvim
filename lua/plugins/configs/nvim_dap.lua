@@ -63,7 +63,7 @@ M.setup = function()
 end
 
 M.config = function()
-  local HOME = os.getenv "HOME"
+  local HOME = os.getenv("HOME")
   local DEBUGGER_LOCATION = HOME .. "/Software/vscode-chrome-debug"
 
   local dap = load("dap")

@@ -11,7 +11,7 @@ M.config = function()
   local dap_text = load("nvim-dap-virtual-text")
   local options = {
     enabled = false,
-    commented = false
+    commented = false,
   }
   dap_text.setup(options)
 end

@@ -29,8 +29,8 @@ M.config = function()
     cmd = "g",
     dimensions = {
       height = 0.9,
-      width = 0.9
-    }
+      width = 0.9,
+    },
   })
   map("n", "<leader>ug", function()
     gitui:open()
@@ -41,8 +41,8 @@ M.config = function()
     cmd = "btop",
     dimensions = {
       height = 0.9,
-      width = 0.9
-    }
+      width = 0.9,
+    },
   })
   map("n", "<leader>us", function()
     btop:toggle()
@@ -53,8 +53,8 @@ M.config = function()
     cmd = "ns",
     dimensions = {
       height = 1.0,
-      width = 1.0
-    }
+      width = 1.0,
+    },
   })
   map("n", "<leader>dw", function()
     ng:open()

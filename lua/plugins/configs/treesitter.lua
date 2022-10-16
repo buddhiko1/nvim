@@ -41,7 +41,7 @@ M.config = function()
     },
     autotag = {
       enable = true,
-    }
+    },
   }
 
   treesitter.setup(options)

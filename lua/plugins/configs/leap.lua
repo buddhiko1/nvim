@@ -3,8 +3,7 @@ local map = require("utils").map
 
 local M = {}
 
-M.setup = function()
-end
+M.setup = function() end
 
 M.config = function()
   local leap = load("leap")

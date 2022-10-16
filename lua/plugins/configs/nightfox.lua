@@ -34,8 +34,7 @@ end
 
 local M = {}
 
-M.setup = function()
-end
+M.setup = function() end
 
 M.config = function()
   local nightfox = load("nightfox")

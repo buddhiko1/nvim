@@ -19,7 +19,7 @@ M.log = function(text)
   local notify = require("notify")
   notify(text, "error", {
     title = "Debug",
-    icon = ""
+    icon = "",
   })
 end
 
@@ -30,13 +30,13 @@ M.get_terminal_theme = function()
     lines[#lines + 1] = line
   end
   local content = lines[1]
-  local theme = string.match(content, '.*themes/(%a+).yml')
+  local theme = string.match(content, ".*themes/(%a+).yml")
   return theme
 end
 
 M.get_theme_palette = function()
   local theme = vim.g.colors_name
-  local palette = require('nightfox.palette').load(theme)
+  local palette = require("nightfox.palette").load(theme)
   return palette
 end
 
@@ -46,7 +46,12 @@ end
 
 M.is_file_exists = function(name)
   local f = io.open(name, "r")
-  if f ~= nil then io.close(f) return true else return false end
+  if f ~= nil then
+    io.close(f)
+    return true
+  else
+    return false
+  end
 end
 
 M.disable_mapping_at = function(filetype)
@@ -55,7 +60,7 @@ end
 
 M.print_table = function(data)
   for k, v in pairs(data) do
-    print('data[' .. k .. ']', v)
+    print("data[" .. k .. "]", v)
   end
 end
 return M

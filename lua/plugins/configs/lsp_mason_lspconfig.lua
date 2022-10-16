@@ -12,7 +12,7 @@ M.servers = {
   "dockerls",
   "yamlls",
   "jsonls",
-  "angularls"
+  "angularls",
 }
 
 M.config = function()

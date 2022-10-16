@@ -43,7 +43,7 @@ M.config = function()
           ["h"] = "which_key",
 
           ["t"] = "file_tab",
-          ["v"] = "file_vsplit"
+          ["v"] = "file_vsplit",
         },
       },
 
@@ -93,13 +93,13 @@ M.config = function()
           override_generic_sorter = true,
           override_file_sorter = true,
           case_mode = "smart_case", -- or "ignore_case" or "respect_case", the default case_mode is "smart_case".
-        }
+        },
       },
     },
   }
 
   telescope.setup(options)
-  telescope.load_extension('fzf')
+  telescope.load_extension("fzf")
   telescope.load_extension("projects")
 end
 

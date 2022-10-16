@@ -8,8 +8,7 @@ M.config = function()
 
   local options = {
     enabled = function()
-      return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-          or require("cmp_dap").is_dap_buffer()
+      return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
     end,
 
     window = {
@@ -34,29 +33,32 @@ M.config = function()
 
     formatting = {
       format = function(_, vim_item)
-        local icons = require "plugins.configs.cmp_icons"
+        local icons = require("plugins.configs.cmp_icons")
         vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
         return vim_item
       end,
     },
 
     mapping = {
-      ["<CR>"] = cmp.mapping.confirm {
+      ["<CR>"] = cmp.mapping.confirm({
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
-      },
+      }),
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
-          vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+          vim.fn.feedkeys(
+            vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
+            ""
+          )
         else
           fallback()
         end
       end, {
         "i",
         "s",
-        "c"
+        "c",
       }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
@@ -69,7 +71,7 @@ M.config = function()
       end, {
         "i",
         "s",
-        "c"
+        "c",
       }),
     },
 
@@ -84,14 +86,14 @@ M.config = function()
 
   cmp.setup(options)
 
-  cmp.setup.cmdline(':', {
+  cmp.setup.cmdline(":", {
     sources = {
-      { name = 'cmdline' },
+      { name = "cmdline" },
     },
   })
-  cmp.setup.cmdline('/', {
+  cmp.setup.cmdline("/", {
     sources = {
-      { name = 'buffer' },
+      { name = "buffer" },
     },
   })
   cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {

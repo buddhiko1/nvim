@@ -24,12 +24,16 @@ M.config = function()
       map("n", "<leader>gu", gs.undo_stage_hunk, { buffer = bufnr })
       map("n", "<leader>gsb", gs.stage_buffer, { buffer = bufnr })
       map("n", "<leader>grb", gs.reset_buffer, { buffer = bufnr })
-      map("n", "<leader>gb", function() gs.blame_line { full = true } end, { buffer = bufnr })
+      map("n", "<leader>gb", function()
+        gs.blame_line({ full = true })
+      end, { buffer = bufnr })
       map("n", "<leader>gtb", gs.toggle_current_line_blame, { buffer = bufnr })
-      map("n", "<leader>gd", function() gs.diffthis("~") end, { buffer = bufnr })
+      map("n", "<leader>gd", function()
+        gs.diffthis("~")
+      end, { buffer = bufnr })
       map("n", "<leader>gtd", gs.toggle_deleted, { buffer = bufnr })
       map("n", "<leader>gpv", gs.preview_hunk, { buffer = bufnr })
-    end
+    end,
   }
 
   gitsigns.setup(options)

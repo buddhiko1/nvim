@@ -1,7 +1,6 @@
 local load = require("utils").load
 local servers = require("plugins.configs.lsp_mason_lspconfig").servers
 
-
 local _config_diagnostic = function()
   -- ui
   local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -30,7 +29,7 @@ M.config = function()
 
   local lspconfig = load("lspconfig")
 
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   for _, server in pairs(servers) do
     local options = {

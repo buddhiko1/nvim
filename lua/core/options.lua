@@ -4,7 +4,6 @@ local g = vim.g
 g.mapleader = ";"
 g.encoding = "utf-8"
 
-
 opt.fileencoding = "utf-8"
 
 -- behavior

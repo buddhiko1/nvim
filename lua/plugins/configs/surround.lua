@@ -29,7 +29,7 @@ M.config = function()
       ["q"] = { '"', "'", "`" },
       ["s"] = { "}", "]", ")", ">", '"', "'", "`" },
     },
-    move_cursor = false
+    move_cursor = false,
   }
 
   surround.setup(options)
