@@ -28,7 +28,7 @@ end
 
 M.config = function()
   map("n", "<leader>b", function()
-    return disable_mapping_at("alpha") and toggleLine()
+    return disable_mapping_at("alpha") and M.toggleLine()
   end)
 
   local lualine = load("lualine")
@@ -47,7 +47,7 @@ M.config = function()
         "dapui_stacks",
         "dapui_watches",
         "dap-repl",
-        "dapui_console"
+        "dapui_console",
       },
       always_divide_middle = false,
       globalstatus = true,
@@ -58,7 +58,7 @@ M.config = function()
       lualine_c = {},
       lualine_x = { "encoding" },
       lualine_y = { "progress" },
-      lualine_z = { "location" }
+      lualine_z = { "location" },
     },
     inactive_sections = {
       lualine_a = {},
@@ -66,10 +66,10 @@ M.config = function()
       lualine_c = {},
       lualine_x = { "location" },
       lualine_y = {},
-      lualine_z = {}
+      lualine_z = {},
     },
     tabline = {},
-    extensions = { "neo-tree", "nvim-dap-ui" }
+    extensions = { "neo-tree", "nvim-dap-ui" },
   }
 
   lualine.setup(options)

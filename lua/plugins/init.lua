@@ -280,18 +280,18 @@ local plugins = {
   },
 
   ["rcarriga/cmp-dap"] = {
-    after = "nvim-cmp"
+    after = "nvim-cmp",
   },
 
-  -- formatter
-  -- ["jose-elias-alvarez/null-ls.nvim"] = {
-  --   setup = function()
-  --     require("plugins.configs.null_ls").setup()
-  --   end,
-  --   config = function()
-  --     require("plugins.configs.null_ls").config()
-  --   end,
-  -- },
+  -- formmater and linter
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    setup = function()
+      require("plugins.configs.null_ls").setup()
+    end,
+    config = function()
+      require("plugins.configs.null_ls").config()
+    end,
+  },
 
   -- lsp
   ["williamboman/mason.nvim"] = {
