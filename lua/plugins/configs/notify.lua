@@ -4,7 +4,7 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map({ "n", "i", "v" }, "<leader>mc", function()
+  map({ "n", "v" }, "<leader>mc", function()
     require("notify").dismiss()
   end)
 end

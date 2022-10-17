@@ -67,35 +67,61 @@ M.config = function()
   local DEBUGGER_LOCATION = HOME .. "/Software/vscode-chrome-debug"
 
   local dap = load("dap")
-  dap.adapters.chrome = {
+  -- dap.adapters.chrome = {
+  --   type = "executable",
+  --   command = "node",
+  --   args = { DEBUGGER_LOCATION .. "/out/src/chromeDebug.js" },
+  -- }
+
+  -- dap.defaults.fallback.external_terminal = {
+  --   command = '/usr/bin/alacritty';
+  --   args = {'-e'};
+  -- }
+  -- dap.defaults.fallback.force_external_terminal = true
+  -- dap.defaults.fallback.terminal_win_cmd = '50vsplit new'
+  -- dap.defaults.fallback.focus_terminal = true
+
+  dap.adapters.node = {
     type = "executable",
-    command = "node",
-    args = { DEBUGGER_LOCATION .. "/out/src/chromeDebug.js" },
+    command = "/home/shun/.local/share/pnpm/ts-node",
+    -- args = { DEBUGGER_LOCATION .. "/out/src/chromeDebug.js" },
   }
 
-  dap.configurations.javascript = {
-    {
-      type = "chrome",
-      request = "attach",
-      program = "${file}",
-      cwd = vim.fn.getcwd(),
-      sourceMaps = true,
-      protocol = "inspector",
-      port = 9222,
-      webRoot = "${workspaceFolder}",
-    },
-  }
+  -- dap.configurations.javascript = {
+  --   {
+  --     type = "chrome",
+  --     request = "attach",
+  --     program = "${file}",
+  --     cwd = vim.fn.getcwd(),
+  --     sourceMaps = true,
+  --     protocol = "inspector",
+  --     port = 9222,
+  --     webRoot = "${workspaceFolder}",
+  --   },
+  -- }
+  --
+  -- dap.configurations.typescript = {
+  --   {
+  --     type = "chrome",
+  --     request = "attach",
+  --     program = "${file}",
+  --     cwd = vim.fn.getcwd(),
+  --     sourceMaps = true,
+  --     protocol = "inspector",
+  --     port = 9222,
+  --     webRoot = "${workspaceFolder}",
+  --   },
+  -- }
 
   dap.configurations.typescript = {
     {
-      type = "chrome",
-      request = "attach",
-      program = "${file}",
+      type = "node",
+      request = "launch",
+      program = "${workspaceFolder}/index.ts",
       cwd = vim.fn.getcwd(),
       sourceMaps = true,
       protocol = "inspector",
-      port = 9222,
-      webRoot = "${workspaceFolder}",
+      console = "integratedTerminal",
     },
   }
 end

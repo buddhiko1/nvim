@@ -32,7 +32,7 @@ M.config = function()
       width = 0.9,
     },
   })
-  map("n", "<leader>ug", function()
+  map("n", "<leader>gg", function()
     gitui:open()
   end)
 
@@ -44,20 +44,8 @@ M.config = function()
       width = 0.9,
     },
   })
-  map("n", "<leader>us", function()
+  map("n", "<leader>i", function()
     btop:toggle()
-  end)
-
-  local ng = fterm:new({
-    ft = "ng",
-    cmd = "ns",
-    dimensions = {
-      height = 1.0,
-      width = 1.0,
-    },
-  })
-  map("n", "<leader>dw", function()
-    ng:open()
   end)
 end
 

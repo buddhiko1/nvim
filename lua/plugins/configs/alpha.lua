@@ -66,7 +66,7 @@ local options = {
         button("LD fp", "  Projects  "),
         button("LD  /", "  Browser File "),
         button("LD fs", "  Live Grep  "),
-        button("LD  q", "  Quit  "),
+        button("LD  <Esc>", "  Quit neovim "),
       },
       opts = {
         spacing = 1,

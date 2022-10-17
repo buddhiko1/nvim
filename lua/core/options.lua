@@ -1,7 +1,8 @@
 local opt = vim.opt
 local g = vim.g
 
-g.mapleader = ";"
+-- g.mapleader = ";"
+g.mapleader = " "
 g.encoding = "utf-8"
 
 opt.fileencoding = "utf-8"

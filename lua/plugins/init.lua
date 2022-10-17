@@ -138,6 +138,7 @@ local plugins = {
   },
 
   ["rafcamlet/tabline-framework.nvim"] = {
+    event = "VimEnter",
     after = "nvim-web-devicons",
     setup = function()
       require("plugins.configs.tabline").setup()

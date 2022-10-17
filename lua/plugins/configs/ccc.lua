@@ -4,7 +4,7 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>cr", "<cmd> :CccPick <CR>")
+  map("n", "<leader>cp", "<cmd> :CccPick <CR>")
   map("n", "<leader>cc", "<cmd> :CccConvert <CR>")
 end
 

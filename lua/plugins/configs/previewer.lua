@@ -3,7 +3,7 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map({ "i", "n", "v" }, "<leader>um", "<cmd> :MarkdownPreviewToggle<CR>")
+  map({ "n" }, "<leader>p", "<cmd> :MarkdownPreviewToggle<CR>")
 end
 
 M.config = function() end

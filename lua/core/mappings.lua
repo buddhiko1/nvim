@@ -43,7 +43,7 @@ map("n", "<leader>eL", "guW")
 
 -- remapping
 map("n", "<leader><Esc>", "<cmd> :wqa!<CR>")
-map({ "n", "v", "i" }, "<leader><leader>", "<ESC>")
+map({ "n", "v", "i" }, ";;", "<ESC>")
 map("n", "<leader>x", ":noh <CR>") -- shut down the search high light
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 
@@ -52,4 +52,4 @@ map("n", "<leader>q", "@")
 map("n", "<leader>r", "q")
 
 -- packer
-map("n", "<leader>pu", "<cmd> :PackerSync <CR>")
+map("n", "<leader>u", "<cmd> :PackerSync <CR>")

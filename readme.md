@@ -14,6 +14,7 @@
    - `pacamn -Syu eslint && mi -g eslint`
    - `pacman -Syu stylua`
    - `pacman -Syu yamllint`
+9. Install dbeaver.
 
 ## ArchLinux   
 

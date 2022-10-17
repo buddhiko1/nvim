@@ -4,7 +4,7 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>pm", "<cmd> :Mason <CR>")
+  map("n", "<leader>um", "<cmd> :Mason <CR>")
 end
 
 M.config = function()
