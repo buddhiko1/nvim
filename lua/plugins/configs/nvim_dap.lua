@@ -64,42 +64,44 @@ end
 
 M.config = function()
   local HOME = os.getenv("HOME")
-  local DEBUGGER_LOCATION = HOME .. "/Software/vscode-chrome-debug"
+  local DEBUGGER_LOCATION = HOME .. "/Software/vscode-node-debug2"
 
   local dap = load("dap")
+
+  dap.defaults.fallback.external_terminal = {
+    command = "/usr/bin/alacritty",
+    args = { "-e" },
+  }
+  dap.defaults.fallback.force_external_terminal = true
+  dap.defaults.fallback.terminal_win_cmd = "50vsplit new"
+  dap.defaults.fallback.focus_terminal = true
+  dap.set_log_level("INFO")
+
   -- dap.adapters.chrome = {
   --   type = "executable",
   --   command = "node",
   --   args = { DEBUGGER_LOCATION .. "/out/src/chromeDebug.js" },
   -- }
 
-  -- dap.defaults.fallback.external_terminal = {
-  --   command = '/usr/bin/alacritty';
-  --   args = {'-e'};
-  -- }
-  -- dap.defaults.fallback.force_external_terminal = true
-  -- dap.defaults.fallback.terminal_win_cmd = '50vsplit new'
-  -- dap.defaults.fallback.focus_terminal = true
-
   dap.adapters.node = {
     type = "executable",
-    command = "/home/shun/.local/share/pnpm/ts-node",
-    -- args = { DEBUGGER_LOCATION .. "/out/src/chromeDebug.js" },
+    command = "node",
+    args = { DEBUGGER_LOCATION .. "/out/src/nodeDebug.js" },
   }
 
-  -- dap.configurations.javascript = {
-  --   {
-  --     type = "chrome",
-  --     request = "attach",
-  --     program = "${file}",
-  --     cwd = vim.fn.getcwd(),
-  --     sourceMaps = true,
-  --     protocol = "inspector",
-  --     port = 9222,
-  --     webRoot = "${workspaceFolder}",
-  --   },
-  -- }
-  --
+  dap.configurations.javascript = {
+    {
+      type = "chrome",
+      request = "attach",
+      program = "${file}",
+      cwd = vim.fn.getcwd(),
+      sourceMaps = true,
+      protocol = "inspector",
+      port = 9222,
+      webRoot = "${workspaceFolder}",
+    },
+  }
+
   -- dap.configurations.typescript = {
   --   {
   --     type = "chrome",
@@ -115,12 +117,15 @@ M.config = function()
 
   dap.configurations.typescript = {
     {
+      name = "ts-node",
       type = "node",
       request = "launch",
-      program = "${workspaceFolder}/index.ts",
-      cwd = vim.fn.getcwd(),
+      cwd = vim.loop.cwd(),
+      runtimeArgs = { "-r", "ts-node/register" },
+      runtimeExecutable = "node",
+      args = { "--inspect", "${file}" },
       sourceMaps = true,
-      protocol = "inspector",
+      skipFiles = { "<node_internals>/**", "node_modules/**" },
       console = "integratedTerminal",
     },
   }

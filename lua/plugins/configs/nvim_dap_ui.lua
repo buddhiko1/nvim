@@ -7,11 +7,7 @@ local M = {}
 M.setup = function()
   map("n", "<leader>du", function()
     local dapui = load("dapui")
-    if dapui.is_open() then
-      dapui.close()
-    else
-      dapui.open()
-    end
+    dapui.toggle()
   end)
 end
 

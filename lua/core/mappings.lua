@@ -34,6 +34,9 @@ map("i", "<C-p>", [[<ESC>"+pa]])
 
 -- edite
 map("n", "<leader>ee", "`.") -- latest edited word
+map("n", "<leader>ec", function()
+  vim.cmd("1,$d")
+end) -- latest edited word
 map("n", "<leader>en", "*") -- search forward for the next instance of the identifier under the cursor
 map("n", "<leader>ep", "#") -- search backward for the next instance of the identifier under the cursor
 map("n", "<leader>eu", "gUw") -- uppercase
