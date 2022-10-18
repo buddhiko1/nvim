@@ -14,7 +14,10 @@
    - `pacamn -Syu eslint && mi -g eslint`
    - `pacman -Syu stylua`
    - `pacman -Syu yamllint`
-9. Install dbeaver.
+9. Install debuger.
+   - `vscode-node-debug2`
+   - `vscode-chrome-debug`
+10. Install dbeaver
 
 ## ArchLinux   
 

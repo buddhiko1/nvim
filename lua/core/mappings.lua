@@ -39,10 +39,10 @@ map("n", "<leader>ec", function()
 end) -- latest edited word
 map("n", "<leader>en", "*") -- search forward for the next instance of the identifier under the cursor
 map("n", "<leader>ep", "#") -- search backward for the next instance of the identifier under the cursor
-map("n", "<leader>eu", "gUw") -- uppercase
-map("n", "<leader>eU", "gUW")
-map("n", "<leader>el", "guw") -- lowercase
-map("n", "<leader>eL", "guW")
+map("n", "<leader>eu", "gUaw") -- uppercase
+map("n", "<leader>eU", "gUaW")
+map("n", "<leader>el", "guaw") -- lowercase
+map("n", "<leader>eL", "guaW")
 
 -- remapping
 map("n", "<leader><Esc>", "<cmd> :wqa!<CR>")

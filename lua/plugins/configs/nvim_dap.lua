@@ -1,5 +1,7 @@
 local load = require("utils").load
 local map = require("utils").map
+local is_file_exists = require("utils").is_file_exists
+
 local hideLine = require("plugins.configs.lualine").hideLine
 
 local M = {}
@@ -7,6 +9,14 @@ local M = {}
 M.setup = function()
   -- keymap
   map("n", "<leader>dc", "<cmd> :lua require'dap'.continue()<CR>")
+  map("n", "<leader>dc", function()
+    -- overwrite configuration
+    local launch_json = vim.fn.getcwd() .. "/launch.json"
+    if is_file_exists(launch_json) then
+      require("dap.ext.vscode").load_launchjs(launch_json)
+    end
+    require("dap").continue()
+  end)
   map("n", "<leader>dq", "<cmd> :lua require'dap'.close()<CR>")
   map("n", "<leader>dt", function()
     hideLine()
@@ -63,11 +73,9 @@ M.setup = function()
 end
 
 M.config = function()
-  local HOME = os.getenv("HOME")
-  local DEBUGGER_LOCATION = HOME .. "/Software/vscode-node-debug2"
-
   local dap = load("dap")
 
+  -- console
   dap.defaults.fallback.external_terminal = {
     command = "/usr/bin/alacritty",
     args = { "-e" },
@@ -77,57 +85,65 @@ M.config = function()
   dap.defaults.fallback.focus_terminal = true
   dap.set_log_level("INFO")
 
-  -- dap.adapters.chrome = {
-  --   type = "executable",
-  --   command = "node",
-  --   args = { DEBUGGER_LOCATION .. "/out/src/chromeDebug.js" },
-  -- }
+  dap.adapters.typescript = function(callback, config)
+    local adapter = {}
+    if config.name == "Lanunch Node" then
+      local debugger_location = os.getenv("HOME") .. "/Software/vscode-node-debug2"
+      adapter = {
+        type = "executable",
+        command = "node",
+        args = { debugger_location .. "/out/src/nodeDebug.js" },
+      }
+    else
+      local debugger_location = os.getenv("HOME") .. "/Software/vscode-chrome-debug"
+      adapter = {
+        type = "executable",
+        command = "node",
+        args = { debugger_location .. "/out/src/chromeDebug.js" },
+      }
+    end
+    callback(adapter)
+  end
 
-  dap.adapters.node = {
-    type = "executable",
-    command = "node",
-    args = { DEBUGGER_LOCATION .. "/out/src/nodeDebug.js" },
-  }
-
-  dap.configurations.javascript = {
-    {
-      type = "chrome",
-      request = "attach",
-      program = "${file}",
-      cwd = vim.fn.getcwd(),
-      sourceMaps = true,
-      protocol = "inspector",
-      port = 9222,
-      webRoot = "${workspaceFolder}",
-    },
-  }
-
-  -- dap.configurations.typescript = {
+  -- dap.configurations.javascript = {
   --   {
-  --     type = "chrome",
+  --     name = "Attach Js",
+  --     type = "js",
   --     request = "attach",
   --     program = "${file}",
-  --     cwd = vim.fn.getcwd(),
+  --     cwd = "${workspaceFolder}",
   --     sourceMaps = true,
   --     protocol = "inspector",
   --     port = 9222,
   --     webRoot = "${workspaceFolder}",
   --   },
   -- }
-
-  dap.configurations.typescript = {
-    {
-      name = "ts-node",
-      type = "node",
-      request = "launch",
-      cwd = vim.loop.cwd(),
-      runtimeArgs = { "-r", "ts-node/register" },
-      runtimeExecutable = "node",
-      args = { "--inspect", "${file}" },
-      sourceMaps = true,
-      skipFiles = { "<node_internals>/**", "node_modules/**" },
-      console = "integratedTerminal",
-    },
-  }
+  --
+  -- dap.configurations.typescript = {
+  --   {
+  --     name = "Attach Angular",
+  --     type = "typescript",
+  --     request = "attach",
+  --     program = "${file}",
+  --     cwd = "${workspaceFolder}",
+  --     sourceMaps = true,
+  --     protocol = "inspector",
+  --     port = 9222,
+  --     webRoot = "${workspaceFolder}",
+  --   },
+  -- }
+  --
+  -- dap.configurations.typescript = {
+  --   {
+  --     name = "Lanunch Node",
+  --     type = "typescript",
+  --     request = "launch",
+  --     runtimeArgs = { "-r", "ts-node/register" },
+  --     runtimeExecutable = "node",
+  --     args = { "--inspect", "${file}" },
+  --     skipFiles = { "node_modules/**" },
+  --     console = "integratedTerminal",
+  --   },
+  -- }
 end
 return M
