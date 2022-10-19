@@ -81,6 +81,14 @@ M.config = function()
       { name = "buffer" },
       { name = "luasnip" },
       { name = "nvim_lua" },
+      {
+        name = "look",
+        keyword_length = 3,
+        option = {
+          convert_case = true,
+          loud = true,
+        },
+      },
     },
   }
 

@@ -283,6 +283,10 @@ local plugins = {
     after = "nvim-cmp",
   },
 
+  ["octaltree/cmp-look"] = {
+    
+  },
+
   -- formmater and linter
   ["jose-elias-alvarez/null-ls.nvim"] = {
     setup = function()
