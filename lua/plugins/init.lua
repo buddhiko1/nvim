@@ -150,7 +150,6 @@ local plugins = {
 
   -- homepage
   ["goolord/alpha-nvim"] = {
-    after = "tabline-framework.nvim",
     setup = function()
       require("plugins.configs.alpha").setup()
     end,
