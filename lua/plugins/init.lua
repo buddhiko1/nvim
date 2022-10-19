@@ -42,6 +42,10 @@ local plugins = {
     end,
   },
 
+  ["windwp/nvim-ts-autotag"] = {
+    after = "nvim-treesitter",
+  },
+
   ["nvim-treesitter/nvim-treesitter"] = {
     run = function()
       require("nvim-treesitter.install").update({ with_sync = true })
@@ -93,9 +97,8 @@ local plugins = {
   },
 
   ["folke/noice.nvim"] = {
-    requires = { "MunifTanjim/nui.nvim" },
+    requires = { "MunifTanjim/nui.nvim", "nvim-notify" },
     event = "VimEnter",
-    after = "nvim-notify",
     setup = function()
       require("plugins.configs.noice").setup()
     end,
@@ -139,7 +142,7 @@ local plugins = {
 
   ["rafcamlet/tabline-framework.nvim"] = {
     event = "VimEnter",
-    after = "nvim-web-devicons",
+    requires = "nvim-web-devicons",
     setup = function()
       require("plugins.configs.tabline").setup()
     end,
@@ -160,7 +163,7 @@ local plugins = {
 
   -- status line
   ["nvim-lualine/lualine.nvim"] = {
-    after = "nvim-web-devicons",
+    requires = "nvim-web-devicons",
     config = function()
       require("plugins.configs.lualine").config()
     end,
@@ -239,15 +242,25 @@ local plugins = {
     end,
   },
 
+  ["saadparwaiz1/cmp_luasnip"] = {
+    after = "LuaSnip",
+  },
+
   ["hrsh7th/nvim-cmp"] = {
     after = "LuaSnip",
+    requires = {
+      "onsails/lspkind.nvim",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-cmdline",
+      "rcarriga/cmp-dap",
+      "octaltree/cmp-look",
+      "hrsh7th/cmp-path",
+    },
     config = function()
       require("plugins.configs.cmp").config()
     end,
-  },
-
-  ["saadparwaiz1/cmp_luasnip"] = {
-    after = "LuaSnip",
   },
 
   ["windwp/nvim-autopairs"] = {
@@ -257,34 +270,12 @@ local plugins = {
     end,
   },
 
-  ["windwp/nvim-ts-autotag"] = {},
-
-  ["hrsh7th/cmp-nvim-lua"] = {
-    after = "nvim-cmp",
-  },
-
-  ["hrsh7th/cmp-nvim-lsp"] = {
-    after = "nvim-cmp",
-  },
-
-  ["hrsh7th/cmp-buffer"] = {
-    after = "nvim-cmp",
-  },
-
-  ["hrsh7th/cmp-path"] = {
-    after = "nvim-cmp",
-  },
-
-  ["hrsh7th/cmp-cmdline"] = {
-    after = "nvim-cmp",
-  },
-
-  ["rcarriga/cmp-dap"] = {
-    after = "nvim-cmp",
-  },
-
-  ["octaltree/cmp-look"] = {
-    
+  ["tzachar/cmp-tabnine"] = {
+    requires = "hrsh7th/nvim-cmp",
+    run = "./install.sh",
+    config = function()
+      require("plugins.configs.tabnine").config()
+    end,
   },
 
   -- formmater and linter
