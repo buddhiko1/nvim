@@ -1,9 +1,10 @@
 local load = require("utils").load
-
+  
 local M = {}
 
 M.config = function()
   local cmp = load("cmp")
+  local compare = load("cmp.config.compare")
   local luasnip = load("luasnip")
 
   local options = {
@@ -32,9 +33,30 @@ M.config = function()
     },
 
     formatting = {
-      format = function(_, vim_item)
-        local icons = require("plugins.configs.cmp_icons")
-        vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+      format = function(entry, vim_item)
+        vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+        vim_item.menu = ({
+          buffer = "[Buffer]",
+          nvim_lsp = "[LSP]",
+          nvim_lua = "[Lua]",
+          luasnip = "[LuaS]",
+          cmp_tabnine = "[TN]",
+          look = "[Look]",
+          path = "[Path]",
+        })[entry.source.name]
+        if entry.source.name == "cmp_tabnine" then
+          local detail = (entry.completion_item.data or {}).detail
+          vim_item.kind = ""
+          if detail and detail:find(".*%%.*") then
+            vim_item.kind = vim_item.kind .. " " .. detail
+          end
+
+          if (entry.completion_item.data or {}).multiline then
+            vim_item.kind = vim_item.kind .. " " .. "[ML]"
+          end
+        end
+        local maxwidth = 80
+        vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
         return vim_item
       end,
     },
@@ -76,6 +98,7 @@ M.config = function()
     },
 
     sources = {
+      { name = "cmp_tabnine" },
       { name = "nvim_lsp" },
       { name = "path" },
       { name = "buffer" },
@@ -83,11 +106,26 @@ M.config = function()
       { name = "nvim_lua" },
       {
         name = "look",
-        keyword_length = 3,
+        keyword_length = 4,
         option = {
           convert_case = true,
           loud = true,
         },
+      },
+    },
+
+    sorting = {
+      priority_weight = 2,
+      comparators = {
+        require("cmp_tabnine.compare"),
+        compare.offset,
+        compare.exact,
+        compare.score,
+        compare.recently_used,
+        compare.kind,
+        compare.sort_text,
+        compare.length,
+        compare.order,
       },
     },
   }
@@ -109,6 +147,8 @@ M.config = function()
       { name = "dap" },
     },
   })
+
+  cmp.setup({})
 end
 
 return M
