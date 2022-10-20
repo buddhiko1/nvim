@@ -19,13 +19,15 @@ local _lsp_flags = {
 }
 
 local _on_attach = function(client, bufnr)
-  vim.lsp.buf.format({ bufnr = bufnr })
+  vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 5000 })
 end
 
 local M = {}
 
 M.config = function()
   _config_diagnostic()
+
+  require("lspconfig.ui.windows").default_options.border = "single"
 
   local lspconfig = load("lspconfig")
 
@@ -45,7 +47,6 @@ M.config = function()
     end
     lspconfig[server].setup(options)
   end
-  require("lspconfig.ui.windows").default_options.border = "single"
 end
 
 return M
