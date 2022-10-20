@@ -53,10 +53,14 @@ M.config = function()
       show_file = true,
       click_support = false,
     },
+
+    -- disable lighthub icon
     code_action_lightbulb = {
-      enable = true,
-      sign = true,
+      enable = false,
       enable_in_insert = true,
+      cache_code_action = true,
+      sign = true,
+      update_time = 150,
       sign_priority = 20,
       virtual_text = true,
     },

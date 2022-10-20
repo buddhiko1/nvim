@@ -5,7 +5,7 @@ local M = {}
 
 M.setup = function()
   map({ "n", "v" }, "<leader>mc", function()
-    require("notify").dismiss()
+    require("notify").dismiss({pending=true, silent=true})
   end)
 end
 
