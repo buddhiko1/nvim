@@ -116,6 +116,7 @@ local plugins = {
     end,
   },
 
+  -- command finder
   ["mrjones2014/legendary.nvim"] = {
     requires = "stevearc/dressing.nvim",
     setup = function()
@@ -182,7 +183,7 @@ local plugins = {
 
   -- status line
   ["nvim-lualine/lualine.nvim"] = {
-    requires = "nvim-web-devicons",
+    requires = { "kyazdani42/nvim-web-devicons", "WhoIsSethDaniel/lualine-lsp-progress.nvim" },
     config = function()
       require("plugins.configs.lualine").config()
     end,

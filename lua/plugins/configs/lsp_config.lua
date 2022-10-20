@@ -45,6 +45,7 @@ M.config = function()
     end
     lspconfig[server].setup(options)
   end
+  require("lspconfig.ui.windows").default_options.border = "single"
 end
 
 return M
