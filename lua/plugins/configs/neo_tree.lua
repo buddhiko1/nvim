@@ -78,7 +78,7 @@ local options = {
   },
   window = {
     position = "right",
-    width = 35,
+    width = 32,
     mapping_options = {
       noremap = true,
       nowait = true,
