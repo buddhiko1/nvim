@@ -11,8 +11,8 @@ map("n", "wv", "<cmd> :vsp<CR>")
 map("n", "wb", "<cmd> :sp<CR>")
 
 -- motion
-map("n", "J", "5j")
-map("n", "K", "5k")
+map("n", "J", "7j")
+map("n", "K", "7k")
 map("v", "J", ":move '>+1<CR>gv-gv")
 map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "<", "<gv")
@@ -36,7 +36,7 @@ map("i", "<C-p>", [[<ESC>"+pa]])
 map("n", "<leader>ee", "`.") -- latest edited word
 map("n", "<leader>ec", function()
   vim.cmd("1,$d")
-end) -- latest edited word
+end) -- delete file content
 map("n", "<leader>en", "*") -- search forward for the next instance of the identifier under the cursor
 map("n", "<leader>ep", "#") -- search backward for the next instance of the identifier under the cursor
 map("n", "<leader>eu", "gUaw") -- uppercase
@@ -51,7 +51,7 @@ map("n", "<leader>x", ":noh <CR>") -- shut down the search high light
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 
 map("n", "<leader>j", "J") -- join
-map("n", "<leader>q", "@")
+map("n", "<leader>h", "@")
 map("n", "<leader>r", "q")
 
 -- packer

@@ -36,14 +36,19 @@ local plugins = {
     end,
   },
 
+  ["folke/twilight.nvim"] = {
+    setup = function()
+      require("plugins.configs.twilight").setup()
+    end,
+    config = function()
+      require("plugins.configs.twilight").config()
+    end,
+  },
+
   ["kylechui/nvim-surround"] = {
     config = function()
       require("plugins.configs.surround").config()
     end,
-  },
-
-  ["windwp/nvim-ts-autotag"] = {
-    after = "nvim-treesitter",
   },
 
   ["nvim-treesitter/nvim-treesitter"] = {
@@ -53,6 +58,10 @@ local plugins = {
     config = function()
       require("plugins.configs.treesitter").config()
     end,
+  },
+
+  ["windwp/nvim-ts-autotag"] = {
+    after = "nvim-treesitter",
   },
 
   ["buddhiko1/autosave.nvim"] = {
@@ -104,6 +113,16 @@ local plugins = {
     end,
     config = function()
       require("plugins.configs.noice").config()
+    end,
+  },
+
+  ["mrjones2014/legendary.nvim"] = {
+    requires = "stevearc/dressing.nvim",
+    setup = function()
+      require("plugins.configs.legendary").setup()
+    end,
+    config = function()
+      require("plugins.configs.legendary").config()
     end,
   },
 

@@ -5,7 +5,7 @@ local disable_mapping_at = require("utils").disable_mapping_at
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>l", function()
+  map("n", "<leader>;", function()
     return disable_mapping_at("alpha") and vim.cmd("NeoTreeRevealToggle")
   end)
   map("n", "<leader>/", "<cmd> :NeoTreeFloatToggle <CR>")
@@ -144,8 +144,8 @@ local options = {
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
-        ["/"] = "fuzzy_finder",
-        ["f"] = "filter_on_submit",
+        ["f"] = "fuzzy_finder",
+        ["/"] = "filter_on_submit",
         ["<c-x>"] = "clear_filter",
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",

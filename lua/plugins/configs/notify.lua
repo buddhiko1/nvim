@@ -21,7 +21,7 @@ M.config = function()
       TRACE = "✎",
       WARN = "",
     },
-    level = 3, -- warning
+    level = 2, -- warning
     minimum_width = 50,
     render = "default",
     stages = "static",
