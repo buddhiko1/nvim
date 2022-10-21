@@ -24,7 +24,9 @@
 
 ## Windows
 1. Install dependencies:
-  - `choco install mingw`
+  - `install JetBrainMono font` 
+  - `choco install mingw` (run as a administrator)
+  - `choco install ripgrep fd` (run as a administrator)
   - `winget install alacritty`
   - `winget install qutebrowser`
   - `pnpm install -g eslint prettier`

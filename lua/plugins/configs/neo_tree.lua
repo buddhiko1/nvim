@@ -8,7 +8,7 @@ M.setup = function()
   map("n", "<leader>;", function()
     return disable_mapping_at("alpha") and vim.cmd("NeoTreeRevealToggle")
   end)
-  map("n", "<leader>/", "<cmd> :NeoTreeFloatToggle <CR>")
+  map("n", "<leader>[", "<cmd> :NeoTreeFloatToggle <CR>")
 end
 
 local options = {

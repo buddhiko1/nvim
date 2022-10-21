@@ -9,7 +9,6 @@ local M = {}
 
 M.setup = function()
   -- keymap
-  map("n", "<leader>dc", "<cmd> :lua require'dap'.continue()<CR>")
   map("n", "<leader>dc", function()
     -- overwrite configuration
     local launch_json = vim.fn.getcwd() .. "/launch.json"
@@ -76,22 +75,17 @@ end
 M.config = function()
   local dap = load("dap")
 
-  -- console
-  dap.defaults.fallback.external_terminal = {
-    command = "alacritty",
-    args = { "-e" },
-  }
-  dap.defaults.fallback.force_external_terminal = true
-  dap.defaults.fallback.terminal_win_cmd = "50vsplit new"
-  dap.defaults.fallback.focus_terminal = true
-  dap.set_log_level("INFO")
+  -- float console
+  -- dap.defaults.fallback.external_terminal = {
+  --   command = "alacritty",
+  --   args = { "-e" },
+  -- }
+  -- dap.defaults.fallback.force_external_terminal = true
+  -- dap.defaults.fallback.terminal_win_cmd = "50vsplit new"
+  -- dap.defaults.fallback.focus_terminal = true
+  -- dap.set_log_level("INFO")
 
-  local debugger_dir = ""
-  if is_windows() then
-    debugger_dir = "C:/Users/adhip/Documents/Software"
-  else
-    debugger_dir = os.getenv("HOME") .. "/Software"
-  end
+  local debugger_dir = is_windows() and "C:/Users/adhip/Documents/Software" or os.getenv("HOME") .. "/Software"
 
   dap.adapters.typescript = function(callback, config)
     local adapter = {}

@@ -64,7 +64,7 @@ local options = {
       val = {
         button("LD fr", "  Recent File  "),
         button("LD fp", "  Projects  "),
-        button("LD  /", "  Browser File "),
+        button("LD  [", "  Browser File "),
         button("LD fs", "  Live Grep  "),
         button("LD  <Esc>", "  Quit neovim "),
       },
