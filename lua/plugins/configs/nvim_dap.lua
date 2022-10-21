@@ -1,6 +1,7 @@
 local load = require("utils").load
 local map = require("utils").map
 local is_file_exists = require("utils").is_file_exists
+local is_windows = require("utils").is_windows
 
 local hideLine = require("plugins.configs.lualine").hideLine
 
@@ -76,8 +77,12 @@ M.config = function()
   local dap = load("dap")
 
   -- console
+  local alacritty_path = "/usr/bin/alacritty"
+  if is_windows() then
+    alacritty_path = "/usr/bin/alacritty"
+  end
   dap.defaults.fallback.external_terminal = {
-    command = "/usr/bin/alacritty",
+    command = alacritty_path,
     args = { "-e" },
   }
   dap.defaults.fallback.force_external_terminal = true
