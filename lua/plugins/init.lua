@@ -51,6 +51,15 @@ local plugins = {
     end,
   },
 
+  ["buddhiko1/link-visitor.nvim"] = {
+    setup = function()
+      require("plugins.configs.link_visitor").setup()
+    end,
+    config = function()
+      require("plugins.configs.link_visitor").config()
+    end,
+  },
+
   ["nvim-treesitter/nvim-treesitter"] = {
     run = function()
       require("nvim-treesitter.install").update({ with_sync = true })

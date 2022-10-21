@@ -1,5 +1,5 @@
 local load = require("utils").load
-  
+
 local M = {}
 
 M.config = function()
