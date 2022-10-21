@@ -23,7 +23,14 @@
 
 
 ## Windows
-1. Change start path appropriately in start.vbs.
-2. Send nvim.vbs to desktop.
-3. Create shortcut for nvim.vbs's shortcut.
-4. Change icon of shortcut.
+1. Install dependencies:
+  - `choco install mingw`
+  - `winget install alacritty`
+  - `winget install qutebrowser`
+  - `pnpm install -g eslint prettier`
+  - `pip install --user yamllint`
+  - `download stylua`
+2. Change start path appropriately in start.vbs.
+3. Send nvim.vbs to desktop.
+4. Create shortcut for nvim.vbs's shortcut.
+5. Change icon of shortcut.

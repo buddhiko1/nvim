@@ -85,21 +85,10 @@ M.config = function()
       selection_strategy = "reset",
       sorting_strategy = "ascending",
       file_ignore_patterns = { "node_modules", ".git" },
-
-      -- extensions
-      extensions = {
-        fzf = {
-          fuzzy = true, -- false will only do exact matching
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case", the default case_mode is "smart_case".
-        },
-      },
     },
   }
 
   telescope.setup(options)
-  telescope.load_extension("fzf")
   telescope.load_extension("projects")
 end
 
