@@ -77,12 +77,8 @@ M.config = function()
   local dap = load("dap")
 
   -- console
-  local alacritty_path = "/usr/bin/alacritty"
-  if is_windows() then
-    alacritty_path = "/usr/bin/alacritty"
-  end
   dap.defaults.fallback.external_terminal = {
-    command = alacritty_path,
+    command = "alacritty",
     args = { "-e" },
   }
   dap.defaults.fallback.force_external_terminal = true
@@ -90,21 +86,26 @@ M.config = function()
   dap.defaults.fallback.focus_terminal = true
   dap.set_log_level("INFO")
 
+  local debugger_dir = ""
+  if is_windows() then
+    debugger_dir = "C:/Users/adhip/Documents/Software"
+  else
+    debugger_dir = os.getenv("HOME") .. "/Software"
+  end
+
   dap.adapters.typescript = function(callback, config)
     local adapter = {}
     if config.name == "Lanunch Node" then
-      local debugger_location = os.getenv("HOME") .. "/Software/vscode-node-debug2"
       adapter = {
         type = "executable",
         command = "node",
-        args = { debugger_location .. "/out/src/nodeDebug.js" },
+        args = { debugger_dir .. "/vscode-node-debug2/out/src/nodeDebug.js" },
       }
     else
-      local debugger_location = os.getenv("HOME") .. "/Software/vscode-chrome-debug"
       adapter = {
         type = "executable",
         command = "node",
-        args = { debugger_location .. "/out/src/chromeDebug.js" },
+        args = { debugger_dir .. "/vscode-chrome-debug/out/src/chromeDebug.js" },
       }
     end
     callback(adapter)
