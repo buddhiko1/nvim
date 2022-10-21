@@ -1,3 +1,5 @@
+local is_windows = require("utils").is_windows
+
 local plugins = {
   ["wbthomason/packer.nvim"] = {
     event = "VimEnter",
@@ -192,7 +194,7 @@ local plugins = {
 
   -- status line
   ["nvim-lualine/lualine.nvim"] = {
-    requires = { "kyazdani42/nvim-web-devicons", "WhoIsSethDaniel/lualine-lsp-progress.nvim" },
+    requires = { "kyazdani42/nvim-web-devicons" },
     config = function()
       require("plugins.configs.lualine").config()
     end,
@@ -301,7 +303,13 @@ local plugins = {
 
   ["tzachar/cmp-tabnine"] = {
     requires = "hrsh7th/nvim-cmp",
-    run = "./install.sh",
+    run = function()
+      if is_windows() then
+        return "./install.sh"
+      else
+        return "powershell ./install.ps1"
+      end
+    end,
     config = function()
       require("plugins.configs.tabnine").config()
     end,
