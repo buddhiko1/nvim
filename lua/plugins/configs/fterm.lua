@@ -4,9 +4,10 @@ local map = require("utils").map
 local M = {}
 
 M.setup = function()
-  map("n", "<leader>v", "<cmd>lua require('FTerm').toggle()<CR>")
-  map("t", "<leader>v", "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>")
-  map("t", "<Esc>", "<C-\\><C-n><CMD>lua require('FTerm').exit()<CR>")
+  map("n", ";v", "<cmd>lua require('FTerm').toggle()<CR>")
+  map("t", ";v", "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>")
+  map("t", ";e", "<C-\\><C-n><CMD>lua require('FTerm').exit()<CR>")
+  map("t", "<Esc>", "<C-\\><C-n>")
 end
 
 M.config = function()
