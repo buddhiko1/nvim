@@ -20,7 +20,7 @@
 10. Install dbeaver
 
 ## ArchLinux   
-
+1. Map CapsLock to Esc: `setxkbmap -option caps:escape`
 
 ## Windows
 1. Install dependencies:

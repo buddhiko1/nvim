@@ -29,28 +29,6 @@ M.get_theme_palette = function()
   return palette
 end
 
-M.is_windows = function()
-  return vim.loop.os_uname().sysname == "Windows_NT"
-end
-
-M.get_terminal_theme = function()
-  local seleted_theme_file = "/home/shun/.config/alacritty/themes/.selected_theme"
-  if M.is_windows() then
-    seleted_theme_file = "C:/Users/adhip/AppData/Roaming/alacritty/themes/.selected_theme"
-  end
-  local lines = {}
-  for line in io.lines(seleted_theme_file) do
-    lines[#lines + 1] = line
-  end
-  local content = lines[1]
-  local theme = string.match(content, ".*themes/(%a+).yml")
-  if M.is_windows() then
-    theme = string.match(content, ".*themes\\(%a+).yml")
-  end
-  return theme
-end
-
-
 M.is_file_exists = function(name)
   local f = io.open(name, "r")
   if f ~= nil then

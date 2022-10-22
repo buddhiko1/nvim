@@ -1,7 +1,6 @@
 local load = require("utils").load
 local map = require("utils").map
 local is_file_exists = require("utils").is_file_exists
-local is_windows = require("utils").is_windows
 
 local hideLine = require("plugins.configs.lualine").hideLine
 
@@ -42,6 +41,7 @@ M.setup = function()
   --icon
   local dap_breakpoint = {
     point = {
+
       text = "",
       texthl = "LspDiagnosticsSignError",
       linehl = "",
@@ -85,7 +85,7 @@ M.config = function()
   -- dap.defaults.fallback.focus_terminal = true
   -- dap.set_log_level("INFO")
 
-  local debugger_dir = is_windows() and "C:/Users/adhip/Documents/Software" or os.getenv("HOME") .. "/Software"
+  local debugger_dir = require("constants").debugger_dir
 
   dap.adapters.typescript = function(callback, config)
     local adapter = {}

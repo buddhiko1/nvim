@@ -1,15 +1,13 @@
 local load = require("utils").load
-local is_windows = require("utils").is_windows
-local get_terminal_theme = require("utils").get_terminal_theme
 
 local _switch_alacritty_theme = function(theme)
-  local alacritty_path = is_windows() and "C:/Users/adhip/AppData/Roaming/alacritty/" or "~/.config/alacritty/"
-  local config_path = alacritty_path .. "alacritty.yml"
-  local themes_path = alacritty_path .. "themes"
-  local backup_path = alacritty_path .. "alacritty.backup.yml"
+  local alacrity_dir = require("constants").alacritty_dir
+  local config_path = alacrity_dir .. "/alacritty.yml"
+  local themes_path = alacrity_dir .. "/themes"
+  local backup_path = alacrity_dir .. "/alacritty.backup.yml"
   local theme_file = theme .. ".yml"
   local options = " -c " .. config_path .. " -t " .. themes_path .. " -b " .. backup_path .. " -s " .. theme_file
-  local command = is_windows() and "silent !alacritty-theme-switch.cmd" or "silent !alacritty-theme-switch"
+  local command = require("constants").theme_switch_cmd
   command = command .. options
   vim.cmd(command)
 end
@@ -61,7 +59,7 @@ M.config = function()
   }
 
   nightfox.setup(options)
-  local theme = get_terminal_theme()
+  local theme = require("constants").terminal_theme
   _switch_theme(theme)
 end
 

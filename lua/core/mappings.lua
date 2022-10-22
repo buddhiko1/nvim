@@ -46,7 +46,6 @@ map("n", "<leader>eL", "guaW")
 
 -- remapping
 map("n", "<leader><Esc>", "<cmd> :wqa!<CR>")
-map({ "n", "v", "i" }, ";;", "<ESC>")
 map("n", "<leader>x", ":noh <CR>") -- shut down the search high light
 map("n", "<leader><Space>", [[i<End><CR><ESC>]])
 

@@ -86,7 +86,7 @@ M.config = function()
       quit = "q",
       exec = "<CR>",
     },
-    rename_action_quit = "<Esc>",
+    -- rename_action_quit = "<C-c>",
 
     -- property
     rename_in_select = true,

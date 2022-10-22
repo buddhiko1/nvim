@@ -1,5 +1,3 @@
-local is_windows = require("utils").is_windows
-
 local plugins = {
   ["wbthomason/packer.nvim"] = {
     event = "VimEnter",
@@ -298,13 +296,7 @@ local plugins = {
 
   ["tzachar/cmp-tabnine"] = {
     requires = "hrsh7th/nvim-cmp",
-    run = function()
-      if is_windows() then
-        return "./install.sh"
-      else
-        return "powershell ./install.ps1"
-      end
-    end,
+    run = require("constants").tabnine_install_cmd,
     config = function()
       require("plugins.configs.tabnine").config()
     end,
