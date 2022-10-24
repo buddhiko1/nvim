@@ -27,6 +27,12 @@ CapsLock::
     Send "#s"
   }
 
+  ; task manager
+#i::
+  {
+    Run "taskmgr"
+  }
+
   ; close process
 #Space::
   {
