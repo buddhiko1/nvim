@@ -11,6 +11,7 @@ CHROME_DIR := "C:\Program Files\Google\Chrome"
 ^Space::
   {
     Send "^{Shift}"
+    return
   }
 
   ; CapsLock to Esc
@@ -18,6 +19,7 @@ CHROME_DIR := "C:\Program Files\Google\Chrome"
 CapsLock::
   {
     Send "{Esc}"
+    return
   }
   #HotIf
 
@@ -25,56 +27,67 @@ CapsLock::
 #m::
   {
     Send "#s"
+    return
   }
 
   ; task manager
 #i::
   {
     Run "taskmgr"
+    return
   }
 
   ; close process
 #Space::
   {
     Send "!{F4}"
+    return
   }
 
   ; direction
 CapsLock & j::
   {
     Send "{Down}"
+    return
   }
 CapsLock & k::
   {
     Send "{Up}"
+    return
   }
 CapsLock & h::
   {
     Send "{Left}"
+    return
   }
 CapsLock & l::
   {
     Send "{Right}"
+    return
   }
 CapsLock & u::
   {
     Send "{PgUp}"
+    return
   }
 CapsLock & d::
   {
     Send "{PgDn}"
+    return
   }
 
   ; explorer
 #f::
   {
     Run "explorer"
+    return
   }
 
   ; alacrrity
 #Enter::
   {
     Run ALACRITTY_DIR . "\start.bat"
+    return
   }
 
   ; qutebrowser
@@ -88,6 +101,7 @@ CapsLock & d::
       WinActivate("ahk_exe qutebrowser.exe")
       Send "{F11}"
     }
+    return
   }
 
   ; nvim
@@ -98,6 +112,7 @@ CapsLock & d::
     } else {
       Run NEOVIM_DIR . "\start.bat"
     }
+    return
   }
 
   ; PDF
@@ -111,6 +126,7 @@ CapsLock & d::
       WinActivate("ahk_exe sioyek.exe")
       Send "{F11}"
     }
+    return
   }
 
   ; chrome
@@ -123,15 +139,18 @@ CapsLock & d::
       Sleep 3000
       WinActivate("ahk_exe chrome.exe")
     }
+    return
   }
 
   ; wireguard
 #PgUp::
   {
     Run "*RunAs wireguard.exe /installtunnelservice " . WIREGUARD_CONF
+    return
   }
 
 #PgDn::
   {
     Run "*RunAs wireguard.exe /uninstalltunnelservice client"
+    return
   }
