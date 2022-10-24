@@ -25,7 +25,7 @@ M.config = function()
 
   local gitui = fterm:new({
     ft = "gitui",
-    cmd = "g",
+    cmd = "gitui",
     dimensions = {
       height = 0.9,
       width = 0.9,

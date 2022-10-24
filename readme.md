@@ -29,6 +29,7 @@
   - `choco install ripgrep fd` (run as a administrator)
   - `winget install alacritty`
   - `winget install qutebrowser`
+  - `winget install DBeaver`
   - `pnpm install -g eslint prettier`
   - `pip install --user yamllint`
   - `download stylua`
