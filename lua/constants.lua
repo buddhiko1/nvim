@@ -26,6 +26,7 @@ local M = {
   tabnine_install_cmd = _is_windows() and "powershell ./install.ps1" or "./install.sh",
   shell_open_cmd = _is_windows() and "powershell /nologo" or os.getenv("SHELL"),
   debugger_dir = _DEBUGGER_DIR,
+  gitui_cmd = _is_windows() and "gitui" or "ssh-add && gitui",
 }
 
 return M
