@@ -17,6 +17,11 @@ M.config = function()
         [":"] = { icon = " ", hl_group = "DiagnosticInfo", firstc = false },
       },
     },
+    lsp = {
+      signature = {
+        enabled = false,
+      },
+    },
   }
   noice.setup(options)
 end
