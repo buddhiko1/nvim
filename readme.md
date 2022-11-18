@@ -11,7 +11,7 @@
    - https://github.com/BurntSushi/ripgrep
    - https://github.com/nvim-telescope/telescope-fzf-native.nvim
 8. Install linter and formmater
-   - `pacman -Syu prettier`
+   - `pacman -Syu prettierd`
    - `pacamn -Syu eslint && mi -g eslint`
    - `pacman -Syu stylua`
    - `pacman -Syu yamllint`
