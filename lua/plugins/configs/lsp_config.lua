@@ -1,4 +1,5 @@
 local load = require("utils").load
+local formatting = require("utils").formatting
 local servers = require("plugins.configs.lsp_mason_lspconfig").servers
 
 local _config_diagnostic = function()
@@ -17,15 +18,13 @@ end
 local _lsp_flags = {
   debounce_text_changes = 150,
 }
-local lsp_formatting = function(bufnr)
-  vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 3000 })
-end
+
 
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local _on_attach = function(client, bufnr)
   -- formatting on read
-  lsp_formatting(bufnr)
+  formatting(bufnr)
 
   -- formatting on save
   -- if client.supports_method("textDocument/formatting") then

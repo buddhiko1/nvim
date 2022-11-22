@@ -10,11 +10,6 @@
 7. Install telescope dependencies.
    - https://github.com/BurntSushi/ripgrep
    - https://github.com/nvim-telescope/telescope-fzf-native.nvim
-8. Install linter and formmater
-   - `pacman -Syu prettierd`
-   - `pacamn -Syu eslint && mi -g eslint`
-   - `pacman -Syu stylua`
-   - `pacman -Syu yamllint`
 9. Install debuger.
    - `vscode-node-debug2`
    - `vscode-chrome-debug`
@@ -35,9 +30,6 @@
 - `winget install alacritty`
 - `winget install qutebrowser`
 - `winget install DBeaver`
-- `pnpm install -g eslint prettier`
-- `pip install --user yamllint`
-- `download stylua`
 
 2. Change start path appropriately in start.vbs.
 3. Send nvim.vbs to desktop.

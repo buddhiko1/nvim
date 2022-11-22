@@ -39,6 +39,50 @@ M.is_file_exists = function(name)
   end
 end
 
+M.getFileExtensionFromPath = function(path)
+  local str = path
+  local temp = ""
+  local result = "."
+
+  for i = str:len(), 1, -1 do
+    if str:sub(i, i) ~= "." then
+      temp = temp .. str:sub(i, i)
+    else
+      break
+    end
+  end
+
+  for j = temp:len(), 1, -1 do
+    result = result .. temp:sub(j, j)
+  end
+
+  return result
+end
+
+M.formatting = function(bufnr)
+  local name = vim.api.nvim_buf_get_name(bufnr)
+  local fileExtension = M.getFileExtensionFromPath(name)
+  local nullExtensiones = { ".ts", ".html", ".css", "yaml" }
+  local filterClient = ""
+  for _, item in pairs(nullExtensiones) do
+    if fileExtension == item then
+      filterClient = "null-ls"
+      break
+    end
+  end
+  vim.lsp.buf.format({
+    filter = function(client)
+      if filterClient ~= "" then
+        return client.name == filterClient
+      else
+        return true
+      end
+    end,
+    bufnr = bufnr,
+    timeout_ms = 5000,
+  })
+end
+
 M.disable_mapping_at = function(filetype)
   return vim.bo.filetype ~= filetype
 end
