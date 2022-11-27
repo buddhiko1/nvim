@@ -8,7 +8,7 @@ M.setup = function()
   map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
   map("n", "<leader>fr", "<cmd> :Telescope oldfiles <CR>")
 
-  map("n", "<leader>fs", "<cmd> :Telescope live_grep <CR>")
+  map("n", "<leader>fg", "<cmd> :Telescope live_grep <CR>")
 
   map("n", "<leader>ft", "<cmd> :Telescope help_tags <CR>")
   map("n", "<leader>fc", "<cmd> :Telescope commands <CR>")

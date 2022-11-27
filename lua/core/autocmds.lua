@@ -39,18 +39,6 @@ autocmd("BufUnload", {
   end,
 })
 
--- Use relative & absolute line numbers in 'n' & 'i' modes respectively
--- autocmd("InsertEnter", {
---    callback = function()
---       vim.opt.relativenumber = false
---    end,
--- })
--- autocmd("InsertLeave", {
---    callback = function()
---       vim.opt.relativenumber = true
---    end,
--- })
-
 -- File extension specific tabbing
 -- autocmd("Filetype", {
 --    pattern = "python",

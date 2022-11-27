@@ -13,6 +13,7 @@ M.servers = {
   "yamlls",
   "jsonls",
   "angularls",
+  "tailwindcss",
 }
 
 M.config = function()

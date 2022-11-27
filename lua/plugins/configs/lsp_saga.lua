@@ -1,5 +1,6 @@
 local load = require("utils").load
 local map = require("utils").map
+local formatting = require("utils").formatting
 
 vim.g.diagnostics_virtual_text = false
 
@@ -26,7 +27,7 @@ M.setup = function()
 
   -- action
   map("n", "<leader>sm", function()
-    vim.lsp.buf.format()
+    formatting(vim.api.nvim_get_current_buf())
   end)
   map("n", "<leader>st", _toggle_virtual_text)
   map("n", "<leader>sa", "<cmd>Lspsaga code_action<CR>")
