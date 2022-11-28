@@ -154,14 +154,3 @@ CapsLock & d::
     Run "*RunAs wireguard.exe /uninstalltunnelservice client"
     return
   }
-
-  #HotIf WinActive("Yuris Revenge")
-RButton::
-  {
-    Loop 5
-    {
-      Click
-      Sleep 100
-    }
-  }
-  #HotIf
