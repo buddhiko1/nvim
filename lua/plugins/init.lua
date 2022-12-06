@@ -73,7 +73,7 @@ local plugins = {
     after = "nvim-treesitter",
   },
 
-  ["buddhiko1/autosave.nvim"] = {
+  ["nullishamy/autosave.nvim"] = {
     config = function()
       require("plugins.configs.autosave").config()
     end,

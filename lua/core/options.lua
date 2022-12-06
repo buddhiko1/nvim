@@ -16,6 +16,8 @@ opt.hidden = false
 
 opt.timeoutlen = 800 -- for mapped key sequence
 
+opt.foldmethod = "indent"
+
 opt.wrap = true -- line wrap
 opt.tw = 0
 opt.whichwrap = "<,>,[,]" -- go to previous/next line

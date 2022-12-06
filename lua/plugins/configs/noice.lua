@@ -10,6 +10,10 @@ end
 M.config = function()
   local noice = load("noice")
   local options = {
+    messages = {
+      enabled = true,
+      view_search = false
+    },
     cmdline = {
       icons = {
         ["/"] = { icon = " ", hl_group = "DiagnosticWarn" },

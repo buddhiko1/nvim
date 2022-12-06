@@ -23,8 +23,8 @@ local _lsp_flags = {
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local _on_attach = function(client, bufnr)
-  -- formatting on read
-  formatting(bufnr)
+  -- format on reading
+  -- formatting(bufnr)
 
   -- formatting on save
   -- if client.supports_method("textDocument/formatting") then

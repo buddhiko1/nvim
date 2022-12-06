@@ -35,3 +35,6 @@
 3. Send nvim.vbs to desktop.
 4. Create shortcut for nvim.vbs's shortcut.
 5. Change icon of shortcut.
+
+## Ticks
+1. Pressing the same keybind again will let you jump into the hover window.If that doesn’t work then try <C-w><C-w> to let vim try to jump into the floating window.
