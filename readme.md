@@ -10,10 +10,12 @@
 7. Install telescope dependencies.
    - https://github.com/BurntSushi/ripgrep
    - https://github.com/nvim-telescope/telescope-fzf-native.nvim
-9. Install debuger.
+9. Install debugger.
    - `vscode-node-debug2`
    - `vscode-chrome-debug`
 10. Install dbeaver
+11. Install Lsp command.
+    - `sudo npm install -g cspell`
 
 ## ArchLinux
 

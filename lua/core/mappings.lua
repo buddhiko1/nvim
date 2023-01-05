@@ -32,17 +32,18 @@ map("n", "dd", [["+dd]])
 map("n", "p", [["+p]])
 map("i", "<C-p>", [[<ESC>"+pa]])
 
--- edite
+-- edit
 map("n", "<leader>ee", "`.") -- latest edited word
-map("n", "<leader>ec", function()
-  vim.cmd("1,$d")
-end) -- delete file content
 map("n", "<leader>en", "*") -- search forward for the next instance of the identifier under the cursor
 map("n", "<leader>ep", "#") -- search backward for the next instance of the identifier under the cursor
 map("n", "<leader>eu", "gUaw") -- uppercase
 map("n", "<leader>eU", "gUaW")
 map("n", "<leader>el", "guaw") -- lowercase
 map("n", "<leader>eL", "guaW")
+map("n", "<leader>ec", function()
+  vim.cmd("1,$d")
+end) -- delete file content
+
 
 -- remapping
 map("n", "<leader><Esc>", "<cmd> :wqa!<CR>")
