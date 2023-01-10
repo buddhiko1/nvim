@@ -1,6 +1,5 @@
 local load = require("utils").load
 local map = require("utils").map
-local gitui_cmd = require("constants").gitui_cmd
 
 local M = {}
 
@@ -26,7 +25,7 @@ M.config = function()
 
   local gitui = fterm:new({
     ft = "gitui",
-    cmd = gitui_cmd,
+    cmd = "gitui",
     dimensions = {
       height = 0.9,
       width = 0.9,
