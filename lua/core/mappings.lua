@@ -1,6 +1,8 @@
 local map = require("utils").map
 
 -- window
+-- Pressing the same keybind again will let you jump into the hover window.
+-- If that doesn’t work then try <C-w><C-w> to let vim try to jump into the floating window.
 map("n", "wh", "<C-w>h")
 map("n", "wl", "<C-w>l")
 map("n", "wk", "<C-w>k")
