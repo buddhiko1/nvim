@@ -30,3 +30,5 @@
   3. send nvim.vbs to desktop.
   4. create shortcut for nvim.vbs's shortcut.
   5. change icon of shortcut.
+
+
