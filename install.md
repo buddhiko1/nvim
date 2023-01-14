@@ -2,19 +2,16 @@
   1. install alacritty.
   2. install [alacritty-theme-switch]("https://github.com/tichopad/alacritty-theme-switch").
   3. change alacritty_path's value appropriately in utils.lua.
-  4. install ctags-git.
-  5. run PackerSync when fresh install.
-  6. install graphql-language-service-cli.
+  4. install Lsp command.
+      - `sudo npm install -g cspell`
+  5. install graphql-language-service-cli.
     - `pnpm add -g graphql-language-service-cli`.
-  7. install telescope dependencies.
+  6. install telescope dependencies.
     - https://github.com/BurntSushi/ripgrep
     - https://github.com/nvim-telescope/telescope-fzf-native.nvim
-  9. install debugger.
+  7. install debugger.
     - `vscode-node-debug2`
     - `vscode-chrome-debug`
-  10. install dbeaver
-  11. install Lsp command.
-      - `sudo npm install -g cspell`
 
 ## linux
   1. map CapsLock to Esc: `setxkbmap -option caps:escape`
