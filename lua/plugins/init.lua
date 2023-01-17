@@ -187,7 +187,7 @@ local plugins = {
 
   -- status line
   ["nvim-lualine/lualine.nvim"] = {
-    requires = { "kyazdani42/nvim-web-devicons" },
+    requires = { "kyazdani42/nvim-web-devicons", "arkav/lualine-lsp-progress" },
     config = function()
       require("plugins.configs.lualine").config()
     end,

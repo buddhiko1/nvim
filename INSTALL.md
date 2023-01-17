@@ -1,4 +1,6 @@
 ## Prepare
+  1. run checkhealth .
+  1. install luarocks php composer julia 
   1. install alacritty-theme-switch, eslint, prettier and cspell . 
     - `pnpm add -g alacritty-theme-switch eslint prettier cspell` .
   2. config command path in constants.lua .

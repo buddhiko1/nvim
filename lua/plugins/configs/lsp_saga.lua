@@ -68,7 +68,7 @@ M.config = function()
 
     -- icons
     diagnostic_header = { " ", " ", " ", " " },
-    code_action_icon = "💡",
+    code_action_icon = "●",
     finder_icons = {
       def = "  ",
       ref = "諭 ",
@@ -98,7 +98,7 @@ M.config = function()
     server_filetype_map = {},
   }
 
-  saga.init_lsp_saga(options)
+  saga.setup(options)
 end
 
 return M

@@ -21,6 +21,7 @@ M.config = function()
       "lua",
       "regex",
       "fish",
+      "markdown_inline"
     },
     auto_install = true,
     highlight = {

@@ -18,20 +18,7 @@ M.config = function()
         package_pending = "",
         package_uninstalled = "",
       },
-    },
-    keymaps = {
-      toggle_package_expand = "<CR>",
-      install_package = "i",
-      update_package = "u",
-      check_package_version = "c",
-      update_all_packages = "U",
-      check_outdated_packages = "C",
-      uninstall_package = "x",
-      cancel_installation = "<C-c>",
-      apply_language_filter = "<C-f>",
-    },
-    log_level = vim.log.levels.INFO,
-    max_concurrent_installers = 4,
+    }
   }
 
   mason.setup(options)

@@ -41,7 +41,6 @@ M.setup = function()
   --icon
   local dap_breakpoint = {
     point = {
-
       text = "",
       texthl = "LspDiagnosticsSignError",
       linehl = "",
