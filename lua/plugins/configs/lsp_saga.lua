@@ -38,64 +38,98 @@ M.setup = function()
   map("n", "<leader>sp", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
   map("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
   map("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+
+  -- outline
+  -- map("n", "<leader>so", "<cmd>Lspsaga outline<CR>")
 end
 
 M.config = function()
   local saga = load("lspsaga")
 
   local options = {
-    -- ui
-    border_style = "rounded",
-    saga_winblend = 0,
-    symbol_in_winbar = {
-      in_custom = false,
+    ui = {
+      theme = 'round',
+      title = false,
+      border = 'rounded',
+      winblend = 0,
+      expand = '',
+      collapse = '',
+      preview = ' ',
+      code_action = '💡',
+      diagnostic = '🐞',
+      incoming = ' ',
+      outgoing = ' ',
+      colors = {
+        normal_bg = '#1d1536',
+        title_bg = '#afd700',
+        red = '#e95678',
+        magenta = '#b33076',
+        orange = '#FF8700',
+        yellow = '#f7bb3b',
+        green = '#afd700',
+        cyan = '#36d0e0',
+        blue = '#61afef',
+        purple = '#CBA6F7',
+        white = '#d1d4cf',
+        black = '#1c1c19',
+      },
+      kind = {},
+    },
+
+    -- outline = {
+    --   win_position = 'left',
+    --   win_with = '',
+    --   win_width = 30,
+    --   show_detail = true,
+    --   auto_preview = true,
+    --   auto_refresh = true,
+    --   auto_close = true,
+    --   custom_sort = nil,
+    --   keys = {
+    --     jump = 'o',
+    --     expand_collapse = 'z',
+    --     quit = 'q',
+    --   },
+    -- },
+
+    lightbulb = {
       enable = false,
-      separator = " ",
-      show_file = true,
-      click_support = false,
     },
 
-    -- disable lighthub icon
-    code_action_lightbulb = {
-      enable = false,
-      enable_in_insert = true,
-      cache_code_action = true,
-      sign = true,
-      update_time = 150,
-      sign_priority = 20,
-      virtual_text = true,
+    diagnostic = {
+      show_code_action = true,
+      show_source = true,
+      jump_num_shortcut = true,
+      keys = {
+        exec_action = 'o',
+        go_action = 'g',
+        quit = 'q',
+      },
     },
 
-    -- icons
-    diagnostic_header = { " ", " ", " ", " " },
-    code_action_icon = "●",
-    finder_icons = {
-      def = "  ",
-      ref = "諭 ",
-      link = "  ",
+    code_action = {
+      keys = {
+        exec = "<CR>",
+        quit = "q",
+      }
     },
 
-    -- key
-    move_in_saga = { prev = "<C-p>", next = "<C-n>" },
-    finder_action_keys = {
-      open = "o",
-      vsplit = "v",
-      tabe = "t",
-      quit = "q",
+    finder = {
+      edit = { 'o', '<CR>' },
+      vsplit = 's',
+      split = 'i',
+      tabe = 't',
+      quit = { 'q' },
     },
-    code_action_keys = {
-      quit = "q",
-      exec = "<CR>",
-    },
-    -- rename_action_quit = "<C-c>",
 
-    -- property
-    rename_in_select = true,
-    max_preview_lines = 10,
-    code_action_num_shortcut = true,
-    finder_request_timeout = 2000,
-    custom_kind = {},
-    server_filetype_map = {},
+    rename = {
+      mark = 'x',
+      confirm = '<CR>',
+      in_select = true,
+      whole_project = true,
+      exec = '<CR>',
+      quit = '<Esc>',
+    },
   }
 
   saga.setup(options)
