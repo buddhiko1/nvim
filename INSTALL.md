@@ -7,7 +7,7 @@
   3. install telescope dependencies sys-apps/ripgrep and sys-apps/fd .
   4. install debugger .
     - `vscode-node-debug2`
-    - `vscode-chrome-debug`
+    - `vscode-chrome-debug` (add "185.199.108.133 raw.githubusercontent.com" to /etc/hosts) .
 
 ## linux
   1. map CapsLock to Esc: `setxkbmap -option caps:escape`

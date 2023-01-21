@@ -25,7 +25,7 @@ M.setup = function()
   map("n", "<leader>dp", "<cmd> :lua require'dap'.pause.toggle()<CR>")
   map("n", "<leader>db", "<cmd> :lua require'dap'.toggle_breakpoint()<CR>")
   map("n", "<leader>dB", "<cmd> :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-  map("n", "<leader>dx", "<cmd> :lua require'dap'.clear_breakpoints()<CR>")
+  map("n", "<leader>dd", "<cmd> :lua require'dap'.clear_breakpoints()<CR>")
 
   map("n", "<leader>dh", "<cmd> :lua require'dap'.step_back()<CR>")
   map("n", "<leader>dl", "<cmd> :lua require'dap'.step_over()<CR>")
@@ -74,13 +74,13 @@ end
 M.config = function()
   local dap = load("dap")
 
-  -- float console
+  -- terminal
   -- dap.defaults.fallback.external_terminal = {
   --   command = "alacritty",
   --   args = { "-e" },
   -- }
   -- dap.defaults.fallback.force_external_terminal = true
-  -- dap.defaults.fallback.terminal_win_cmd = "50vsplit new"
+  -- dap.defaults.fallback.terminal_win_cmd = "tabnew"
   -- dap.defaults.fallback.focus_terminal = true
   -- dap.set_log_level("INFO")
 
@@ -117,7 +117,7 @@ M.config = function()
   --     webRoot = "${workspaceFolder}",
   --   },
   -- }
-  --
+
   -- dap.configurations.typescript = {
   --   {
   --     name = "Attach Angular",
