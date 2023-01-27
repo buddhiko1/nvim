@@ -46,7 +46,6 @@ map("n", "<leader>ec", function()
   vim.cmd("1,$d")
 end) -- delete file content
 
-
 -- remapping
 map("n", "<leader><Esc>", "<cmd> :wqa!<CR>")
 map("n", "<leader>x", ":noh <CR>") -- shut down the search high light
