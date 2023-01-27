@@ -1,11 +1,10 @@
 ## Prepare
   1. run checkhealth .
-  1. install luarocks php composer julia 
-  1. install alacritty-theme-switch, eslint, prettier and cspell . 
-    - `pnpm add -g alacritty-theme-switch eslint prettier cspell` .
-  2. config command path in constants.lua .
-  3. install telescope dependencies sys-apps/ripgrep and sys-apps/fd .
-  4. install debugger .
+  2. install luarocks php composer julia 
+  3. `pnpm add -g alacritty-theme-switch eslint prettier cspell` .
+  4. config command path in constants.lua .
+  5. install telescope dependencies ripgrep and fd .
+  6. install debugger .
     - `vscode-node-debug2`
     - `vscode-chrome-debug` (add "185.199.108.133 raw.githubusercontent.com" to /etc/hosts) .
 
@@ -26,4 +25,3 @@
   3. send nvim.vbs to desktop.
   4. create shortcut for nvim.vbs's shortcut.
   5. change icon of shortcut.
-

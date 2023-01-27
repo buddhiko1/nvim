@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm -rf ~/.local/share/nvim
-rm -rf ~/.config/nvim/plugin
-rm -rf ~/.cache/nvim
+rm -rf /home/shun/.local/share/nvim
+rm -rf /home/shun/.config/nvim/plugin
+rm -rf /home/shun/.cache/nvim
