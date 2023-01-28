@@ -1,16 +1,15 @@
 ## Prepare
   1. run checkhealth .
-  2. install luarocks php composer julia 
+  2. install luarocks,php,composer and julia 
   3. `pnpm add -g alacritty-theme-switch eslint prettier cspell` .
   4. config command path in constants.lua .
-  5. install telescope dependencies ripgrep and fd .
+  5. install telescope dependencies: ripgrep and fd .
   6. install debugger .
     - `vscode-node-debug2`
     - `vscode-chrome-debug` (add "185.199.108.133 raw.githubusercontent.com" to /etc/hosts) .
 
 ## linux
-  1. map CapsLock to Esc: `setxkbmap -option caps:escape`
-  2. clear shada: `cat /dev/null > .local/state/nvim/shada/main.shada`
+  - clear shada: `cat /dev/null > .local/state/nvim/shada/main.shada`
 
 ## Windows
   1. install dependencies:
@@ -21,7 +20,7 @@
     - `winget install qutebrowser`
     - `winget install DBeaver`
 
-  2. change start path appropriately in start.vbs.
-  3. send nvim.vbs to desktop.
-  4. create shortcut for nvim.vbs's shortcut.
-  5. change icon of shortcut.
+  2. change start path appropriately in start.vbs .
+  3. send nvim.vbs to desktop .
+  4. create shortcut for nvim.vbs's shortcut .
+  5. change icon of shortcut .
