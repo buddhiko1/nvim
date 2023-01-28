@@ -17,7 +17,6 @@ M.config = function()
   local optons = {
     icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
     mappings = {
-      -- Use a table to apply multiple mappings
       expand = { "<CR>", "<2-LeftMouse>" },
       open = "o",
       remove = "d",
@@ -25,18 +24,15 @@ M.config = function()
       repl = "r",
       toggle = "t",
     },
-    -- Expand lines larger than the window
-    expand_lines = vim.fn.has("nvim-0.7") == 1,
     layouts = {
       {
         elements = {
-          -- Elements can be strings or table with id and size keys.
           "breakpoints",
           "scopes",
           "stacks",
           "watches",
         },
-        size = 40, -- 40 columns
+        size = 40,
         position = "left",
       },
       {
@@ -44,7 +40,7 @@ M.config = function()
           "repl",
           -- "console",
         },
-        size = 0.25, -- 25% of total lines
+        size = 0.25,
         position = "bottom",
       },
     },
@@ -63,17 +59,10 @@ M.config = function()
       },
     },
     floating = {
-      max_height = nil, -- These can be integers or a float between 0 and 1.
-      max_width = nil, -- Floats will be treated as percentage of your screen.
-      border = "single", -- Border style. Can be "single", "double" or "rounded"
+      border = "single",
       mappings = {
         close = { "q", "<Esc>" },
       },
-    },
-    windows = { indent = 1 },
-    render = {
-      max_type_length = nil, -- Can be integer or nil.
-      max_value_lines = 100, -- Can be integer or nil.
     },
   }
 
@@ -96,4 +85,5 @@ M.config = function()
   --   dapui.close()
   -- end
 end
+
 return M
