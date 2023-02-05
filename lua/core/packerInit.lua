@@ -1,31 +1,19 @@
-local present, packer = pcall(require, "packer")
-
-if not present then
-  local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
-  vim.fn.delete(packer_path, "rf")
-
-  print("Cloning packer..")
-
-  vim.fn.system({
-    "git",
-    "clone",
-    "https://github.com/wbthomason/packer.nvim",
-    "--depth",
-    "20",
-    packer_path,
-  })
-
-  vim.cmd("packadd packer.nvim")
-
-  present, packer = pcall(require, "packer")
-
-  if present then
-    print("Packer cloned successfully.")
-  else
-    error("Couldn't clone packer !")
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    print("installing packer ...")
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    print("packer installed successfully!")
+    return true
   end
+  return false
 end
+
+local packer_bootstrap = ensure_packer()
+
+local packer = require("packer")
 
 packer.init({
   display = {
@@ -34,18 +22,15 @@ packer.init({
     end,
     prompt_border = "single",
   },
-  git = {
-    clone_timeout = 6000, -- seconds
-  },
-  auto_clean = true,
-  compile_on_sync = true,
-  snapshot = nil,
 })
 
-local plugins = require("plugins")
-
 return packer.startup(function(use)
+  local plugins = require("plugins")
   for _, plugin in pairs(plugins) do
     use(plugin)
+  end
+
+  if packer_bootstrap then
+    packer.sync()
   end
 end)

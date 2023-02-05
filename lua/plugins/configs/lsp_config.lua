@@ -1,5 +1,5 @@
 local load = require("utils").load
-local formatting = require("utils").formatting
+ -- local formatting = require("utils").formatting
 local servers = require("plugins.configs.lsp_mason_lspconfig").servers
 
 local _config_diagnostic = function()

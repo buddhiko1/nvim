@@ -19,6 +19,7 @@ local options = {
   default_component_configs = {
     container = {
       enable_character_fade = true,
+      padding_right = 4
     },
     indent = {
       indent_size = 2,

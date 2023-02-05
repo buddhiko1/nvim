@@ -7,6 +7,7 @@ M.setup = function()
   map({ "n", "v" }, "<leader>mc", function()
     require("notify").dismiss({ pending = true, silent = true })
   end)
+  map({ "n", "v" }, "<leader>me", "<cmd> :messages <CR>")
 end
 
 M.config = function()

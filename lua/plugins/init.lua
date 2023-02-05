@@ -1,8 +1,9 @@
+-- The setup key implies opt = true
+
 local plugins = {
-  ["wbthomason/packer.nvim"] = {
-    event = "VimEnter",
-    requires = { "nvim-lua/plenary.nvim", "lewis6991/impatient.nvim" },
-  },
+  ["lewis6991/impatient.nvim"] = {},
+
+  ["wbthomason/packer.nvim"] = {},
 
   ["kyazdani42/nvim-web-devicons"] = {
     config = function()
@@ -21,7 +22,6 @@ local plugins = {
   },
 
   ["lukas-reineke/indent-blankline.nvim"] = {
-    event = "BufRead",
     config = function()
       require("plugins.configs.blankline").config()
     end,
@@ -113,8 +113,8 @@ local plugins = {
   },
 
   ["folke/noice.nvim"] = {
-    requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
     event = "VimEnter",
+    requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
     setup = function()
       require("plugins.configs.notify").setup()
       require("plugins.configs.noice").setup()
@@ -127,7 +127,7 @@ local plugins = {
 
   -- command finder
   ["mrjones2014/legendary.nvim"] = {
-    requires = "stevearc/dressing.nvim",
+    requires = { "stevearc/dressing.nvim" },
     setup = function()
       require("plugins.configs.legendary").setup()
     end,
@@ -155,7 +155,8 @@ local plugins = {
   },
 
   ["nvim-telescope/telescope.nvim"] = {
-    tag = "0.1.0",
+    tag = "0.1.1",
+    requires = { "nvim-lua/plenary.nvim" },
     setup = function()
       require("plugins.configs.telescope").setup()
     end,
@@ -165,8 +166,7 @@ local plugins = {
   },
 
   ["rafcamlet/tabline-framework.nvim"] = {
-    event = "VimEnter",
-    requires = "nvim-web-devicons",
+    requires = { "kyazdani42/nvim-web-devicons" },
     setup = function()
       require("plugins.configs.tabline").setup()
     end,
@@ -194,7 +194,7 @@ local plugins = {
   },
 
   ["nvim-neo-tree/neo-tree.nvim"] = {
-    requires = "MunifTanjim/nui.nvim",
+    requires = { "MunifTanjim/nui.nvim" },
     setup = function()
       require("plugins.configs.neo_tree").setup()
     end,
@@ -295,7 +295,7 @@ local plugins = {
   },
 
   ["tzachar/cmp-tabnine"] = {
-    requires = "hrsh7th/nvim-cmp",
+    requires = { "hrsh7th/nvim-cmp" },
     run = require("constants").tabnine_install_cmd,
     config = function()
       require("plugins.configs.tabnine").config()

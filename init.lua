@@ -1,15 +1,15 @@
-local present, impatient = pcall(require, "impatient")
-
-if present then
-  impatient.enable_profile()
-end
+-- local present, impatient = pcall(require, "impatient")
+--
+-- if present then
+--   impatient.enable_profile()
+-- end
 
 local core_modules = {
   "core.options",
-  "core.autocmds",
   "core.mappings",
   "core.macro",
   "core.packerInit",
+  "core.autocmds",
 }
 
 for _, module in ipairs(core_modules) do
