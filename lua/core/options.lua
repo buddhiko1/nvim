@@ -109,5 +109,3 @@ for _, plugin in pairs(default_plugins) do
   g["loaded_" .. plugin] = 1
 end
 
--- other
-g.loaded_ruby_provider = 0

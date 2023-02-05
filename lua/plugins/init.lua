@@ -208,7 +208,6 @@ local plugins = {
   },
 
   ["theHamsta/nvim-dap-virtual-text"] = {
-    after = "nvim-dap",
     config = function()
       require("plugins.configs.nvim_dap_text").setup()
       require("plugins.configs.nvim_dap_text").config()
@@ -216,7 +215,6 @@ local plugins = {
   },
 
   ["rcarriga/nvim-dap-ui"] = {
-    after = "nvim-dap",
     config = function()
       require("plugins.configs.nvim_dap_ui").setup()
       require("plugins.configs.nvim_dap_ui").config()
@@ -230,12 +228,9 @@ local plugins = {
     end,
   },
 
-  ["saadparwaiz1/cmp_luasnip"] = {
-    after = "LuaSnip",
-  },
+  ["saadparwaiz1/cmp_luasnip"] = {},
 
   ["hrsh7th/nvim-cmp"] = {
-    after = "LuaSnip",
     requires = {
       "onsails/lspkind.nvim",
       "hrsh7th/cmp-buffer",
@@ -252,7 +247,6 @@ local plugins = {
   },
 
   ["windwp/nvim-autopairs"] = {
-    after = "nvim-cmp",
     config = function()
       require("plugins.configs.autopairs").config()
     end,
@@ -283,21 +277,18 @@ local plugins = {
   },
 
   ["williamboman/mason-lspconfig.nvim"] = {
-    after = "mason.nvim",
     config = function()
       require("plugins.configs.lsp_mason_lspconfig").config()
     end,
   },
 
   ["neovim/nvim-lspconfig"] = {
-    after = { "mason-lspconfig.nvim", "cmp-nvim-lsp" },
     config = function()
       require("plugins.configs.lsp_config").config()
     end,
   },
 
   ["ray-x/lsp_signature.nvim"] = {
-    after = "nvim-lspconfig",
     config = function()
       require("plugins.configs.lsp_signature").config()
     end,

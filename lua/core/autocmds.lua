@@ -6,7 +6,7 @@ autocmd({ "VimEnter" }, {
     vim.g.log = log
     vim.cmd("set laststatus=0")
     vim.cmd("set nofoldenable")
-    -- vim.cmd("TSUpdate")
+    vim.cmd("TSUpdate")
     -- vim.cmd("TwilightEnable")
   end,
 })
