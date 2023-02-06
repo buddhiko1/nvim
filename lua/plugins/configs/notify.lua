@@ -26,7 +26,7 @@ M.config = function()
     minimum_width = 50,
     render = "default",
     stages = "static",
-    timeout = 5000,
+    timeout = 3000,
     top_down = true,
   }
   notify.setup(options)

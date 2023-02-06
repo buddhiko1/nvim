@@ -296,6 +296,7 @@ local plugins = {
 
   ["glepnir/lspsaga.nvim"] = {
     branch = "main",
+    requires = { "kyazdani42/nvim-web-devicons" },
     config = function()
       require("plugins.configs.lsp_saga").setup()
       require("plugins.configs.lsp_saga").config()

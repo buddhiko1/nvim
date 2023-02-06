@@ -116,6 +116,9 @@ M.config = function()
       exec = '<CR>',
       quit = '<Esc>',
     },
+    symbol_in_winbar = {
+      enable = false,
+    },
   }
 
   saga.setup(options)
