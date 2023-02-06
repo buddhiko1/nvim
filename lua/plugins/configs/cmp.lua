@@ -64,9 +64,10 @@ M.config = function()
 
     mapping = {
       ["<CR>"] = cmp.mapping.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
+        -- behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
       }),
+
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -83,6 +84,7 @@ M.config = function()
         "s",
         "c",
       }),
+
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -148,8 +150,6 @@ M.config = function()
       { name = "dap" },
     },
   })
-
-  cmp.setup({})
 end
 
 return M

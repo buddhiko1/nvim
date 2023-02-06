@@ -7,7 +7,7 @@ M.config = function()
   local options = {
     excluded_filetypes = { "neo-tree", "tagbar" },
     current_only = true,
-    winblend = 0,
+    winblend = 55, --ocupcity
     base = "right",
     column = 1,
   }
