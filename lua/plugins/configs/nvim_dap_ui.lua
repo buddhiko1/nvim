@@ -38,7 +38,7 @@ M.config = function()
       {
         elements = {
           "repl",
-          "console",
+          -- "console",
         },
         size = 0.25,
         position = "bottom",

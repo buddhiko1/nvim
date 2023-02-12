@@ -33,6 +33,7 @@ local plugins = {
   },
 
   ["folke/twilight.nvim"] = {
+    disable = true,
     config = function()
       require("plugins.configs.twilight").setup()
       require("plugins.configs.twilight").config()
@@ -46,6 +47,7 @@ local plugins = {
   },
 
   ["buddhiko1/link-visitor.nvim"] = {
+    opt = true,
     config = function()
       require("plugins.configs.link_visitor").setup()
       require("plugins.configs.link_visitor").config()
@@ -87,6 +89,7 @@ local plugins = {
 
   -- color picker
   ["uga-rosa/ccc.nvim"] = {
+    opt = true,
     config = function()
       require("plugins.configs.ccc").setup()
       require("plugins.configs.ccc").config()
@@ -113,6 +116,7 @@ local plugins = {
 
   -- command finder
   ["mrjones2014/legendary.nvim"] = {
+    opt = true,
     requires = { "stevearc/dressing.nvim" },
     config = function()
       require("plugins.configs.legendary").setup()
@@ -121,6 +125,7 @@ local plugins = {
   },
 
   ["iamcco/markdown-preview.nvim"] = {
+    opt = true,
     run = function()
       vim.fn["mkdp#util#install"]()
     end,
@@ -163,6 +168,7 @@ local plugins = {
 
   -- status line
   ["nvim-lualine/lualine.nvim"] = {
+    opt = true,
     requires = { "kyazdani42/nvim-web-devicons", "arkav/lualine-lsp-progress" },
     config = function()
       require("plugins.configs.lualine").config()
@@ -179,6 +185,7 @@ local plugins = {
 
   -- outline.
   ["simrat39/symbols-outline.nvim"] = {
+    opt = true,
     config = function()
       require("plugins.configs.outline").setup()
       require("plugins.configs.outline").config()

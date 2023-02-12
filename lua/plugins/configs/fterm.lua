@@ -6,8 +6,8 @@ local M = {}
 M.setup = function()
   map("n", ";v", "<cmd>lua require('FTerm').toggle()<CR>")
   map("t", ";v", "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>")
-  map("t", ";e", "<C-\\><C-n><CMD>lua require('FTerm').exit()<CR>")
-  map("t", "<Esc>", "<C-\\><C-n>")
+  map("t", ";q", "<C-\\><C-n><CMD>lua require('FTerm').exit()<CR>")
+  map("t", "<Esc>", "<C-\\><C-n>") -- to scroll
 end
 
 M.config = function()

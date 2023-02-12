@@ -11,7 +11,7 @@ M.config = function()
       register = true, -- Should autosave register its autocommands
       triggers = { -- The autocommands to register, if enabled
         "InsertLeave",
-        "TextChanged",
+        -- "TextChanged",
       },
     },
     debounce = {

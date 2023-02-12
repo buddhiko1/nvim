@@ -19,7 +19,6 @@ local options = {
   default_component_configs = {
     container = {
       enable_character_fade = true,
-      padding_right = 4
     },
     indent = {
       indent_size = 2,
@@ -108,6 +107,8 @@ local options = {
       ["y"] = "copy_to_clipboard",
       ["x"] = "cut_to_clipboard",
       ["p"] = "paste_from_clipboard",
+      ["P"] = { "toggle_preview", config = { use_float = true } },
+      ["l"] = "focus_preview",
       ["c"] = "copy",
       ["m"] = "move",
       ["q"] = "close_window",
