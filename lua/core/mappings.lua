@@ -42,6 +42,7 @@ map("n", "<leader>eu", "gUaw") -- uppercase
 map("n", "<leader>eU", "gUaW")
 map("n", "<leader>el", "guaw") -- lowercase
 map("n", "<leader>eL", "guaW")
+map("n", "<leader>ea", "ggVG")
 map("n", "<leader>ec", function()
   vim.cmd("1,$d")
 end) -- delete file content

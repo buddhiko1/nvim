@@ -6,7 +6,7 @@ local M = {}
 
 M.setup = function()
   map("n", "<leader>;", function()
-    return disable_mapping_at("alpha") and vim.cmd("NeoTreeRevealToggle")
+    return disable_mapping_at("alpha") and vim.cmd("Neotree focus filesystem right toggle")
   end)
   map("n", "<leader>[", "<cmd> :NeoTreeFloatToggle <CR>")
 end

@@ -8,12 +8,13 @@ M.servers = {
   "tsserver",
   "graphql",
   "jsonls",
-  "sumneko_lua",
+  "lua_ls",
   "dockerls",
   "yamlls",
   "jsonls",
   "angularls",
   "tailwindcss",
+  "lemminx"
 }
 
 M.config = function()
