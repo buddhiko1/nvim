@@ -14,7 +14,8 @@ M.servers = {
   "jsonls",
   "angularls",
   "tailwindcss",
-  "lemminx"
+  "lemminx",
+  "ltex"
 }
 
 M.config = function()

@@ -1,7 +1,7 @@
 local load = require("utils").load
 local prettier_cmd = require("constants").prettier_cmd
 local eslint_cmd = require("constants").eslint_cmd
-local cspell_cmd = require("constants").eslint_cmd
+-- local cspell_cmd = require("constants").eslint_cmd
 
 local M = {}
 
@@ -17,20 +17,13 @@ M.config = function()
       null_ls.builtins.diagnostics.eslint.with({
         command = eslint_cmd
       }),
-
-      null_ls.builtins.diagnostics.cspell.with({
-       command = cspell_cmd
-      }),
+      -- null_ls.builtins.diagnostics.stylelint,
+      null_ls.builtins.diagnostics.codespell,
 
       null_ls.builtins.code_actions.eslint.with({
         command = eslint_cmd
       }),
-      null_ls.builtins.code_actions.cspell.with({
-       command = cspell_cmd
-      }),
-      -- null_ls.builtins.diagnostics.stylelint,
       null_ls.builtins.code_actions.gitsigns,
-      null_ls.builtins.code_actions.gitrebase,
     },
   }
   null_ls.setup(options)
