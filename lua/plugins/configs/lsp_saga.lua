@@ -48,9 +48,8 @@ M.config = function()
 
   local options = {
     ui = {
-      theme = 'round',
       title = false,
-      border = 'rounded',
+      border = 'single',
       winblend = 0,
       expand = '',
       collapse = '',

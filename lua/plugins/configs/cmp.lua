@@ -101,10 +101,10 @@ M.config = function()
     },
 
     sources = {
-      { name = "cmp_tabnine" },
       { name = "nvim_lsp" },
       { name = "path" },
       { name = "buffer" },
+      { name = "cmp_tabnine" },
       { name = "luasnip" },
       { name = "nvim_lua" },
       {
@@ -120,7 +120,6 @@ M.config = function()
     sorting = {
       priority_weight = 2,
       comparators = {
-        require("cmp_tabnine.compare"),
         compare.offset,
         compare.exact,
         compare.score,
@@ -129,6 +128,7 @@ M.config = function()
         compare.sort_text,
         compare.length,
         compare.order,
+        require("cmp_tabnine.compare"),
       },
     },
   }

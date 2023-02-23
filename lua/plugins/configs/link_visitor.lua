@@ -12,6 +12,7 @@ M.config = function()
 
   local options = {
     silent = true,
+    skip_confirmation = true
   }
 
   link_visitor.setup(options)

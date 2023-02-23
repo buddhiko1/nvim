@@ -46,8 +46,7 @@ local plugins = {
     end,
   },
 
-  ["buddhiko1/link-visitor.nvim"] = {
-    opt = true,
+  ["xiyaowong/link-visitor.nvim"] = {
     config = function()
       require("plugins.configs.link_visitor").setup()
       require("plugins.configs.link_visitor").config()
@@ -168,7 +167,6 @@ local plugins = {
 
   -- status line
   ["nvim-lualine/lualine.nvim"] = {
-    opt = true,
     requires = { "kyazdani42/nvim-web-devicons", "arkav/lualine-lsp-progress" },
     config = function()
       require("plugins.configs.lualine").config()
@@ -177,15 +175,16 @@ local plugins = {
 
   ["nvim-neo-tree/neo-tree.nvim"] = {
     requires = { "MunifTanjim/nui.nvim" },
-    config = function()
+    setup = function()
       require("plugins.configs.neo_tree").setup()
+    end,
+    config = function()
       require("plugins.configs.neo_tree").config()
     end,
   },
 
   -- outline.
   ["simrat39/symbols-outline.nvim"] = {
-    opt = true,
     config = function()
       require("plugins.configs.outline").setup()
       require("plugins.configs.outline").config()
