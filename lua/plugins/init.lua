@@ -141,7 +141,6 @@ local plugins = {
   },
 
   ["nvim-telescope/telescope.nvim"] = {
-    tag = "0.1.1",
     requires = { "nvim-lua/plenary.nvim" },
     config = function()
       require("plugins.configs.telescope").setup()

@@ -31,7 +31,6 @@ map({ "n", "v" }, "y", [["+y]])
 map("n", "yy", [["+yy]])
 map({ "n", "v" }, "d", [["+d]])
 map("n", "dd", [["+dd]])
-map("n", "p", [["+p]])
 map("i", "<C-p>", [[<ESC>"+pa]])
 
 -- edit
