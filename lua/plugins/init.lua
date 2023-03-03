@@ -88,7 +88,6 @@ local plugins = {
 
   -- color picker
   ["uga-rosa/ccc.nvim"] = {
-    opt = true,
     config = function()
       require("plugins.configs.ccc").setup()
       require("plugins.configs.ccc").config()
@@ -115,7 +114,6 @@ local plugins = {
 
   -- command finder
   ["mrjones2014/legendary.nvim"] = {
-    opt = true,
     requires = { "stevearc/dressing.nvim" },
     config = function()
       require("plugins.configs.legendary").setup()
@@ -203,7 +201,11 @@ local plugins = {
       require("plugins.configs.fterm").config()
     end,
   },
-
+  
+  -- browser extension, active with <C-e> 
+  ["glacambre/firenvim"] = {
+    run = function() vim.fn['firenvim#install'](0) end 
+  },
   -- debug
   ["mfussenegger/nvim-dap"] = {
     config = function()

@@ -137,7 +137,7 @@ M.config = function()
 
           ["<C-u>"] = actions.preview_scrolling_up,
           ["<C-d>"] = actions.preview_scrolling_down,
-          ["<C-t>"] = _stopInsert(_customActions.multi_selection_open_tab),
+          ["T"] = _stopInsert(_customActions.multi_selection_open_tab),
         },
         n = {
           ["<C-n>"] = actions.cycle_history_next,
@@ -149,7 +149,7 @@ M.config = function()
 
           ["t"] = actions.select_tab,
           ["v"] = actions.file_vsplit,
-          ["<C-t>"] = _customActions.multi_selection_open_tab,
+          ["T"] = _customActions.multi_selection_open_tab,
         },
       },
 
