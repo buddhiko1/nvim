@@ -122,7 +122,6 @@ local plugins = {
   },
 
   ["iamcco/markdown-preview.nvim"] = {
-    opt = true,
     run = function()
       vim.fn["mkdp#util#install"]()
     end,
@@ -172,10 +171,8 @@ local plugins = {
 
   ["nvim-neo-tree/neo-tree.nvim"] = {
     requires = { "MunifTanjim/nui.nvim" },
-    setup = function()
-      require("plugins.configs.neo_tree").setup()
-    end,
     config = function()
+      require("plugins.configs.neo_tree").setup()
       require("plugins.configs.neo_tree").config()
     end,
   },

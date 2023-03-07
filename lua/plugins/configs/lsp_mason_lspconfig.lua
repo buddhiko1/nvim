@@ -7,7 +7,6 @@ M.servers = {
   "html",
   "tsserver",
   "graphql",
-  "jsonls",
   "lua_ls",
   "dockerls",
   "yamlls",
@@ -23,7 +22,7 @@ M.config = function()
 
   local options = {
     ensure_installed = M.servers,
-    automatic_installation = true,
+    automatic_installation = false,
   }
 
   mason_lspconfig.setup(options)
