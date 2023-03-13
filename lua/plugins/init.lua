@@ -244,6 +244,7 @@ local plugins = {
       "rcarriga/cmp-dap",
       "octaltree/cmp-look",
       "hrsh7th/cmp-path",
+      "f3fora/cmp-spell"
     },
     config = function()
       require("plugins.configs.cmp").config()

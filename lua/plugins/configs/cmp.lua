@@ -11,7 +11,6 @@ M.config = function()
     enabled = function()
       return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
     end,
-
     window = {
       -- default
       -- completion = cmp.config.window.bordered(),
@@ -25,26 +24,25 @@ M.config = function()
         border = "single",
       },
     },
-
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
       end,
     },
-
     formatting = {
       -- fields = { 'menu', 'abbr', 'kind' },
       format = function(entry, vim_item)
         vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
         vim_item.menu = ({
-          buffer = "[Buffer]",
-          nvim_lsp = "[LSP]",
-          nvim_lua = "[Lua]",
-          luasnip = "[LuaS]",
-          cmp_tabnine = "[TN]",
-          look = "[Look]",
-          path = "[Path]",
-        })[entry.source.name]
+              buffer = "[Buffer]",
+              nvim_lsp = "[LSP]",
+              nvim_lua = "[Lua]",
+              luasnip = "[LuaS]",
+              cmp_tabnine = "[TN]",
+              look = "[Look]",
+              path = "[Path]",
+              spell = "[Spell]"
+            })[entry.source.name]
         if entry.source.name == "cmp_tabnine" then
           local detail = (entry.completion_item.data or {}).detail
           vim_item.kind = ""
@@ -61,14 +59,12 @@ M.config = function()
         return vim_item
       end,
     },
-
     mapping = {
-      ["<CR>"] = cmp.mapping.confirm({
+          ["<CR>"] = cmp.mapping.confirm({
         -- behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       }),
-
-      ["<Tab>"] = cmp.mapping(function(fallback)
+          ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
@@ -84,8 +80,7 @@ M.config = function()
         "s",
         "c",
       }),
-
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
@@ -99,7 +94,6 @@ M.config = function()
         "c",
       }),
     },
-
     sources = {
       { name = "nvim_lsp" },
       { name = "path" },
@@ -115,8 +109,16 @@ M.config = function()
           loud = true,
         },
       },
+      {
+        name = 'spell',
+        option = {
+          keep_all_entries = false,
+          enable_in_context = function()
+            return true
+          end,
+        },
+      },
     },
-
     sorting = {
       priority_weight = 2,
       comparators = {

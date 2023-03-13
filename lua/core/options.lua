@@ -7,7 +7,11 @@ g.encoding = "utf-8"
 
 opt.fileencoding = "utf-8"
 
+
 -- behavior
+opt.spell = true
+opt.spelllang = { 'en_us' }
+
 opt.confirm = true
 
 opt.autoread = true

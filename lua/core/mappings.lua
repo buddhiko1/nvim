@@ -46,6 +46,11 @@ map("n", "<leader>ec", function()
   vim.cmd("1,$d")
 end) -- delete file content
 
+-- toggle spell
+map("n", "<leader>es", function()
+  vim.opt.spell = not(vim.opt.spell:get())
+end)
+
 -- remapping
 map("n", "<leader><Esc>", "<cmd> :wqa!<CR>")
 map("n", "<leader>x", ":noh <CR>") -- shut down the search high light

@@ -19,8 +19,8 @@
 1. Install dependencies:
 
    - `install JetBrainMono font`
-   - `choco install mingw` (run as a administrator)
-   - `choco install ripgrep fd` (run as a administrator)
+   - `choco install mingw` (run as administrator)
+   - `choco install ripgrep fd` (run as administrator)
    - `winget install alacritty`
    - `winget install qutebrowser`
    - `winget install DBeaver`
